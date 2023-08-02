@@ -40,3 +40,5 @@
 
 ### 画面遷移図
 https://www.figma.com/file/GY5tyHpsDrZZoh1u0IbtdC/Web-App?type=design&node-id=0%3A1&mode=design&t=ao71kZkRBj8CjzuD-1
+
+![ER図](https://gyazo.com/a6e0d6a05276ab46fd593ab3b3b8be75)
