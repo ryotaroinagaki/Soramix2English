@@ -1,8 +1,18 @@
 {
   "devDependencies": {
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "webpack-dev-server": "^3"
   },
   "dependencies": {
-    "daisyui": "^3.5.1"
+    "@babel/preset-react": "^7.22.5",
+    "@rails/webpacker": "5.4.4",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "daisyui": "^3.5.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react_ujs": "^2.7.1",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   }
 }

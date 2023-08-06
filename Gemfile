@@ -28,6 +28,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+#Reactの導入
+gem 'react-rails', '~> 2.7', '>= 2.7.1'
+
+gem 'webpacker'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
