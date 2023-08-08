@@ -1,12 +1,14 @@
 <header>
   <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <span class="font-semibold text-xl tracking-tight">空耳English</span>
+      <span class="font-semibold text-xl tracking-tight">
+      <%= link_to "空耳English", root_path %>
+      </span>
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
-        <%= link_to "クイズ一覧", "#", class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-        <%= link_to "ランキング", "#", class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+        <%= link_to (t 'defaults.questions'), "#", class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+        <%= link_to t('defaults.ranking'), "#", class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
       <% if logged_in? %>
         <%= button_to t('defaults.logout'), logout_path, method: :delete %>
       <% end %>
@@ -14,7 +16,7 @@
       <% if logged_in? %>
       <% else %>
       <div>
-        <%= link_to 'ログイン', login_path %>
+        <%= link_to t('defaults.login'), login_path %>
       </div>
       <% end %>
     </div>
