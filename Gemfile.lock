@@ -120,9 +120,6 @@ GEM
       activesupport (>= 5.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.2.1)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
     io-console (0.6.0)
     irb (1.7.4)
       reline (>= 0.3.6)
@@ -163,8 +160,6 @@ GEM
       net-protocol
     nio4r (2.5.9)
     nokogiri (1.15.3-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
     parallel (1.23.0)
     parser (3.2.2.3)
@@ -287,15 +282,9 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    stimulus-rails (1.2.2)
-      railties (>= 6.0.0)
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
-    turbo-rails (1.4.0)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
@@ -320,7 +309,6 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
-  x86_64-linux
 
 DEPENDENCIES
   annotate
@@ -333,7 +321,6 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
-  importmap-rails
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
@@ -346,8 +333,6 @@ DEPENDENCIES
   sassc-rails
   solargraph
   sprockets-rails
-  stimulus-rails
-  turbo-rails
   tzinfo-data
   web-console
   webdrivers (~> 5.2)
