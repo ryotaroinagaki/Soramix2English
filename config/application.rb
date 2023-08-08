@@ -38,7 +38,8 @@ module Soramix2English
       g.skip_routes true
       g.assets false
       g.helper false
-      g.test_framework :rspec
+      g.test_framework :rspec, view_specs: false, helper_specs: false, routing_specs: false,
+      controller_specs: false
     end
   end
 end
