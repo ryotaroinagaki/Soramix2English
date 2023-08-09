@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_110859) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_09_115717) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "choices", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.text "choice"
+    t.boolean "is_answer", null: false
+    t.index ["question_id"], name: "index_choices_on_question_id"
+  end
 
   create_table "lyrics", force: :cascade do |t|
     t.bigint "question_id", null: false
@@ -51,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_110859) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "choices", "questions"
   add_foreign_key "lyrics", "questions"
   add_foreign_key "questions", "musics"
 end

@@ -22,6 +22,7 @@
 class Question < ApplicationRecord
   has_one :music
   has_many :lyrics
+  has_many :choices
 
   enum difficulty: { easy: 0, normal: 1, difficult: 2 }
 end
