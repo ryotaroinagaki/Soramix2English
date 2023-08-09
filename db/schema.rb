@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_08_093207) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_09_104239) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "musics", force: :cascade do |t|
+    t.string "music_name", null: false
+    t.string "artist_name", null: false
+    t.string "category"
+    t.integer "year"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
