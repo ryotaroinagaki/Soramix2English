@@ -10,15 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_104239) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_09_110859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lyrics", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.text "lyric"
+    t.integer "timing"
+    t.index ["question_id"], name: "index_lyrics_on_question_id"
+  end
 
   create_table "musics", force: :cascade do |t|
     t.string "music_name", null: false
     t.string "artist_name", null: false
     t.string "category"
     t.integer "year"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "music_id", null: false
+    t.string "youtube_id", null: false
+    t.integer "youtube_start_time", null: false
+    t.integer "youtube_end_time", null: false
+    t.integer "difficulty"
+    t.text "commentary"
+    t.text "japanese"
+    t.index ["music_id"], name: "index_questions_on_music_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -33,4 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_104239) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "lyrics", "questions"
+  add_foreign_key "questions", "musics"
 end
