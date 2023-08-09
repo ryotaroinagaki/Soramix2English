@@ -9,4 +9,5 @@
 #  year        :integer
 #
 class Music < ApplicationRecord
+  belongs_to :question
 end
