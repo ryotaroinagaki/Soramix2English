@@ -1,2 +1,6 @@
 <h1>Questions#index問題ページ</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @question.youtube_id %>?controls=0&amp;start=<%= @question.youtube_start_time %>&end=<%= @question.youtube_end_time %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<%= link_to "回答ページへ", answer_question_path(id: 3) %>
