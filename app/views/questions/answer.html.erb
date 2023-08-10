@@ -1,9 +1,13 @@
-<h1>Questions#index解答選択ページ</h1>
+<h1>解答選択ページ</h1>
+<h1>曲名:<%= @question.music.music_name %></h1>
+<h1>アーティスト名:<%= @question.music.artist_name %></h1>
+<h1>リリース年:<%= @question.music.year %></h1>
 
 <p>回答してください</p>
-<h2>Life is short, make it count.</h2>
-<h2>Dream big, work hard.</h2>
-<h2>Time flies when you're having fun.</h2>
-<h2>Believe in yourself and never give up</h2>
+<% @question.choices.each do |choice| %>
+  <% if @question.id == choice.question_id %>
+    <h1><%= choice.choice %></h1>
+  <% end %>
+<% end %>
 
 <%= link_to "答えページへ", explanation_question_path(id: 3) %>
