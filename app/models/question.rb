@@ -20,7 +20,7 @@
 #  fk_rails_...  (music_id => musics.id)
 #
 class Question < ApplicationRecord
-  has_one :music
+  belongs_to :music
   has_many :lyrics
   has_many :choices
 

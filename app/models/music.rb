@@ -9,5 +9,5 @@
 #  year        :integer
 #
 class Music < ApplicationRecord
-  belongs_to :question
+  has_one :question
 end
