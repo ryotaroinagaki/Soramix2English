@@ -1,6 +1,14 @@
-<h1>Questions#index問題ページ</h1>
-
+<h1>問題ページ</h1>
+<h1>曲名:<%= @question.music.music_name %></h1>
+<h1>アーティスト名:<%= @question.music.artist_name %></h1>
+<h1>リリース年:<%= @question.music.year %>年</h1>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @question.youtube_id %>?controls=0&amp;start=<%= @question.youtube_start_time %>&end=<%= @question.youtube_end_time %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<% @question.lyrics.each do |lyric| %>
+  <% if @question.id == lyric.question_id %>
+    <h1><%= lyric.lyric %></h1>
+  <% end %>
+<% end %>
 
 <%= link_to "回答ページへ", answer_question_path(id: 3) %>
