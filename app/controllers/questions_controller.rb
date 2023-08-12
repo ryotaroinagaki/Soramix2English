@@ -4,18 +4,25 @@ class QuestionsController < ApplicationController
   end
   
   def show
-    @question = Question.find(3)
+    @question = Question.find(params[:id])
   end
   
   def difficulty
-    @questions = Question.all
+    @difficulty = params[:difficulty]
+    @questions = Question.where(difficulty: Question.difficulties[@difficulty])
   end
 
   def answer
-    @question = Question.find(3)
+    @question = Question.find(params[:id])
   end
 
   def explanation
-    @question = Question.find(3)
+    @question = Question.find(params[:id])
   end
+
+  def next_question
+    # Logic to get the next question goes here
+    redirect_to question_path(next_question)
+  end
+
 end

@@ -1,7 +1,21 @@
 <h1>クイズ一覧画面</h1>
 
-<%= link_to "難易度別ページへ", difficulty_questions_path %>
-
 <% @questions.each do |question| %>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= question.youtube_id %>?controls=0&amp;start=<%= question.youtube_start_time %>&end=<%= question.youtube_end_time %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe width="280" height="165" src="https://www.youtube.com/embed/<%= question.youtube_id %>?controls=0&amp;start=<%= question.youtube_start_time %>&end=<%= question.youtube_end_time %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <% end %>
+<div>
+<%= link_to "Easy", difficulty_questions_path('easy') %>
+<%= link_to "Normal", difficulty_questions_path('normal') %>
+<%= link_to "Difficult", difficulty_questions_path('difficult') %>
+</div>
+
+
+<div>
+<button class="btn btn-primary rounded-full">
+  daisyUI Button
+</button>
+
+<button class="bg-indigo-600 px-4 py-3 text-center text-sm font-semibold inline-block text-white cursor-pointer uppercase transition duration-200 ease-in-out rounded-md hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 active:scale-95">
+  Tailwind Button
+</button>
+</div>

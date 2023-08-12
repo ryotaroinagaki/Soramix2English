@@ -1,7 +1,16 @@
 <h1>難易度別一覧</h1>
 
-<%= link_to "問題ページへ", question_path(id: 3) %>
+<%= link_to "問題ページへ", question_path(@questions) %>
 
-<% @questions.each do |question| %>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= question.youtube_id %>?controls=0&amp;start=<%= question.youtube_start_time %>&end=<%= question.youtube_end_time %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<% end %>
+<%= link_to "Easy1", "#" %>
+<%= link_to "Easy2", "#" %>
+<%= link_to "Easy3", "#" %>
+<%= link_to "Easy4", "#" %>
+<%= link_to "Easy5", "#" %>
+
+<h1><%= @difficulty %> Questions</h1>
+<ul>
+  <% @questions.each do |question| %>
+    <li><%= link_to question.music_id, question_path(question) %></li>
+  <% end %>
+</ul>

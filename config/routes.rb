@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get 'explanation'
     end
     collection do
-      get 'difficulty'
+      get 'difficulty/:difficulty', action: :difficulty, as: :difficulty
     end
   end
 end
