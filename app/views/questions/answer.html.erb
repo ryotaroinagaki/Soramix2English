@@ -6,8 +6,9 @@
 <p>回答してください</p>
 <% @question.choices.each do |choice| %>
   <% if @question.id == choice.question_id %>
-    <h1><%= choice.choice %></h1>
+    <li><%= choice.choice %></li>
   <% end %>
 <% end %>
-
-<%= link_to "答えページへ", explanation_question_path(@question) %>
+<div>
+  <button class="btn btn-accent"><%= link_to "答えページへ", explanation_question_path(@question) %></button>
+</div>

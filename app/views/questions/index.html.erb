@@ -1,15 +1,16 @@
 <h1>クイズ一覧画面</h1>
 
-<% @questions.each do |question| %>
+<% @questions.limit(1).each do |question| %>
   <iframe width="280" height="165" src="https://www.youtube.com/embed/<%= question.youtube_id %>?controls=0&amp;start=<%= question.youtube_start_time %>&end=<%= question.youtube_end_time %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <% end %>
 <div>
-<%= link_to "Easy", difficulty_questions_path('easy') %>
-<%= link_to "Normal", difficulty_questions_path('normal') %>
-<%= link_to "Difficult", difficulty_questions_path('difficult') %>
+<button class="btn btn btn-neutral"><%= link_to "Easy", difficulty_questions_path('easy') %></button>
+<button class="btn"><%= link_to "Normal", difficulty_questions_path('normal') %></button>
+<button class="btn"><%= link_to "Difficult", difficulty_questions_path('difficult') %></button>
 </div>
 
-
+</button>
+<button class="btn"></button>
 <div>
 <button class="btn btn-primary rounded-full">
   daisyUI Button

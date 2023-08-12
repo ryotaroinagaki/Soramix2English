@@ -1,16 +1,13 @@
 <h1>難易度別一覧</h1>
-
-<%= link_to "問題ページへ", question_path(@questions) %>
-
-<%= link_to "Easy1", "#" %>
-<%= link_to "Easy2", "#" %>
-<%= link_to "Easy3", "#" %>
-<%= link_to "Easy4", "#" %>
-<%= link_to "Easy5", "#" %>
-
-<h1><%= @difficulty %> Questions</h1>
-<ul>
-  <% @questions.each do |question| %>
-    <li><%= link_to question.music_id, question_path(question) %></li>
-  <% end %>
-</ul>
+<h1><%= @difficulty.upcase %> Questions</h1>
+-------------------------------------------
+<% counter = 1 %>
+<% @questions.each_slice(5) do |batch| %>
+  <ul>
+    <% batch.each_with_index do |question, i| %>
+      <button class="btn"><%= link_to "#{@difficulty.upcase} No.#{counter}", question_path(question) %></button>
+      <% counter += 1 %>
+      <% break if i== 0 %>
+    <% end %>
+  </ul>
+<% end %>

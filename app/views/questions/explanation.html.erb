@@ -3,13 +3,18 @@
 <h1>アーティスト名:<%= @question.music.artist_name %></h1>
 <h1>リリース年:<%= @question.music.year %></h1>
 <p>答え</p>
-<p>A Sugar Yes, please Won't you come and put it down on me?</p>
+<p>A. Sugar Yes, please Won't you come and put it down on me?</p>
 <h1>和訳:<%= @question.japanese %></h1>
 
 <p>ポイント</p>
 <h1><%= @question.commentary %></h1>
-
-<%= link_to "次のクイズへ", "#" %>
-<%= link_to "結果へ", "#" %>
-<%= link_to "トップへ", questions_path %>
+<% if @next_question %>
+  <button on class="btn btn-accent"><%= link_to "Next Question", question_path(@next_question) %></button>
+<% end %>
+<% if !@next_question %>
+<div>
+  <button class="btn btn-ghost"><%= link_to "トップへ", questions_path %></button>
+</div>
+  <button class="btn btn-primary"><%= link_to "結果へ", "#" %></button>
+<% end %>
 
