@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :reset_question_count, only: [:index, :difficulty]
+  before_action :initialize_question_count, only: [:show, :answer, :explanation]
+  
   def index
     @questions = Question.all
   end
@@ -18,10 +21,21 @@ class QuestionsController < ApplicationController
   
   def explanation
     @question = Question.find(params[:id])
-    # i = 5
-    # i -= 1
     @next_question = Question.where(difficulty: @question.difficulty).where("id > ?", @question.id).first
-    # if 
+    update_question_count
   end
 
+  private
+  
+  def initialize_question_count
+    session[:total_questions] ||= 0
+  end
+  
+  def reset_question_count
+    session[:total_questions] = 0
+  end
+  
+  def update_question_count
+    session[:total_questions] += 1
+  end
 end

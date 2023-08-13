@@ -1,12 +1,11 @@
 <h1>難易度別一覧</h1>
 <h1><%= @difficulty.upcase %> Questions</h1>
 -------------------------------------------
-<% counter = 1 %>
-<% @questions.each_slice(5) do |batch| %>
+<% @questions.each_slice(5).with_index(1) do |batch, batch_index| %>
   <ul>
     <% batch.each_with_index do |question, i| %>
-      <button class="btn"><%= link_to "#{@difficulty.upcase} No.#{counter}", question_path(question) %></button>
-      <% counter += 1 %>
+      <button class="btn"><%= link_to "#{@difficulty.upcase} No.#{batch_index}", question_path(question) %></button>
+      <% batch_index += 1 %>
       <% break if i== 0 %>
     <% end %>
   </ul>
