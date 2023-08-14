@@ -7,8 +7,7 @@
 #  avatar                              :string
 #  crypted_password                    :string
 #  email                               :string           not null
-#  first_name                          :string           not null
-#  last_name                           :string           not null
+#  name                                :string           not null
 #  reset_password_email_sent_at        :datetime
 #  reset_password_token                :string
 #  reset_password_token_expires_at     :datetime
@@ -29,6 +28,5 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true, presence: true
-  validates :first_name, presence: true, length: { maximum: 255 }
-  validates :last_name, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 255 }
 end

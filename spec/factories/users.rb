@@ -7,8 +7,7 @@
 #  avatar                              :string
 #  crypted_password                    :string
 #  email                               :string           not null
-#  first_name                          :string           not null
-#  last_name                           :string           not null
+#  name                                :string           not null
 #  reset_password_email_sent_at        :datetime
 #  reset_password_token                :string
 #  reset_password_token_expires_at     :datetime

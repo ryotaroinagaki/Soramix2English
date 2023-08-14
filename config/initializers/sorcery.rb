@@ -96,8 +96,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.linkedin.secret = ""
   # config.linkedin.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=linkedin"
   # config.linkedin.user_info_mapping = {
-  #   first_name: 'localizedFirstName',
-  #   last_name:  'localizedLastName',
+  #   name: 'localizedName',
   #   email:      'emailAddress'
   # }
   # config.linkedin.scope = "r_liteprofile r_emailaddress"
@@ -109,7 +108,7 @@ Rails.application.config.sorcery.configure do |config|
   # config.xing.key = ""
   # config.xing.secret = ""
   # config.xing.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=xing"
-  # config.xing.user_info_mapping = {first_name: "first_name", last_name: "last_name"}
+  # config.xing.user_info_mapping = {name: "name"}
   #
   #
   # Twitter will not accept any requests nor redirect uri containing localhost,
