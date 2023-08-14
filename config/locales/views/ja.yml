@@ -12,6 +12,8 @@ ja:
     questions: 'クイズ一覧'
     ranking: 'ランキング'
     inquiry: "お問い合わせ"
+    privacy_policy: "プライバシーポリシー"
+    terms_of_service: "利用規約"
     # search_word: '検索ワード'
 
   #   message:
@@ -37,11 +39,6 @@ ja:
       title: 'ログイン'
       to_register_page: '登録ページへ'
       password_forget: 'パスワードをお忘れの方はこちら'
-  # top:
-  #   privacy_policy:
-  #     title: "プライバシーポリシー"
-  #   terms_of_service:
-  #     title: "利用規約"
     create:
       success: 'ログインしました' 
       fail: 'ログインに失敗しました'
@@ -70,17 +67,17 @@ ja:
   #     title: 'プロフィール'
   #   edit:
   #     title: 'プロフィール編集'
-  # password_resets:
-  #   new:
-  #     title: 'パスワードリセット申請'
-  #     submit: '送信'
-  #   edit:
-  #     title: 'パスワードリセット'
-  #   create:
-  #     success: 'パスワードリセット手順を送信しました'
-  #   update:
-  #     success: 'パスワードを変更しました'
-  #     fail: 'パスワードの変更に失敗しました'
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+      submit: '送信'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセット手順を送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'
   # admin:
   #   user_sessions:
   #     new:
