@@ -51,6 +51,8 @@ gem 'sassc-rails'
 gem 'sorcery', '~> 0.16.5'
 # 国際化
 gem 'rails-i18n'
+# 環境固有設定
+gem 'config'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
