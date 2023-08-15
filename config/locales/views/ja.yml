@@ -16,7 +16,9 @@ ja:
     terms_of_service: "利用規約"
     # search_word: '検索ワード'
 
-  #   message:
+    message:
+      register: "%{item}を登録しました"
+      not_register: "%{item}を登録できませんでした"
   #     require_login: 'ログインしてください'
   #     created: "%{item}を作成しました"
   #     not_created: "%{item}を作成できませんでした"
@@ -44,6 +46,9 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
+  on_boardings:
+    edit:
+      title: 'プロフィール登録'
   # boards:
   #   index:
   #     title: '掲示板一覧'
@@ -78,6 +83,12 @@ ja:
     update:
       success: 'パスワードを変更しました'
       fail: 'パスワードの変更に失敗しました'
+  google_login_api:
+    callback:
+      success: "ログインしました"
+      require_change: "ユーザー名を登録してください"
+      fail: "ログインに失敗しました"
+      unauthorized_access: "不正なアクセスです。権限がありません"
   # admin:
   #   user_sessions:
   #     new:
