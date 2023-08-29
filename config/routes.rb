@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     end
     collection do
       get 'difficulty/:difficulty', action: :difficulty, as: :difficulty
+      get 'result'
     end
   end
+  resources :results, only: %i[create]
   get 'on_boardings', to: 'on_boardings#edit'
   resource :on_boardings, only: %i[update]
 end
