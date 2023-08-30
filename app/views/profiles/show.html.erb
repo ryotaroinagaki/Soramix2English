@@ -1,2 +1,8 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<h1>Profile</h1>
+<div>
+  <h1><%= @user.name %></h1>
+  <h1><%= @user.email %></h1>
+  <h1>ブックマークしたクイズ</h1>
+  <h1>お気に入りしたクイズ</h1>
+  <%= link_to "プロフィール編集", edit_profile_path %>
+</div>
