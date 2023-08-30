@@ -30,4 +30,15 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 255 }
+
+  has_many :results, dependent: :destroy
+  has_many :questions, through: :results
+
+  # def add_result_correct
+  #   results << question
+  # end
+
+  # def add_result_uncorrect
+  #   result.create(question: choice.question, result: false)
+  # end
 end

@@ -4,7 +4,11 @@
 <% @questions.each_slice(3).with_index(1) do |batch, batch_index| %>
   <ul>
     <% batch.each_with_index do |question, i| %>
-      <button class="btn"><%= link_to "#{@difficulty.upcase} No.#{batch_index}", question_path(question) %></button>
+      <%= link_to question_path(question) do %>
+      <button class="btn">
+      <%= "#{@difficulty.upcase} No.#{batch_index}" %>
+      </button>
+      <% end %>
       <% batch_index += 1 %>
       <% break if i== 0 %>
     <% end %>

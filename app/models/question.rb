@@ -23,6 +23,8 @@ class Question < ApplicationRecord
   belongs_to :music
   has_many :lyrics
   has_many :choices
+  has_many :results, dependent: :destroy
+  has_many :users, through: :results
 
   enum difficulty: { easy: 0, normal: 1, difficult: 2 }
 end

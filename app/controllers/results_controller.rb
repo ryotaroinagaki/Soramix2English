@@ -1,14 +1,12 @@
 class ResultsController < ApplicationController
   def create
-    # formのデータを取得
-    # if フォームのデータがコレクトなら正解（chiceのis_answerがtureのものをだったら）
-    #   reslutsテーブルのresultにtrue
-    #   @question = Question.find(params[:question_id])
-    #   current_user.currect_result(@question)
-    # else フォームのデータがfalseなら不正解（chiceのis_answerがfalseのものをだったら）
-    #   reslutsテーブルのresultにfalse
-    #   @question = Question.find(params[:question_id])
-    #   current_user.uncurrect_result(@question)
-    # end
+    choice = Choice.find(params[:id])
+    user = current_user 
+    if choice.is_answer
+      user.results.create(question: choice.question, result: true)
+    else 
+      user.results.create(question: choice.question, result: false)
+    end
+    redirect_to explanation_question_path(choice.question)
   end
 end
