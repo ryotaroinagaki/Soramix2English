@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
   end
   resources :results, only: %i[create]
+  resource :profiles, only: %i[show edit update]
   get 'on_boardings', to: 'on_boardings#edit'
   resource :on_boardings, only: %i[update]
 end
