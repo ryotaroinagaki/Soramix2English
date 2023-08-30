@@ -2,7 +2,7 @@
   <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
       <span class="font-semibold text-xl tracking-tight">
-      <%= link_to "空耳English", questions_path %>
+      <%= link_to (t 'defaults.app_name'), questions_path %>
       </span>
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
@@ -11,7 +11,7 @@
         <%= link_to t('defaults.ranking'), "#", class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
       </div>
       <% if logged_in? %>
-        <%= link_to "プロフィール", profile_path, class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
+        <%= link_to t('defaults.profiles'), profile_path, class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
         <%= button_to t('defaults.logout'), logout_path, method: :delete %>
       <% else %>
         <div>

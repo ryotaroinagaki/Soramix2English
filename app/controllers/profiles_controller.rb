@@ -7,9 +7,9 @@ class ProfilesController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to profile_path, success: "編集に成功しました"
+      redirect_to profile_path, success: t('.success')
     else
-      flash.now['danger'] = "編集失敗しました"
+      flash.now[:danger] = t('.fail')
       render :edit
     end
   end
