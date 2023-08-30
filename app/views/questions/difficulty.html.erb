@@ -1,0 +1,15 @@
+<h1><%= @difficulty.upcase %> Questions</h1>
+-------------------------------------------
+<% @questions.each_slice(3).with_index(1) do |batch, batch_index| %>
+  <ul>
+    <% batch.each_with_index do |question, i| %>
+      <%= link_to question_path(question) do %>
+      <button class="btn">
+      <%= "#{@difficulty.upcase} No.#{batch_index}" %>
+      </button>
+      <% end %>
+      <% batch_index += 1 %>
+      <% break if i== 0 %>
+    <% end %>
+  </ul>
+<% end %>
