@@ -1,4 +1,9 @@
 <h1>解答解説ページ</h1>
+<% if @result.result == true %>
+  <h1> 正解!! </h1>
+<% else %>
+  <h1> 不正解 </h1>
+<% end %>
 <h1>曲名:<%= @question.music.music_name %></h1>
 <h1>アーティスト名:<%= @question.music.artist_name %></h1>
 <h1>リリース年:<%= @question.music.year %>年</h1>

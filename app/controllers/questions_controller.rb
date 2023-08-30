@@ -16,15 +16,16 @@ class QuestionsController < ApplicationController
   end
   
   def explanation
+    @result = Result.where(user_id: current_user.id).last(1).first
     @question = Question.find(params[:id])
     @next_question = Question.where(difficulty: @question.difficulty).where("id > ?", @question.id).first
     update_question_count
   end
 
-  # def result
-  #   # resultのユーザーが等しいものの最後の3つの結果を取得する。
-  #   @result = Result.where(current_user.).last(3).limit(3)
-  # end
+  def result
+    @result = Result.where(user_id: current_user.id).last(3)
+    @true_count = @result.count { |result| result.result == true }
+  end
 
   private
   
