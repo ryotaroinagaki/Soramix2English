@@ -1,4 +1,3 @@
-<h1>難易度別一覧</h1>
 <h1><%= @difficulty.upcase %> Questions</h1>
 -------------------------------------------
 <% @questions.each_slice(3).with_index(1) do |batch, batch_index| %>

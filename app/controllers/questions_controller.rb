@@ -16,9 +16,9 @@ class QuestionsController < ApplicationController
   end
   
   def explanation
-    @result = Result.where(user_id: current_user.id).last(1).first
     @question = Question.find(params[:id])
     @next_question = Question.where(difficulty: @question.difficulty).where("id > ?", @question.id).first
+    @result = Result.where(user_id: current_user.id).last(1).first
     update_question_count
   end
 
