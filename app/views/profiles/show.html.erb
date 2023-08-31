@@ -2,9 +2,6 @@
 <div>
   <h1><%= t('.name') %> :<%= @user.name %></h1>
   <h1><%= t('.email' )%> :<%= @user.email %></h1>
-  <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar %>
-  <% end %>
   <h1>ブックマークしたクイズ</h1>
   <h1>お気に入りしたクイズ</h1>
   <%= link_to t('profiles.edit.title'), edit_profile_path %>
