@@ -9,6 +9,8 @@
         <%= f.label :email %>
         <%= f.email_field :email, class: 'form-control mb-3' %>
 
+        <%= f.file_field :avatar, accept: "image/png, image/jpeg, image/gif" %>
+
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
