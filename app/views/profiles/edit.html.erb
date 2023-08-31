@@ -1,0 +1,18 @@
+<h1><%= t('.title') %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <%= form_with model: @user, url: profile_path, local: true do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control mb-3' %>
+
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control mb-3' %>
+
+        <%= f.file_field :avatar, accept: "image/png, image/jpeg, image/gif" %>
+
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

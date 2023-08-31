@@ -1,24 +1,29 @@
-<% if @result.result == true %>
-  <h1> 正解!! </h1>
-<% else %>
-  <h1> 不正解 </h1>
-<% end %>
-<h1>曲名:<%= @question.music.music_name %></h1>
-<h1>アーティスト名:<%= @question.music.artist_name %></h1>
-<h1>リリース年:<%= @question.music.year %>年</h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @question.youtube_id %>?controls=0&amp;start=<%= @question.youtube_start_time %>&end=<%= @question.youtube_end_time %>&autoplay=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<p>答え</p>
-<p>"A. Sugar Yes, please Won't you come and put it down on me?"</p>
-<h1>和訳:<%= @question.japanese %></h1>
+<div>
+  <% if @result.result == true %>
+    <h1><%= t('.correct') %></h1>
+  <% else %>
+    <h1><%= t('.incorrect') %></h1>
+  <% end %>
+</div>
+<div>
+  <h1><%= t('.music_name') %><%= @question.music.music_name %></h1>
+  <h1><%= t('.artist_name') %><%= @question.music.artist_name %></h1>
+  <h1><%= t('.release') %><%= @question.music.year %><%= t('.year') %></h1>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @question.youtube_id %>?controls=0&amp;start=<%= @question.youtube_start_time %>&end=<%= @question.youtube_end_time %>&autoplay=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
-<p>ポイント</p>
+<p><%= t('.answer') %></p>
+<h1><%= @true_answer.choice %></h1>
+<h1><%= t('.japanese') %><%= @question.japanese %></h1>
+
+<p><%= t('.point') %></p>
 <h1><%= @question.commentary %></h1>
 
 <div>
   <% if session[:total_questions] >= 3 %>
-    <button class="btn btn-primary"><%= link_to "結果へ", result_questions_path %></button>
+    <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
   <% else %>
-    <button class="btn btn-accent"><%= link_to "Next Question", question_path(@next_question) %></button>
+    <button class="btn btn-accent"><%= link_to t('.next_question'), question_path(@next_question) %></button>
   <% end %>
 </div>
 

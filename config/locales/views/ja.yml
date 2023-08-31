@@ -1,5 +1,6 @@
 ja:
   defaults:
+    app_name: '空耳English'
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
@@ -9,6 +10,8 @@ ja:
     delete: '削除'
     password_reset: 'パスワードリセット'
     unspecified: '指定なし'
+    top_page: 'トップページ'
+    profiles: 'プロフィール'
     questions: 'クイズ一覧'
     ranking: 'ランキング'
     inquiry: "お問い合わせ"
@@ -49,6 +52,25 @@ ja:
   on_boardings:
     edit:
       title: 'プロフィール登録'
+  questions:
+    show:
+    explanation:
+      correct: '正解！！'
+      incorrect: '不正解'
+      answer: '答え'
+      point: 'ポイント'
+      result: "結果"
+      next_question: "次のクイズへ"
+      music_name: '曲名:'
+      artist_name: 'アーティスト名:'
+      release: 'リリース年:'
+      year: '年'
+      japanese: "和訳:"
+    result:
+      how: '問中'
+      correct: '問正解!!'
+
+
   # boards:
   #   index:
   #     title: '掲示板一覧'
@@ -67,11 +89,16 @@ ja:
   #     success: 'ブックマークしました'
   #   destroy:
   #     success: 'ブックマークを外しました'
-  # profiles:
-  #   show:
-  #     title: 'プロフィール'
-  #   edit:
-  #     title: 'プロフィール編集'
+  profiles:
+    show:
+      title: 'プロフィール'
+      name: 'ユーザー名'
+      email: 'メールアドレス'
+    edit:
+      title: 'プロフィール編集'
+    update:
+      success: 'プロフィール編集しました'
+      fail: 'プロフィールに失敗しました'
   password_resets:
     new:
       title: 'パスワードリセット申請'
