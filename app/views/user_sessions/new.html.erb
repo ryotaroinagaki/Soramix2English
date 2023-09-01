@@ -11,7 +11,7 @@
       <div class="form-control">
         <%= f.label :password, User.human_attribute_name(:password), class: "label w-full" %>
         <%= f.password_field :password, class: 'form-control', class: "input input-bordered w-full" %>
-        <%= link_to t('.password_forget'), new_password_reset_path %>
+        <%= link_to t('.password_forget'), new_password_reset_path, class: "text-xs text-gray-700" %>
       </div>
       <div class="form-control mt-6">
         <%= f.submit t('defaults.login'), class: "btn btn-neutral"%>
