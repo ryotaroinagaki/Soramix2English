@@ -6,6 +6,7 @@ ja:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
+        password6: 'パスワード（6文字以上）'
         password_confirmation: 'パスワード確認'
         name: 'ユーザー名'
         avatar: 'アバター'
