@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :password_resets, only: %i[new create edit update]
   resources :questions, only: %i[index show] do
+    resources :likes, only: %i[create destroy]
     member do
       get 'answer'
       get 'explanation'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     collection do
       get 'difficulty/:difficulty', action: :difficulty, as: :difficulty
       get 'result'
+      get 'likes'
     end
   end
   resources :results, only: %i[create]
