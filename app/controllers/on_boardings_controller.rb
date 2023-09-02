@@ -2,7 +2,7 @@ class OnBoardingsController < ApplicationController
   before_action :set_user, only: %i[edit update]
 
   def edit; end
-  
+
   def update
     if @user.update(user_params)
       redirect_to questions_path, success: t('defaults.message.register', item: User.model_name.human)
