@@ -37,6 +37,18 @@ class User < ApplicationRecord
   has_many :questions, through: :likes
   has_one_attached :avatar
 
+  def like(question)
+    likes_questions << question
+  end
+
+  def unlike(question)
+    likes_questions.destroy(question)
+  end
+
+  def like?(question)
+    likes_questions.include?(question)
+  end
+
   # def add_result_correct
   #   results << question
   # end
