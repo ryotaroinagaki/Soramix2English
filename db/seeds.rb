@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 Music.create!(
   [
     {
@@ -21,7 +14,7 @@ Question.create!(
     {
       music_id: 1,
       youtube_id: 'bWcASV2sey0',
-      youtube_start_time: 144,
+      youtube_start_time: 143,
       youtube_end_time: 157,
       difficulty: 0,
       commentary: "解説",
@@ -30,7 +23,7 @@ Question.create!(
     {
       music_id: 1,
       youtube_id: 'bWcASV2sey0',
-      youtube_start_time: 144,
+      youtube_start_time: 143,
       youtube_end_time: 157,
       difficulty: 0,
       commentary: "解説",
@@ -41,7 +34,7 @@ Question.create!(
     {
       music_id: 1,
       youtube_id: 'bWcASV2sey0',
-      youtube_start_time: 144,
+      youtube_start_time: 143,
       youtube_end_time: 157,
       difficulty: 0,
       commentary: "解説",
@@ -52,7 +45,7 @@ Question.create!(
     {
       music_id: 1,
       youtube_id: 'bWcASV2sey0',
-      youtube_start_time: 144,
+      youtube_start_time: 143,
       youtube_end_time: 157,
       difficulty: 0,
       commentary: "解説",
@@ -63,7 +56,7 @@ Question.create!(
     {
       music_id: 1,
       youtube_id: 'bWcASV2sey0',
-      youtube_start_time: 144,
+      youtube_start_time: 143,
       youtube_end_time: 157,
       difficulty: 0,
       commentary: "解説",
@@ -74,11 +67,10 @@ Question.create!(
   ]
 )
 
-
 Lyric.create!(
   [
     {
-      question_id: 1,
+      question_id: 36,
       lyric: "He's gotta be strong
       And he's gotta be fast
       And he's gotta be fresh from the fight
@@ -90,22 +82,22 @@ Lyric.create!(
 Choice.create!(
   [
     {
-      question_id: 1,
+      question_id: 36,
       choice: 'A',
       is_answer: false,
     },
     {
-      question_id: 1,
+      question_id: 36,
       choice: 'B',
       is_answer: false,
     },
     {
-      question_id: 1,
+      question_id: 36,
       choice: 'C',
       is_answer: false,
     },
     {
-      question_id: 1,
+      question_id: 36,
       choice: "I need a hero
       I'm holding out for a hero
       'til the morning light",

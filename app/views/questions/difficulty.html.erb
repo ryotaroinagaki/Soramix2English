@@ -1,13 +1,24 @@
-<h1><%= @difficulty.upcase %> Questions</h1>
--------------------------------------------
-<% @questions.each_slice(3).with_index(1) do |batch, batch_index| %>
-  <ul>
-    <% batch.each_with_index do |question, i| %>
-      <%= link_to question_path(question) do %>
-        <button class="btn"><%= "#{@difficulty.upcase} No.#{batch_index}" %></button>
+<div class="py-10 px-3 md:container md:mx-auto">
+  <div class="text-center">
+    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6 "><%= @difficulty.upcase %> Questions</h2>
+    <p class="my-5">クイズを選んでください</p>
+  </div>
+  <div class="place-items-center px-5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4">
+    <% @questions.each_slice(3).with_index(1) do |batch, batch_index| %>
+      <% batch.each_with_index do |question, i| %>
+        <div class="card w-48 bg-base-200 shadow-xl place-items-center">
+          <div class="card-body  text-center snap-center">
+            <h2 class="card-title"><%= "#{@difficulty.upcase} No.#{batch_index}" %></h2>
+              <div class="card-actions justify-end place-self-center">
+                <%= link_to question_path(question) do %>
+                  <button class="btn btn-primary">クイズ</button>
+                <% end %>
+              </div>
+          </div>
+        </div>
+        <% batch_index += 1 %>
+        <% break if i== 0 %>
       <% end %>
-      <% batch_index += 1 %>
-      <% break if i== 0 %>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+</div>
