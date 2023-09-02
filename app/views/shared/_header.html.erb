@@ -1,23 +1,45 @@
 <header>
-  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <span class="font-semibold text-xl tracking-tight">
-      <%= link_to (t 'defaults.app_name'), questions_path %>
+  <nav class="flex items-center justify-between flex-wrap bg-blue-300 p-4 ">
+    <div ir="ltr" class="flex items-center flex-shrink-0 text-white mr-6">
+      <span class="font-semibold text-2xl tracking-tight ms-8">
+        <%= link_to (t 'defaults.app_name'), questions_path %>
       </span>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-      <div class="text-sm lg:flex-grow">
-        <%= link_to (t 'defaults.questions'), questions_path, class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-        <%= link_to t('defaults.ranking'), "#", class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-      </div>
-      <% if logged_in? %>
-        <%= link_to t('defaults.profiles'), profile_path, class:"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4" %>
-        <%= button_to t('defaults.logout'), logout_path, method: :delete %>
-      <% else %>
-        <div>
-          <%= link_to t('defaults.login'), login_path %>
+    <div dir="rtl">
+      <div class="md:ml-auto flex flex-wrap items-center md:text-xl justify-center ms-8">
+        <% if logged_in? %>
+          <div class="dropdown dropdown-hover dropdown-end">
+            <label tabindex="0" class="btn m-1"><%= t('defaults.profiles') %></label>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-36 text-center">
+              <li><%= link_to t('defaults.profiles'), profile_path %></li>
+              <li><%= button_to t('defaults.logout'), logout_path, method: :delete %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="dropdown dropdown-hover dropdown-end">
+            <label tabindex="0" class="btn m-1"><%= t('defaults.login') %></label>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-36 text-center">
+              <li><%= link_to t('defaults.login'), login_path %></li>
+              <li><%= link_to t('users.new.title'), new_user_path %></li>
+            </ul>
+          </div>
+        <% end %>
+        <div class="dropdown dropdown-hover dropdown-end">
+          <label tabindex="0" class="btn m-1"><%= t('defaults.ranking') %></label>
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-36">
+            <li><%= link_to t('defaults.ranking'), "#" %></li>
+          </ul>
         </div>
-      <% end %>
+        <div class="dropdown dropdown-hover dropdown-end">
+          <label tabindex="0" class="btn m-1"><%= (t 'defaults.questions') %></label>
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-36">
+            <li><%= link_to (t 'defaults.questions'), questions_path %></li>
+            <li><%= link_to "Easy", difficulty_questions_path('easy') %></li>
+            <li><%= link_to "Normal", difficulty_questions_path('normal') %></li>
+            <li><%= link_to "Difficult", difficulty_questions_path('difficult') %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </nav>
 </header>

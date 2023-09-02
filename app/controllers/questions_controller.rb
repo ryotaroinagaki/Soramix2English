@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :reset_question_count, only: [:index, :difficulty]
-  before_action :initialize_question_count, only: [:show, :explanation]
+  before_action :initialize_question_count, only: [:show, :explanation, :result]
   
   def index
     @questions = Question.all
@@ -26,6 +26,7 @@ class QuestionsController < ApplicationController
   def result
     @result = Result.where(user_id: current_user.id).last(3)
     @true_count = @result.count { |result| result.result == true }
+    @total_count = Result.where(user_id: current_user.id).count
   end
 
   private

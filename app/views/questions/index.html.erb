@@ -1,15 +1,74 @@
-<div>
-  <button class="btn btn btn-neutral"><%= link_to "Easy", difficulty_questions_path('easy') %></button>
-  <button class="btn"><%= link_to "Normal", difficulty_questions_path('normal') %></button>
-  <button class="btn"><%= link_to "Difficult", difficulty_questions_path('difficult') %></button>
-</div>
+<div class="py-10 px-3 md:container md:mx-auto">
+  <div class="text-center">
+    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6 ">クイズ一覧</h2>
+  </div>
+  <div class="place-items-center px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="card w-96 card-side bg-base-100 shadow-xl">
+        <figure><%= image_tag 'maxresdefault.jpg' %></figure>
+          <div class="card-body">
+            <h2 class="card-title">Easy</h2>
+            <p>Click the button to watch on Jetflix app.</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary"><%= link_to "Easy", difficulty_questions_path('easy') %></button>
+            </div>
+          </div>
+      </div>
 
-<div>
-  <button class="btn btn-primary rounded-full">
-    daisyUI Button
-  </button>
+      <div class="card w-96 bg-base-100 shadow-xl image-full">
+        <figure><%= image_tag 'maxresdefault.jpg' %></figure>
+        <div class="card-body">
+          <h2 class="card-title">Easy</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary"><%= link_to "Easy", difficulty_questions_path('easy') %></button>
+          </div>
+        </div>
+      </div>
 
-  <button class="bg-indigo-600 px-4 py-3 text-center text-sm font-semibold inline-block text-white cursor-pointer uppercase transition duration-200 ease-in-out rounded-md hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 active:scale-95">
-    Tailwind Button
-  </button>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Normal</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary"><%= link_to "Normal", difficulty_questions_path('normal') %></button>
+          </div>
+        </div>
+      </div>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Difficult</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary"><%= link_to "Difficult", difficulty_questions_path('difficult') %></button>
+          </div>
+        </div>
+      </div>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">おすすめ</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">人気</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">ブックマーク</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>

@@ -1,18 +1,26 @@
-<h1><%= t('.title') %></h1>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <%= form_with model: @user, url: profile_path, local: true do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control mb-3' %>
+<div class="hero-content flex-col lg:flex-row">
+  <div>
+    <h1 class="text-5xl font-bold"><%= t('.title') %></h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <%= form_with model: @user, url: profile_path, local: true do |f| %>
+            <div>
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
+            </div>
 
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control mb-3' %>
+            <div>
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "input input-bordered w-full max-w-xs" %>
+            </div>
 
-        <%= f.file_field :avatar, accept: "image/png, image/jpeg, image/gif" %>
+            <%= f.file_field :avatar, accept: "image/png, image/jpeg, image/gif", class: "file-input file-input-bordered w-full max-w-xs" %>
 
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+            <%= f.submit class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

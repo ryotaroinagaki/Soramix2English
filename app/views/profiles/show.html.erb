@@ -1,8 +1,15 @@
-<h1><%= t('.title') %></h1>
-<div>
-  <h1><%= t('.name') %> :<%= @user.name %></h1>
-  <h1><%= t('.email' )%> :<%= @user.email %></h1>
-  <h1>ブックマークしたクイズ</h1>
-  <h1>お気に入りしたクイズ</h1>
-  <%= link_to t('profiles.edit.title'), edit_profile_path %>
+<div class="hero-content flex-col lg:flex-row">
+  <div class="max-w-sm rounded-lg shadow-2xl"/>
+    <%= image_tag 'maxresdefault.jpg' %>
+  </div>
+  <div>
+    <h1 class="text-5xl font-bold"><%= t('.title') %></h1>
+    <div>
+      <h1><%= t('.name') %> :<%= @user.name %></h1>
+      <h1><%= t('.email' )%> :<%= @user.email %></h1>
+      <%= link_to edit_profile_path do %>
+      <button class="btn btn-primary"><%= t('profiles.edit.title') %></button>
+      <% end %>
+    </div>
+  </div>
 </div>
