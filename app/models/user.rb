@@ -33,6 +33,8 @@ class User < ApplicationRecord
 
   has_many :results, dependent: :destroy
   has_many :questions, through: :results
+  has_many :likes, dependent: :destroy
+  has_many :questions, through: :likes
   has_one_attached :avatar
 
   # def add_result_correct
