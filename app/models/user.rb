@@ -34,7 +34,7 @@ class User < ApplicationRecord
   has_many :results, dependent: :destroy
   has_many :questions, through: :results
   has_many :likes, dependent: :destroy
-  has_many :questions, through: :likes
+  has_many :likes_questions, through: :likes, source: :question
   has_one_attached :avatar
 
   def like(question)
