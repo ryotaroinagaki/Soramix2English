@@ -6,6 +6,9 @@
       <h1><%= t('.incorrect') %></h1>
     <% end %>
   </div>
+  <div>
+    <%= render 'like_button', {question: @question} %>
+  </div>
   <div class="w-1/4 flex justify-center mt-1 ml-1">
     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">
       <div class="collapse-title text-lg font-normal">

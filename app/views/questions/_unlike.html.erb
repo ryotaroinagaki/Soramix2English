@@ -1,0 +1,1 @@
+<td><%= button_to 'UnLike', like_path(question_id: question.id, id: current_user.likes.find_by(question_id: question.id)), method: :delete %></td>
