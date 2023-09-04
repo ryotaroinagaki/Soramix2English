@@ -7,7 +7,10 @@
     <% end %>
   </div>
   <div>
-    <%= render 'like_button', {question: @question} %>
+    <%= turbo_frame_tag 'like_button' do %>
+      <%= render 'like_button', question: @question %>
+    <% end %>
+      <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </div>
   <div class="w-1/4 flex justify-center mt-1 ml-1">
     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">

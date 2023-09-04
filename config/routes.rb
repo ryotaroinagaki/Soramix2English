@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :password_resets, only: %i[new create edit update]
   resources :questions, only: %i[index show] do
+    resources :likes, only: %i[create destroy]
     member do
       get 'answer'
       get 'explanation'
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
     end
   end
   resources :results, only: %i[create]
-  resources :likes, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   get 'on_boardings', to: 'on_boardings#edit'
   resource :on_boardings, only: %i[update]
