@@ -1,9 +1,9 @@
 <% if current_user.like?(question) %>
   <%= link_to question_like_path(question_id: question.id, id: current_user.likes.find_by(question_id: question.id)), data: { turbo_method: :delete } do %>
-    <i class="fa-regular fa-heart"></i>
+    <i class="fa-solid fa-heart"></i>
   <% end %>
 <% else %>
   <%= link_to question_likes_path(question_id: question.id), data: { turbo_method: :post } do %>
-    <i class="fa-solid fa-heart"></i>
+    <i class="fa-regular fa-heart"></i>
   <% end %>
 <% end %>
