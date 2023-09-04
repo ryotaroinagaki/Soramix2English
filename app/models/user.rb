@@ -33,7 +33,21 @@ class User < ApplicationRecord
 
   has_many :results, dependent: :destroy
   has_many :questions, through: :results
+  has_many :likes, dependent: :destroy
+  has_many :likes_questions, through: :likes, source: :question
   has_one_attached :avatar
+
+  def like(question)
+    likes_questions << question
+  end
+
+  def unlike(question)
+    likes_questions.destroy(question)
+  end
+
+  def like?(question)
+    likes_questions.include?(question)
+  end
 
   # def add_result_correct
   #   results << question

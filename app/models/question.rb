@@ -25,6 +25,8 @@ class Question < ApplicationRecord
   has_many :choices
   has_many :results, dependent: :destroy
   has_many :users, through: :results
+  has_many :likes, dependent: :destroy
+  has_many :users, through: :likes
 
   enum difficulty: { easy: 0, normal: 1, difficult: 2 }
 end

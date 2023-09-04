@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    update_question_count
   end
 
   def difficulty
@@ -20,9 +21,8 @@ class QuestionsController < ApplicationController
     @next_question = Question.where(difficulty: @question.difficulty).where('id > ?', @question.id).first
     @result = Result.where(user_id: current_user.id).last(1).first
     @true_answer = @question.choices.where(is_answer: true).first
-    update_question_count
   end
-
+  
   def result
     @result = Result.where(user_id: current_user.id).last(3)
     @true_count = @result.count { |result| result.result == true }
