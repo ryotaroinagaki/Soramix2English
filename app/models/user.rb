@@ -35,6 +35,8 @@ class User < ApplicationRecord
   has_many :questions, through: :results
   has_many :likes, dependent: :destroy
   has_many :likes_questions, through: :likes, source: :question
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarks_questions, through: :bookmarks, source: :question
   has_one_attached :avatar
 
   def like(question)
@@ -49,6 +51,18 @@ class User < ApplicationRecord
     likes_questions.include?(question)
   end
 
+  def bookmark(question)
+    bookmarks_questions << question
+  end
+  
+  def unbookmark(question)
+    bookmarks_questions.destroy(question)
+  end
+  
+  def bookmark?(question)
+    bookmarks_questions.include?(question)
+  end
+  
   # def add_result_correct
   #   results << question
   # end
