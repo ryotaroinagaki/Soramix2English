@@ -11,8 +11,8 @@
       <%= render 'like_button', question: @question %>
     <% end %>
     
-    <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんは、「#{@question.music.artist_name}」の「#{@question.music.music_name}」に挑戦しました！ %0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-secondary text-white' do %>
-      <i class="fab fa-twitter fa-xl"></i>
+    <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんは、「#{@question.music.artist_name}」の「#{@question.music.music_name}」に挑戦しました！ %0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-secondary text-white bg-black' do %>
+      <i class="fa-brands fa-x-twitter fa-xl"></i>
     <% end %>
 
   </div>
