@@ -10,6 +10,9 @@
     <%= turbo_frame_tag 'like_button' do %>
       <%= render 'like_button', question: @question %>
     <% end %>
+    <%= turbo_frame_tag 'bookmark_button' do %>
+      <%= render 'bookmark_button', question: @question %>
+    <% end %>
     
     <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんは、「#{@question.music.artist_name}」の「#{@question.music.music_name}」に挑戦しました！ %0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
       <i class="fa-brands fa-x-twitter fa-xl"></i>

@@ -1,0 +1,9 @@
+<% if current_user.bookmark?(question) %>
+  <%= link_to question_bookmark_path(question_id: question.id, id: current_user.bookmarks.find_by(question_id: question.id)), data: { turbo_method: :delete } do %>
+    <i class="fa-solid fa-bookmark"></i>
+  <% end %>
+<% else %>
+  <%= link_to question_bookmarks_path(question_id: question.id), data: { turbo_method: :post } do %>
+    <i class="fa-regular fa-bookmark"></i>
+  <% end %>
+<% end %>
