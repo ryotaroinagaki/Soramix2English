@@ -22,6 +22,10 @@ class QuestionsController < ApplicationController
     @result = Result.where(user_id: current_user.id).last(1).first
     @true_answer = @question.choices.where(is_answer: true).first
   end
+
+  def bookmarks
+    @questions = current_user.bookmarks_posts
+  end
   
   def result
     @result = Result.where(user_id: current_user.id).last(3)
