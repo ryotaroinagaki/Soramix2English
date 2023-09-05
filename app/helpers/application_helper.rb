@@ -2,7 +2,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: '空耳English',
-      # title: '空耳English - 空耳からの脱却',
+      title: '空耳English - 空耳からの脱却をしよう！',
       reverse: true,
       charset: 'utf-8',
       description: '空耳Englishではクイズに答えて英語の音を学んでいきます',
@@ -20,7 +20,7 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@mslryotaro',
+        # site: '@mslryotaro',
         image: image_url('ogp.png')
       }
     }
