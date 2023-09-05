@@ -1,6 +1,8 @@
 <div class="hero-content flex-col lg:flex-row">
   <div class="max-w-sm rounded-lg shadow-2xl"/>
-    <%= image_tag 'maxresdefault.jpg' %>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar %>
+    <% end %>
   </div>
   <div>
     <h1 class="text-5xl font-bold"><%= t('.title') %></h1>
