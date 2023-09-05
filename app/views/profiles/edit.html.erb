@@ -1,22 +1,22 @@
-<div class="hero-content flex-col lg:flex-row">
-  <div>
-    <h1 class="text-5xl font-bold"><%= t('.title') %></h1>
-    <div class="container">
+<div class="flex-col lg:flex-row">
+  <div class="lg:w-3/4 mx-auto">
+    <h1 class="text-5xl font-bold text-center"><%= t('.title') %></h1>
+    <div class="container lg:w-3/4 mx-auto">
       <div class="row">
         <div class="col-md-10 offset-md-1">
           <%= form_with model: @user, url: profile_path, local: true do |f| %>
-            <div>
-              <%= f.label :name %>
+            <div class="mb-4">
+              <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
               <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
             </div>
-
-            <div>
-              <%= f.label :email %>
+            <div class="mb-4">
+              <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
               <%= f.email_field :email, class: "input input-bordered w-full max-w-xs" %>
             </div>
-
-            <%= f.file_field :avatar, accept: "image/png, image/jpeg, image/gif", class: "file-input file-input-bordered w-full max-w-xs" %>
-
+            <div class="mb-4">
+              <%= f.label :avatar,class: "block text-sm font-medium text-gray-700" %>
+              <%= f.file_field :avatar, accept: "image/png, image/jpeg, image/gif", class: "file-input file-input-bordered w-full max-w-xs" %>
+            </div>
             <%= f.submit class: 'btn btn-primary' %>
           <% end %>
         </div>

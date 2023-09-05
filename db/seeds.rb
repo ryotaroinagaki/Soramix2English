@@ -335,7 +335,7 @@ Lyric.create!(
       question_id: 9,
       lyric: "And when you're gone, I feel incomplete
       So, if you want the truth
-      Just wanna be part of your ソファーに イヤホンみたいな なめこ"
+      I just wanna be part of your ソファーに イヤホンみたいな なめこ"
     }
   ]
 )
