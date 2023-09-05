@@ -9,8 +9,7 @@ ja:
         password6: 'パスワード（6文字以上）'
         password_confirmation: 'パスワード確認'
         name: 'ユーザー名'
-        avatar: 'アバター'
-        # id: 'ID'
+        avatar: 'プロフィール画像'
         # role: '権限'
   # attributes:
   #   id: 'ID'
