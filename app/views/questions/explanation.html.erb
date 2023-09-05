@@ -1,24 +1,55 @@
-<% if @result.result == true %>
-  <h1> 正解!! </h1>
-<% else %>
-  <h1> 不正解 </h1>
-<% end %>
-<h1>曲名:<%= @question.music.music_name %></h1>
-<h1>アーティスト名:<%= @question.music.artist_name %></h1>
-<h1>リリース年:<%= @question.music.year %>年</h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @question.youtube_id %>?controls=0&amp;start=<%= @question.youtube_start_time %>&end=<%= @question.youtube_end_time %>&autoplay=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<p>答え</p>
-<p>"A. Sugar Yes, please Won't you come and put it down on me?"</p>
-<h1>和訳:<%= @question.japanese %></h1>
+<div class="text-center md:container md:mx-auto">
+  <div class="text-red-500 text-4xl">
+    <% if @result.result == true %>
+      <h1><%= t('.correct') %></h1>
+    <% else %>
+      <h1><%= t('.incorrect') %></h1>
+    <% end %>
+  </div>
+  <div>
+    <%= turbo_frame_tag 'like_button' do %>
+      <%= render 'like_button', question: @question %>
+    <% end %>
+    
+    <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんは、「#{@question.music.artist_name}」の「#{@question.music.music_name}」に挑戦しました！ %0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
+      <i class="fa-brands fa-x-twitter fa-xl"></i>
+    <% end %>
 
-<p>ポイント</p>
-<h1><%= @question.commentary %></h1>
+  </div>
+  <div class="w-1/4 flex justify-center mt-1 ml-1">
+    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">
+      <div class="collapse-title text-lg font-normal">
+        <h1><%= t('questions.explanation.music_name') %> <%= @question.music.music_name %></h1>
+      </div>
+      <div class="collapse-content"> 
+        <h1><%= t('questions.explanation.artist_name') %> <%= @question.music.artist_name %></h1>
+        <h1><%= t('questions.explanation.release') %> <%= @question.music.year %><%= t('questions.explanation.year') %></h1>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center h-auto rounded-xl">
+    <iframe class="aspect-video rounded-3xl lg:w-2/5 lg:h-2/5 border-4 border-black mt-1 mb-2.5" width="640" height="315" src="https://www.youtube.com/embed/<%= @question.youtube_id %>?controls=0&amp;start=<%= @question.youtube_start_time %>&end=<%= @question.youtube_end_time %>&autoplay=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
 
-<div>
-  <% if session[:total_questions] >= 3 %>
-    <button class="btn btn-primary"><%= link_to "結果へ", result_questions_path %></button>
-  <% else %>
-    <button class="btn btn-accent"><%= link_to "Next Question", question_path(@next_question) %></button>
-  <% end %>
+
+  <div>
+    <p class=""><%= t('.answer') %></p>
+    <h1 class="text-red-600 font-bold"><%= @true_answer.choice %></h1>
+    <h1><%= t('.japanese') %><%= @question.japanese %></h1>
+    
+    <p><%= t('.point') %></p>
+    <h1><%= @question.commentary %></h1>
+    
+    
+    <div>
+      <% if session[:total_questions] >= 3 %>
+        <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
+      <% else %>
+        <button class="btn btn-accent"><%= link_to t('.next_question'), question_path(@next_question) %></button>
+      <% end %>
+    </div>
+  </div>
+  
 </div>
+
 

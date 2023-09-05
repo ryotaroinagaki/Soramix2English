@@ -1,8 +1,10 @@
-<footer class="mx-auto max-w-screen-2xl">
-  <div class="bg-white pt-4 sm:pt-10 lg:pt-12 mt-10">
-    <p class="py-8 text-center text-sm text-gray-400">© 2023 - 空耳English</p>
-    <%= link_to (t "defaults.terms_of_service"), "#", class: "py-8 text-sm text-gray-400" %>
-    <%= link_to (t "defaults.privacy_policy"), "#", class: "py-8 text-sm text-gray-400" %>
-    <%= link_to (t "defaults.inquiry"), "#", class: "py-8 text-sm text-gray-400", target: '_blank' %>
+<footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+  <div class="grid grid-flow-col gap-4">
+    <%= link_to (t "defaults.terms_of_service"), "#", class: "link link-hover" %>
+    <%= link_to (t "defaults.privacy_policy"), "#", class: "link link-hover" %>
+    <%= link_to (t "defaults.inquiry"), "#", class: "link link-hover", target: '_blank' %>
+  </div> 
+  <div>
+    <p>© 2023 - <%= (t 'defaults.app_name') %></p>
   </div>
 </footer>

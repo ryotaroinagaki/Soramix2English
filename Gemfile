@@ -19,10 +19,10 @@ gem 'puma', '~> 5.0'
 # gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-# gem 'turbo-rails'
+gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-# gem 'stimulus-rails'
+gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
@@ -55,6 +55,10 @@ gem 'rails-i18n'
 gem 'config'
 # Googleログイン
 gem 'googleauth'
+#Twitterシェア
+gem 'meta-tags'
+#AWS S3
+gem "aws-sdk-s3", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -84,8 +88,8 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
+  gem 'letter_opener_web', '~> 2.0'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'solargraph'
-  gem 'letter_opener_web', '~> 2.0'
 end
