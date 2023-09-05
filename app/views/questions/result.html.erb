@@ -6,6 +6,9 @@
         </li>
     </ul>
 
+    <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんの点数は、#{@true_count}点でした！%0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-secondary text-white' do %>
+        <i class="fab fa-twitter fa-2xl"></i>
+    <% end %>
 
     <h1>総正答数：<%= @total_count %>問になりました！</h1>
     
