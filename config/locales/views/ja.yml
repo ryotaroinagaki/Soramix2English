@@ -56,8 +56,8 @@ ja:
   questions:
     show:
     explanation:
-      correct: '正解！！おめでとう！！'
-      incorrect: '残念。惜しい'
+      correct: '正解!!Good job!!!'
+      incorrect: '不正解。Next Try!!'
       answer: '答え'
       point: 'ポイント'
       result: "結果"
