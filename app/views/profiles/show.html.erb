@@ -12,7 +12,10 @@
       <h1><%= t('.name') %> :<%= @user.name %></h1>
       <h1><%= t('.email' )%> :<%= @user.email %></h1>
       <%= link_to edit_profile_path do %>
-      <button class="btn btn-primary"><%= t('profiles.edit.title') %></button>
+        <button class="btn btn-primary"><%= t('profiles.edit.title') %></button>
+      <% end %>
+      <%= link_to bookmarks_questions_path do %>
+        <button class="btn btn-primary">ブックマークしたクイズ</button>
       <% end %>
     </div>
   </div>

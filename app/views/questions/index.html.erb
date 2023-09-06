@@ -54,7 +54,7 @@
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">おすすめ</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <p>あなたへのおすすめクイズを３問出題します</p>
           <div class="card-actions justify-end">
             <button class="btn btn-primary">Buy Now</button>
           </div>
@@ -63,7 +63,7 @@
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">人気</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <p>いいね数が多い上位問題を出題されます</p>
           <div class="card-actions justify-end">
             <button class="btn btn-primary">Buy Now</button>
           </div>
@@ -72,9 +72,11 @@
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">ブックマーク</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <p>ブックマークしたクイズ一覧が表示されます</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+          <%= link_to bookmarks_questions_path do %>  
+            <button class="btn btn-primary">Bookmark</button>
+          <% end %>  
           </div>
         </div>
       </div>
