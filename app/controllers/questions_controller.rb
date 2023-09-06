@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
   end
 
   def bookmarks
-    @questions = current_user.bookmarks_posts
+    @questions = current_user.bookmarks_questions
   end
   
   def result
