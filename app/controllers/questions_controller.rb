@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   end
 
   def bookmarks
-    @questions = current_user.bookmarks_questions
+    @questions = current_user.bookmarks_questions.includes([:music])
   end
   
   def result
