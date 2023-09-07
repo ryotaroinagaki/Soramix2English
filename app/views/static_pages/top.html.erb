@@ -5,11 +5,9 @@
       <h1 class="mb-5 text-5xl font-bold">Hi there!</h1>
       <h1 class="mb-6 text-4xl font-bold">This is「空耳English」</h1>
       <h1 class="mb-4">空耳に打ち勝つクイズアプリ</h1>
-      <% if logged_in? %>
-      <% else %>
-        <p class="mb-2 text-sm">登録せずにクイズに答える↓</p>
-        <button class="btn btn-primary mb-5">Get Started!</button>
-      <% end %>
+        <%= link_to new_user_path do %>
+          <button class="btn btn-primary mb-5">会員登録</button>
+        <% end %>
       <p class="mb-2 text-sm">注意</p>
       <p class="text-xs">本アプリのクイズは、YouTubeを使用しています。</p>
       <p class="mb-5 text-xs">YouTubeは自動再生される設定にしていますので、音量にご注意ください</p>
@@ -30,11 +28,6 @@
     <p class="mb-1">・ログイン前は、お試しで２問のクイズに挑戦できます</p>
     <p class="mb-5">・クイズは、4択問題になっていて選んだボタンを押したら回答できます</p>
     <p class="mb-7">※ クイズがページに行くと、YouTubeが自動再生される設定にしています。音量設定にご注意ください</p>
-    <% if !logged_in? %>
-      <%= link_to new_user_path do %>
-        <button class="btn btn-primary mb-5">会員登録</button>
-      <% end %>
-    <% end %>
   </div>
 </div>
 </div>
