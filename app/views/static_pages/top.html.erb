@@ -1,10 +1,40 @@
-<div class="hero min-h-screen" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
-  <div class="hero-overlay bg-opacity-60"></div>
-  <div class="hero-content text-center text-neutral-content">
+<div class="hero min-h-screen" style="background-image: url('<%= asset_path('69144299.jpg') %>');">
+  <div class="hero-overlay bg-opacity-20"></div>
+  <div class="hero-content text-center text-white">
     <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-      <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button class="btn btn-primary">Get Started</button>
+      <h1 class="mb-5 text-5xl font-bold">Hi there!</h1>
+      <h1 class="mb-6 text-4xl font-bold">This is「空耳English」</h1>
+      <h1 class="mb-4">空耳に打ち勝つクイズアプリ</h1>
+      <% if logged_in? %>
+      <% else %>
+        <p class="mb-2 text-sm">登録せずにクイズに答える↓</p>
+        <button class="btn btn-primary mb-5">Get Started!</button>
+      <% end %>
+      <p class="mb-2 text-sm">注意</p>
+      <p class="text-xs">本アプリのクイズは、YouTubeを使用しています。</p>
+      <p class="mb-5 text-xs">YouTubeは自動再生される設定にしていますので、音量にご注意ください</p>
     </div>
   </div>
+</div>
+<div class="hero min-h-screen">
+<div class="hero-content text-center text-black">
+  <div class="max-w-md">
+    <p class="mb-2 text-lg">「空耳English」とは</p>
+    <p class="mb-2">「空耳English」は、英語が日本語に聞こえてしまう現象から克服することを手助けする英語学習クイズアプリです</p>
+    <p class="mb-5">例えば “What time is it now?” が日本語の「掘った芋いじんな」に聞こえるというのは有名な話ですが、他にも色々なパターンがあります。そんな「空耳英語」をみなさんに体験していただき、空耳英語に打ち勝つネイティブ耳を鍛えていただきます。是非英語を活用する際の参考にしていただけたら幸いです</p>
+    <p class="mb-2 text-lg">空耳英語の例</p>
+    <p class="mb-1">“Have a nice day!”「幅無いっすね」</p>
+    <p class="mb-1">"You know me?"「湯飲み」</p>
+    <p class="mb-5">“We need a girl.”「上に上がる」</p>
+    <p class="mb-2 text-lg">使い方</p>
+    <p class="mb-1">・ログイン前は、お試しで２問のクイズに挑戦できます</p>
+    <p class="mb-5">・クイズは、4択問題になっていて選んだボタンを押したら回答できます</p>
+    <p class="mb-7">※ クイズがページに行くと、YouTubeが自動再生される設定にしています。音量設定にご注意ください</p>
+    <% if !logged_in? %>
+      <%= link_to new_user_path do %>
+        <button class="btn btn-primary mb-5">会員登録</button>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 </div>
