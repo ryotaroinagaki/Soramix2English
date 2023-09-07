@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    update_question_count
   end
 
   def difficulty
@@ -22,6 +21,7 @@ class QuestionsController < ApplicationController
     @result = Result.where(user_id: current_user.id).last(1).first
     @true_answer = @question.choices.where(is_answer: true).first
     @ramdom_question = Question.where(difficulty: @question.difficulty).sample(1)
+    update_question_count
   end
 
   def bookmarks
