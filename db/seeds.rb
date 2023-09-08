@@ -754,9 +754,9 @@ Question.create!(
   [
     {
       music_id: 19,
-      youtube_id: 'GNyrYiljeIw',
-      youtube_start_time: 121,
-      youtube_end_time: 132,
+      youtube_id: 'kijpcUv-b8M',
+      youtube_start_time: 96,
+      youtube_end_time: 113,
       difficulty: 0,
       commentary: "解説",
       japanese: "だけど、みんな僕を凹ませたがるんだ"
@@ -767,7 +767,7 @@ Lyric.create!(
   [
     {
       question_id: 19,
-      lyric: "He works hard Everyday I try and I try and I try
+      lyric: "somebody to love He works hard Everyday I try and I try and I try But everybody
       ワシャ コケた"
     }
   ]
@@ -776,7 +776,473 @@ Choice.create!(
   [
     {
       question_id: 19,
-      choice: "But everybody wants to put me down",
+      choice: "wants to put me down",
+      is_answer: true,
+    }
+  ]
+)
+
+
+Music.create!(
+  [
+    {
+      music_name: "White Light/White Heat",
+      artist_name: 'The Velvet Underground',
+      category: "",
+      year: 1968,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 20,
+      youtube_id: '5dbEF-YyEnw',
+      youtube_start_time: 36,
+      youtube_end_time: 48,
+      difficulty: 0,
+      commentary: "解説",
+      japanese: "その側を見て。あなたはそれが運転中に危険になることを知らないの？"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 20,
+      lyric: "Aww, I surely do love watching that stuff tip itself in
+              Hmm, hmm, white light         
+              お医者さん、お医者さん うちの子診てくれ"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 20,
+      choice: "Watch that side, watch that side Don't you know it's gonna be dead in the drive",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Blackened",
+      artist_name: 'Metallica',
+      category: "",
+      year: 1988,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 21,
+      youtube_id: 'nUZVXtDVrc0',
+      youtube_start_time: 73,
+      youtube_end_time: 84,
+      difficulty: 1,
+      commentary: "解説",
+      japanese: "黒化は終わり それは冬をもたらす"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 21,
+      lyric: "バケツリレー 水よこせ"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 21,
+      choice: "Blackened is the end  Winter it will send",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Hound Dog",
+      artist_name: 'John Lennon',
+      category: "",
+      year: 1972,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 22,
+      youtube_id: 'Wt5Ar7XQR9I',
+      youtube_start_time: 119,
+      youtube_end_time: 125,
+      difficulty: 1,
+      commentary: "解説",
+      japanese: "嘘っぱちだったな！"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 22,
+      lyric: "When they said that you was highclassed,
+      笑っちゃったな！！"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 22,
+      choice: "That was just a lie",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "My Melancholy Blues",
+      artist_name: 'Queen',
+      category: "",
+      year: 1977,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 23,
+      youtube_id: 'NGjSUbQG7sI',
+      youtube_start_time: 12,
+      youtube_end_time: 25,
+      difficulty: 0,
+      commentary: "解説",
+      japanese: "また一つパーティーが終わった 僕は冷たい現実の中に取り残される"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 23,
+      lyric: "花のパリ側 なめこ蕎麦"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 23,
+      choice: "Another party's over  And I'm left cold sober",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Soul Dracula",
+      artist_name: 'Hot Blood',
+      category: "",
+      year: 1977,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 24,
+      youtube_id: 'iSPD4t-n3Us',
+      youtube_start_time: 165,
+      youtube_end_time: 171,
+      difficulty: 1,
+      commentary: "解説",
+      japanese: "ああ、やる"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 24,
+      lyric: "アハハハ・・・お〜頭痛い・・"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 24,
+      choice: "Hahahaha Ah, do it",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Soon be done",
+      artist_name: 'Shaggy',
+      category: "",
+      year: 1993,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 25,
+      youtube_id: '5MlvuV6UtiU',
+      youtube_start_time: 0,
+      youtube_end_time: 6,
+      difficulty: 0,
+      commentary: "解説",
+      japanese: "「手を合わせて」と 誰かがそう言う"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 25,
+      lyric: "東急ハンズ 次は、 そばに 西友"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 25,
+      choice: "Put your hands together  Somebody say yeah",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Blackened",
+      artist_name: 'Metallica',
+      category: "",
+      year: 1989,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 26,
+      youtube_id: 'nUZVXtDVrc0',
+      youtube_start_time: 183,
+      youtube_end_time: 192,
+      difficulty: 2,
+      commentary: "解説",
+      japanese: "反対、矛盾、予感"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 26,
+      lyric: "アホでしょ バカでしょ ドラえもんでしょ"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 26,
+      choice: "Opposition, contradiction premonition",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Whispering Playa",
+      artist_name: 'TLC',
+      category: "",
+      year: 1999,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 27,
+      youtube_id: 'TJ3nBpCu4Vg',
+      youtube_start_time: 44,
+      youtube_end_time: 50,
+      difficulty: 2,
+      commentary: "解説",
+      japanese: "あなたは私が言っていることを知っています
+      ダウンしている
+      分解してみましょう"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 27,
+      lyric: "何点？ 満点！ 一応13点。。"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 27,
+      choice: "You know what I'm sayin'  I'm down  Let's break it down",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "I Want To Hold Your Hand",
+      artist_name: 'The Beatles',
+      category: "",
+      year: 1963,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 28,
+      youtube_id: 'jenWdylTtzs',
+      youtube_start_time: 114,
+      youtube_end_time: 134,
+      difficulty: 0,
+      commentary: "解説",
+      japanese: "君の手を握りたい"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 28,
+      lyric: "Yeah, you got that something  I think you'll understand
+      When I'll say that something アホな放尿犯 アホな放尿犯〜"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 28,
+      choice: "I Want To Hold Your Hand",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Don't Piss Me Off",
+      artist_name: 'David Lee Roth',
+      category: "",
+      year: 1997,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 29,
+      youtube_id: 'a5WpOe8pz6U',
+      youtube_start_time: 237,
+      youtube_end_time: 263,
+      difficulty: 1,
+      commentary: "解説",
+      japanese: "もう我慢できない 君はそんな子じゃないはずさ もう耐えられない、ああ"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 29,
+      lyric: "開けて飲もう なんで噛んでんの？ 開けて飲・・・もう"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 29,
+      choice: "I can't take no more  You're not that kind of girl  I can't take no more",
+      is_answer: true,
+    }
+  ]
+)
+
+Music.create!(
+  [
+    {
+      music_name: "Funky Drummer",
+      artist_name: 'James Brown',
+      category: "",
+      year: 1986,
+    }
+  ]
+)
+Question.create!(
+  [
+    {
+      music_id: 30,
+      youtube_id: 'AoQ4AtsFWVM',
+      youtube_start_time: 76,
+      youtube_end_time: 106,
+      difficulty: 2,
+      commentary: "解説",
+      japanese: "「法律を呼んで」
+      「法律を呼んで」
+      「悪魔の婿」
+      「ジュースを持って来て」✖︎４
+      「私を汗かかせて」"
+    },
+  ]
+)
+Lyric.create!(
+  [
+    {
+      question_id: 30,
+      lyric: "この！ この！ フッ だまされた フッ うぅ！ リンゴジュース✖︎４ めっちゃ酸っぱ！！"
+    }
+  ]
+)
+Choice.create!(
+  [
+    {
+      question_id: 30,
+      choice: "Call the law
+      Call the law
+      The devil's son-in-law
+      Bring on the juice✖4
+      Make me sweat",
       is_answer: true,
     }
   ]
