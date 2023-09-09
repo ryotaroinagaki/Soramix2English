@@ -15,13 +15,13 @@ Rails.application.routes.draw do
     member do
       get 'answer'
       get 'explanation'
+      get 'recommend'
+      get 'recommend_explanation'
     end
     collection do
       get 'difficulty/:difficulty', action: :difficulty, as: :difficulty
       get 'result'
       get 'bookmarks'
-      get 'recommended'
-      get 'recommend_explanation'
     end
   end
   resources :results, only: %i[create]

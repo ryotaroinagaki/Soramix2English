@@ -54,9 +54,21 @@
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">おすすめ</h2>
-          <p>あなたへのおすすめクイズを３問出題します</p>
+          <p>あなたへのおすすめクイズを３問出題します!!!</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+            <% if @recommend_questions == nil %>
+            <p>クイズが底をつきました。。しばしお待ちを</p>
+              <%= link_to "#" do %>
+                <button class="btn btn-primary">Recommend nothing</button>
+              <% end %>
+            <% else %>
+              <% @recommend_questions.each do |question| %>
+                <%= link_to recommend_question_path(id:question) do %>
+                  <button class="btn btn-primary">Recommend</button>
+                <% end %>
+                <% break %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

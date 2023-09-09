@@ -38,14 +38,18 @@
     <p><%= t('.point') %></p>
     <h1><%= @question.commentary %></h1>
     <div>
-      <% if @next_question %>
-        <% if session[:total_questions] >= 3 %>
+      <% if @second_question || @third_question %>
+        <% if session[:total_recommend_questions] >= 3 %>
           <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
         <% else %>
-          <button class="btn btn-accent"><%= link_to t('.next_question'), question_path(@next_question) %></button>
+          <% if session[:total_recommend_questions] == 2 %>
+            <button class="btn btn-accent"><%= link_to t('.next_question'), recommend_question_path(@third_question) %></button>
+          <% else %>
+            <button class="btn btn-accent"><%= link_to t('.next_question'), recommend_question_path(@second_question) %></button>
+          <% end %>
         <% end %>
       <% else %>
-        <% if session[:total_questions] >= 3 %>
+        <% if session[:total_recommend_questions] >= 3 %>
           <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
         <% else %>
           <button class="btn btn-accent"><%= link_to t('.next_question'), question_path(@ramdom_question) %></button>
