@@ -49,11 +49,7 @@
           <% end %>
         <% end %>
       <% else %>
-        <% if session[:total_recommend_questions] >= 3 %>
-          <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
-        <% else %>
-          <button class="btn btn-accent"><%= link_to t('.next_question'), question_path(@ramdom_question) %></button>
-        <% end %>
+        <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
       <% end %>
     </div>
   </div>

@@ -1,10 +1,15 @@
 <div class="text-center md:container md:mx-auto">
-    <h1><%= @result.count %><%= t('.how') %><%= @true_count %><%= t('.correct') %></h1>
+    <% if session[:total_questions] > 0 %>
+        <h1><%= @result.count %><%= t('.how') %><%= @true_count %><%= t('.correct') %></h1>
+    <% else %>
+        <h1><%= @recommend_result.count %><%= t('.how') %><%= @recommend_true_count %><%= t('.correct') %></h1>
+    <% end %>
     <h1>挑戦したクイズ</h1>
-    <ul>
-        <li>
-        </li>
-    </ul>
+    <% @result.each do |result| %>
+        <ul>
+            <li><%= result.question.music.artist_name %>: <%= result.question.music.music_name %></li>
+        </ul>
+    <% end %>
 
     <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんの点数は、#{@true_count}点でした！%0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
         <i class="fa-brands fa-x-twitter fa-xl"></i>

@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :reset_question_count, only: %i[index difficulty bookmarks result]
+  before_action :reset_question_count, only: %i[index difficulty bookmarks]
   before_action :initialize_question_count, only: %i[show explanation result]
 
   def index
@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
     @recommend_questions = recommend_questions
     @second_question = @recommend_questions.second
     @third_question = @recommend_questions.third
-    # binding.irb
   end
 
   def show
@@ -33,13 +32,14 @@ class QuestionsController < ApplicationController
   end
   
   def result
-    @result = Result.where(user_id: current_user.id).last(3)
+    @result = Result.where(user_id: current_user.id).last(session[:total_questions])
     @true_count = @result.count { |result| result.result == true }
+    @recommend_result = Result.where(user_id: current_user.id).last(session[:total_recommend_questions])
+    @recommend_true_count = @recommend_result.count { |result| result.result == true }
     @total_count = Result.where(user_id: current_user.id).count
   end
 
   def recommend
-    # binding.irb
     @question = Question.find(params[:id])
     update_recommend_question_count
   end
@@ -52,7 +52,6 @@ class QuestionsController < ApplicationController
     @result = Result.where(user_id: current_user.id).last(1).first
     @true_answer = @question.choices.where(is_answer: true).first
     @ramdom_question = Question.where(difficulty: @question.difficulty).sample(1)
-    # binding.irb
   end
 
   private

@@ -54,9 +54,9 @@
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">おすすめ</h2>
-          <p>あなたへのおすすめクイズを３問出題します!!!</p>
+          <p>おすすめのクイズが３問出題されます!!!</p>
           <div class="card-actions justify-end">
-            <% if @recommend_questions == nil %>
+            <% if @recommend_questions.empty? %>
             <p>クイズが底をつきました。。しばしお待ちを</p>
               <%= link_to "#" do %>
                 <button class="btn btn-primary">Recommend nothing</button>
@@ -75,9 +75,9 @@
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title">人気</h2>
-          <p>いいね数が多い上位問題を出題されます.....※未実装</p>
+          <p>いいね数が多い上位問題が出題されます.....※未実装</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+            <button class="btn btn-primary">nothing</button>
           </div>
         </div>
       </div>
