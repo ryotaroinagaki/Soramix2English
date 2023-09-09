@@ -1,7 +1,7 @@
 <div class="py-10 px-3 md:container md:mx-auto">
   <div class="text-center">
     <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6 "><%= @difficulty.upcase %> Questions</h2>
-    <p class="my-5">クイズを選んでください</p>
+    <p class="my-5"><%= t('.choice_questions') %></p>
   </div>
   <div class="place-items-center px-5 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4">
     <% @questions.each_slice(3).with_index(1) do |batch, batch_index| %>

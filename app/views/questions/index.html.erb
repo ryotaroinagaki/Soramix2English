@@ -1,6 +1,6 @@
 <div class="py-10 px-3 md:container md:mx-auto">
   <div class="text-center">
-    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6 ">クイズ一覧</h2>
+    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6 "><%= t('.questions') %></h2>
   </div>
   <div class="place-items-center px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div class="card w-96 card-side bg-base-100 shadow-xl">
@@ -53,7 +53,7 @@
       </div>
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
-          <h2 class="card-title">おすすめ</h2>
+          <h2 class="card-title"><%= t('.recommend') %></h2>
           <p>おすすめのクイズが３問出題されます!!!</p>
           <div class="card-actions justify-end">
             <% if @recommend_questions.empty? %>
@@ -72,18 +72,22 @@
           </div>
         </div>
       </div>
+
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
-          <h2 class="card-title">人気</h2>
+          <h2 class="card-title"><%= t('.popular') %></h2>
           <p>いいね数が多い上位問題が出題されます.....※未実装</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">nothing</button>
+            <%= link_to "#" do %>
+              <button class="btn btn-primary">nothing</button>
+            <% end %>
           </div>
         </div>
       </div>
+
       <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
-          <h2 class="card-title">ブックマーク</h2>
+          <h2 class="card-title"><%= t('.bookmark') %></h2>
           <p>ブックマークしたクイズ一覧が表示されます</p>
           <div class="card-actions justify-end">
           <%= link_to bookmarks_questions_path do %>  
@@ -92,5 +96,6 @@
           </div>
         </div>
       </div>
+
   </div>
 </div>

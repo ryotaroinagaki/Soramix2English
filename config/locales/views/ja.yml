@@ -54,7 +54,13 @@ ja:
     edit:
       title: 'プロフィール登録'
   questions:
-    show:
+    index:
+      questions: 'クイズ一覧'
+      recommend: 'おすすめ'
+      popular: '人気'
+      bookmark: 'ブックマーク'
+    difficulty:
+      choice_questions: 'クイズを選んでください'
     explanation:
       correct: '正解!!Good job!!!'
       incorrect: '不正解。Next Try!!'
@@ -70,6 +76,7 @@ ja:
     result:
       how: '問中'
       correct: '問正解!!'
+      try_quiz: '挑戦したクイズ'
 
 
   # boards:

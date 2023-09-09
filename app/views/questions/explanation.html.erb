@@ -6,31 +6,9 @@
       <h1><%= t('.incorrect') %></h1>
     <% end %>
   </div>
-  <div>
-    <%= turbo_frame_tag 'like_button' do %>
-      <%= render 'like_button', question: @question %>
-    <% end %>
-    <%= turbo_frame_tag 'bookmark_button' do %>
-      <%= render 'bookmark_button', question: @question %>
-    <% end %>
-    <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんは、「#{@question.music.artist_name}」の「#{@question.music.music_name}」に挑戦しました！ %0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
-      <i class="fa-brands fa-x-twitter fa-xl"></i>
-    <% end %>
-  </div>
-  <div class="w-1/4 flex justify-center mt-1 ml-1">
-    <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">
-      <div class="collapse-title text-lg font-normal">
-        <h1><%= t('questions.explanation.music_name') %> <%= @question.music.music_name %></h1>
-      </div>
-      <div class="collapse-content"> 
-        <h1><%= t('questions.explanation.artist_name') %> <%= @question.music.artist_name %></h1>
-        <h1><%= t('questions.explanation.release') %> <%= @question.music.year %><%= t('questions.explanation.year') %></h1>
-      </div>
-    </div>
-  </div>
-  <div class="flex justify-center h-auto rounded-xl">
-    <iframe class="aspect-video rounded-3xl lg:w-2/5 lg:h-2/5 border-4 border-black mt-1 mb-2.5" width="640" height="315" src="https://www.youtube.com/embed/<%= @question.youtube_id %>?controls=0&amp;start=<%= @question.youtube_start_time %>&end=<%= @question.youtube_end_time %>&autoplay=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
+  
+  <%= render 'explanation', question: @question %>
+  
   <div>
     <p class=""><%= t('.answer') %></p>
     <h1 class="text-red-600 font-bold"><%= @true_answer.choice %></h1>
@@ -40,15 +18,23 @@
     <div>
       <% if @next_question %>
         <% if session[:total_questions] >= 3 %>
-          <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
+          <%= link_to result_questions_path do %>  
+            <button class="btn btn-primary"><%= t('.result') %></button>
+          <% end %>  
         <% else %>
-          <button class="btn btn-accent"><%= link_to t('.next_question'), question_path(@next_question) %></button>
+          <%= link_to question_path(@next_question) do %>  
+            <button class="btn btn-accent"><%= t('.next_question') %></button>
+          <% end %>  
         <% end %>
       <% else %>
         <% if session[:total_questions] >= 3 %>
-          <button class="btn btn-primary"><%= link_to t('.result'), result_questions_path %></button>
+          <%= link_to result_questions_path do %>  
+            <button class="btn btn-primary"><%= t('.result') %></button>
+          <% end %>
         <% else %>
-          <button class="btn btn-accent"><%= link_to t('.next_question'), question_path(@ramdom_question) %></button>
+          <%= link_to question_path(@ramdom_question) do %>  
+            <button class="btn btn-accent"><%= t('.next_question') %></button>
+          <% end %>
         <% end %>
       <% end %>
     </div>

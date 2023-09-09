@@ -4,25 +4,41 @@
     <% else %>
         <h1><%= @recommend_result.count %><%= t('.how') %><%= @recommend_true_count %><%= t('.correct') %></h1>
     <% end %>
-    <h1>挑戦したクイズ</h1>
+    <h1><%= t('.try_quiz') %></h1>
     <% @result.each do |result| %>
         <ul>
             <li><%= result.question.music.artist_name %>: <%= result.question.music.music_name %></li>
         </ul>
     <% end %>
 
-    <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんの点数は、#{@true_count}点でした！%0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
+    <% if session[:total_questions] > 0 %>
+        <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんの点数は、#{@result.count}問中#{@true_count}点でした！%0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
+            <i class="fa-brands fa-x-twitter fa-xl"></i>
+        <% end %>
+    <% else %>
+        <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんの点数は、#{@recommend_result.count}問中#{@recommend_true_count}点でした！%0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
         <i class="fa-brands fa-x-twitter fa-xl"></i>
     <% end %>
+    <% end %>
+    
 
     <h1>総正答数：<%= @total_count %>問になりました！</h1>
     
     <div>
-        <button class="btn btn-primary"><%= link_to "Easy", difficulty_questions_path('easy') %></button>
-        <button class="btn btn-primary"><%= link_to "Normal", difficulty_questions_path('normal') %></button>
-        <button class="btn btn-primary"><%= link_to "Difficult", difficulty_questions_path('difficult') %></button>
-        <button class="btn">
-        <%= link_to t('defaults.top_page'), questions_path %>
-        </button>
+        <%= link_to difficulty_questions_path('easy') do %>  
+            <button class="btn btn-primary">Easy</button>
+        <% end %>  
+        <%= link_to difficulty_questions_path('normal') do %>  
+            <button class="btn btn-primary">Normal</button>
+        <% end %>  
+        <%= link_to difficulty_questions_path('difficult') do %>  
+            <button class="btn btn-primary">Difficult</button>
+        <% end %>  
+        <%= link_to bookmarks_questions_path do %>  
+            <button class="btn btn-primary">Bookmark</button>
+        <% end %>    
+        <%= link_to questions_path do %>  
+            <button class="btn"><%= t('defaults.top_page') %></button>
+        <% end %>    
     </div>
 </div>

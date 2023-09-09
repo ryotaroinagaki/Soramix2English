@@ -1,16 +1,13 @@
 class QuestionsController < ApplicationController
   before_action :reset_question_count, only: %i[index difficulty bookmarks]
   before_action :initialize_question_count, only: %i[show explanation result]
+  before_action :set_question, only: %i[show explanation recommend recommend_explanation]
 
   def index
-    @questions = Question.all
     @recommend_questions = recommend_questions
-    @second_question = @recommend_questions.second
-    @third_question = @recommend_questions.third
   end
 
   def show
-    @question = Question.find(params[:id])
     update_question_count
   end
 
@@ -20,7 +17,6 @@ class QuestionsController < ApplicationController
   end
 
   def explanation
-    @question = Question.find(params[:id])
     @next_question = Question.where(difficulty: @question.difficulty).where('id > ?', @question.id).first
     @result = Result.where(user_id: current_user.id).last(1).first
     @true_answer = @question.choices.where(is_answer: true).first
@@ -40,12 +36,10 @@ class QuestionsController < ApplicationController
   end
 
   def recommend
-    @question = Question.find(params[:id])
     update_recommend_question_count
   end
 
   def recommend_explanation
-    @question = Question.find(params[:id])
     @recommend_questions = recommend_questions
     @second_question = @recommend_questions.second
     @third_question = @recommend_questions.third
@@ -55,6 +49,10 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
   def find_similar_users
     bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
