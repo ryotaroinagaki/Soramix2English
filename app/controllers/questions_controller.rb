@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :reset_question_count, only: %i[index difficulty bookmarks]
+  before_action :reset_question_count, only: %i[index difficulty bookmarks result]
   before_action :initialize_question_count, only: %i[show explanation result]
 
   def index
@@ -32,6 +32,10 @@ class QuestionsController < ApplicationController
     @result = Result.where(user_id: current_user.id).last(3)
     @true_count = @result.count { |result| result.result == true }
     @total_count = Result.where(user_id: current_user.id).count
+  end
+
+  def recommend
+
   end
 
   private

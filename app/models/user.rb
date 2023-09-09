@@ -70,4 +70,17 @@ class User < ApplicationRecord
   # def add_result_uncorrect
   #   result.create(question: choice.question, result: false)
   # end
+
+  def similar_users
+    @bookmark_ids = current_user.bookmarks_questions.pluck(:question_id)
+    user_ids = Bookmark.where(question_id: @bookmark_ids).pluck(:user_id)
+    User.where(id: user_ids)
+  end
+
+  def recommend_questions
+    questions_ids = Bookmark.where(user_id: similar_users.ids).distinct.pluck(:question_id)
+    recommend_questions_ids = Question.where(id:questions_ids).where.not(id: @bookmark_ids)
+    recommend_questions = recommend_questions_ids.pluck(:id) - Result.where(user_id: current_user).distinct.pluck(:question_id)
+    recommend_5questions = recommend_questions.sample(3)
+  end
 end
