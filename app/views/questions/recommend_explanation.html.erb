@@ -1,0 +1,44 @@
+<div class="text-center md:container md:mx-auto">
+  <div class="text-red-500 text-4xl">
+    <% if @result.result == true %>
+      <h1><%= t('questions.explanation.correct') %></h1>
+    <% else %>
+      <h1><%= t('questions.explanation.incorrect') %></h1>
+    <% end %>
+  </div>
+
+  <%= render 'explanation', question: @question %>
+  
+  <div>
+    <p class=""><%= t('questions.explanation.answer') %></p>
+    <h1 class="text-red-600 font-bold"><%= @true_answer.choice %></h1>
+    <h1><%= t('questions.explanation.japanese') %><%= @question.japanese %></h1>
+    <p><%= t('questions.explanation.point') %></p>
+    <h1><%= @question.commentary %></h1>
+    <div>
+      <% if @second_question || @third_question %>
+        <% if session[:total_recommend_questions] >= 3 %>
+          <%= link_to result_questions_path do %>  
+            <button class="btn btn-primary"><%= t('questions.explanation.result') %></button>
+          <% end %>  
+        <% else %>
+          <% if session[:total_recommend_questions] == 2 %>
+            <%= link_to recommend_question_path(@third_question) do %>  
+              <button class="btn btn-accent"><%= t('questions.explanation.next_question') %></button>
+            <% end %>  
+          <% else %>
+            <%= link_to recommend_question_path(@second_question) do %>  
+              <button class="btn btn-accent"><%= t('questions.explanation.next_question') %></button>
+            <% end %>  
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to result_questions_path do %>  
+          <button class="btn btn-primary"><%= t('questions.explanation.result') %></button>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

@@ -7,6 +7,11 @@ class ResultsController < ApplicationController
     else
       user.results.create(question: choice.question, result: false)
     end
-    redirect_to explanation_question_path(choice.question)
+
+    if session[:total_recommend_questions] > 0 
+      redirect_to recommend_explanation_question_path(choice.question)
+    else
+      redirect_to explanation_question_path(choice.question)
+    end
   end
 end
