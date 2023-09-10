@@ -1,17 +1,19 @@
-<div class="py-52 bg-cover bg-center relative" style="background-image: url('<%= asset_path('SCR-20230910-lcto.jpeg') %>');">
-  <div class="bg-game-overlay absolute inset-0 z-10"></div>
-  <div class="text-center text-white relative z-20 bg-black bg-opacity-70 py-5 px-3">
-    <h1 class="mb-5 text-6xl font-bold">Hi there!</h1>
-    <h1 class="mb-6 text-5xl font-bold">This is「空耳English」</h1>
-    <ul>
-      <h1 class="mb-4 text-lg">空耳に打ち勝つクイズアプリ</h1>
-        <%= link_to new_user_path do %>
-          <button class="btn btn-primary mb-5">会員登録</button>
-        <% end %>
-      <p class="mb-2 text-sm">注意</p>
-      <p class="text-xs">本アプリのクイズは、YouTubeを使用しています。</p>
-      <p class="mb-5 text-xs">YouTubeは自動再生される設定にしていますので、音量にご注意ください</p>
-    </ul>
+<div class="hero min-h-screen" style="background-image: url('<%= asset_path('SCR-20230910-lcto.jpeg') %>');">
+  <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-white">
+      <div class="max-w-md mx-24">
+        <h1 class="mb-5 text-7xl font-bold">Hi there!</h1>
+        <h1 class="mb-1 text-6xl font-bold">This is</h1>
+        <h1 class="mb-6 text-6xl font-bold">「空耳English」</h1>
+        <h1 class="mb-4 text-xl">空耳に打ち勝つクイズアプリ</h1>
+          <%= link_to login_path do %>
+            <button class="btn btn-primary mb-5">ログイン</button>
+          <% end %>
+        <p class="mb-1 text-sm">注意</p>
+        <p class="text-xs">本アプリのクイズは、YouTubeを使用しています。</p>
+        <p class="mb-5 text-xs">YouTubeは自動再生される設定にしていますので、音量にご注意ください</p>
+      </ul>
+    </div>
   </div>
 </div>
 <div class="hero min-h-screen">
@@ -25,7 +27,6 @@
     <p class="mb-1">"You know me?"「湯飲み」</p>
     <p class="mb-5">“We need a girl.”「上に上がる」</p>
     <p class="mb-2 text-lg">使い方</p>
-    <p class="mb-1">・ログイン前は、お試しで２問のクイズに挑戦できます</p>
     <p class="mb-5">・クイズは、4択問題になっていて選んだボタンを押したら回答できます</p>
   </div>
 </div>
