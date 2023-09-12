@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
   end
   
   def result
-    @result = Result.where(user_id: current_user.id).last(session[:total_questions])
+    @result = Result.includes([question: :music]).where(user_id: current_user.id).last(session[:total_questions])
     @true_count = @result.count { |result| result.result == true }
     @recommend_result = Result.where(user_id: current_user.id).last(session[:total_recommend_questions])
     @recommend_true_count = @recommend_result.count { |result| result.result == true }

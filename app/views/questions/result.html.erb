@@ -16,7 +16,7 @@
                 <h1><%= @recommend_result.count %><%= t('.how') %><%= @recommend_true_count %><%= t('.correct') %></h1>
             <% end %>
         </div>
-        <h1 class="mt-8 text-xl float-left mr-4">正答数を共有する</h1>
+        <h1 class="mt-8 text-xl float-left mr-4">正答結果を共有する</h1>
         <div class="mt-5">
             <% if session[:total_questions] > 0 %>
                 <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんの点数は、#{@result.count}問中#{@true_count}点でした！%0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
