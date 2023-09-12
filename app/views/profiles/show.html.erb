@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="flex flex-col h-screen text-center">
   <h1 class="text-4xl font-bold mt-20"><%= t('.title') %></h1>
   <div class="flex-col lg:flex-row mt-8">
     <div class="avatar">
@@ -15,7 +15,7 @@
       <h1 class="text-3xl font-bold mt-8"><%= t('.email' )%> : <%= @user.email %></h1>
       <h1 class="text-xl font-bold mt-8 link link-natural"><%= link_to "ブックマークしたクイズ" ,bookmarks_questions_path %></h1>
       <%= link_to edit_profile_path do %>
-        <button class="btn btn-primary mt-8 mb-40"><%= t('profiles.edit.title') %></button>
+        <button class="btn btn-primary mt-8"><%= t('profiles.edit.title') %></button>
       <% end %>
     </div>
   </div>
