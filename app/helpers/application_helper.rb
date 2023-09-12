@@ -2,7 +2,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: '空耳English',
-      title: '空耳English - 空耳からの脱却をしよう！',
+      title: '空耳English - 空耳英語から脱却をしよう！',
       reverse: true,
       charset: 'utf-8',
       description: '空耳Englishではクイズに答えて英語の音を学んでいきます',
