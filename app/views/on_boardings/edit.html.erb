@@ -1,10 +1,10 @@
-<div class="flex justify-center text-center">
+<div class="flex h-screen justify-center text-center">
   <div>
-    <h1 class="text-3xl my-5"><%= t('.title') %></h1>
+    <h1 class="text-4xl font-bold text-center mt-20 mb-10"><%= t('.title') %></h1>
     <%= form_with model: @user, url: on_boardings_path, local: true do |f| %>
-      <div class="mb-3">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'w-full m-3 p-3' %>
+      <div class="mb-10">
+        <%= f.label :name, class: "block text-sm font-medium text-gray-700 text-xl mb-2" %>
+        <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
       </div>
       <div class="d-grid mb-10">
         <%= f.submit t('defaults.register'), class: 'btn btn-primary text-headfoot' %>

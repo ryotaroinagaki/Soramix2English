@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="flex justify-center h-auto rounded-xl">
-    <iframe class="aspect-video rounded-3xl lg:w-3/5 lg:h-3/5 border-8 border-black mt-1 mb-2.5" width="784" height="441" src="https://www.youtube.com/embed/<%= question.youtube_id %>?controls=0&amp;start=<%= question.youtube_start_time %>&end=<%= question.youtube_end_time %>&autoplay=1" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="aspect-video rounded-3xl lg:w-3/5 lg:h-3/5 mt-1 mb-2.5" width="784" height="441" src="https://www.youtube.com/embed/<%= question.youtube_id %>?controls=0&amp;start=<%= question.youtube_start_time %>&end=<%= question.youtube_end_time %>&autoplay=1" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   <div class="text-center flex justify-center">
     <% question.lyrics.each do |lyric| %>
@@ -24,7 +24,7 @@
   <div class="pb-20">
     <% question.choices.each do |choice| %>
       <%= button_to results_path(id: choice), action: "create", method: :post do %>
-        <button class="btn btn-secondary mb-0.5" >
+        <button class="btn btn-secondary mb-2" >
           <%= choice.choice %>
         </button><br/>
       <% end %>
