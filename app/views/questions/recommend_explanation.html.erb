@@ -13,8 +13,6 @@
     <p><%= t('questions.explanation.answer') %></p>
     <h1 class="text-red-600 font-bold text-2xl"><%= @true_answer.choice %></h1>
     <h1 class="mt-3"><%= t('questions.explanation.japanese') %><%= @question.japanese %></h1>
-    <p class="mt-6"><%= t('questions.explanation.point') %></p>
-    <h1 class="mt-3"><%= @question.commentary %></h1>
     <div class="mt-8">
       <%= turbo_frame_tag 'like_button' do %>
         <%= render 'like_button', question: @question %>
