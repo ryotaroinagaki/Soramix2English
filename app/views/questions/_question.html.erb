@@ -21,7 +21,7 @@
     <% end %>
   </div>
   <h1 class="text-red-700 pt-3 pb-2">↓回答↓</h1>
-  <div class="pb-20">
+  <div class="pb-12">
     <% question.choices.each do |choice| %>
       <%= button_to results_path(id: choice), action: "create", method: :post do %>
         <button class="btn btn-secondary mb-2" >

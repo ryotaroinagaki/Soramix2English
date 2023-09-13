@@ -1,10 +1,9 @@
-<div class="flex flex-col h-screen py-10 px-3 md:container md:mx-auto">
+<div class="py-10 px-3 md:container md:mx-auto">
   <div class="text-center">
     <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-12"><%= t('.questions') %></h2>
   </div>
-
   <div class="place-items-center px-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="card w-96 bg-base-200 shadow-xl mb-7">
+      <div class="card w-96 bg-base-100 shadow-xl mb-7">
         <div class="card-body">
           <h2 class="card-title">Easy</h2>
           <div class="card-actions justify-end">
@@ -15,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div class="card w-96 bg-base-200 shadow-xl mb-7">
+      <div class="card w-96 bg-base-100 shadow-xl mb-7">
         <div class="card-body">
           <h2 class="card-title">Normal</h2>
           <div class="card-actions justify-end">
@@ -26,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div class="card w-96 bg-base-200 shadow-xl mb-7">
+      <div class="card w-96 bg-base-100 shadow-xl mb-7">
         <div class="card-body">
           <h2 class="card-title">Difficult</h2>
           <div class="card-actions justify-end">
@@ -37,13 +36,13 @@
           </div>
         </div>
       </div>
-      <div class="card w-96 bg-base-200 shadow-xl">
+      <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title"><%= t('.recommend') %></h2>
           <p>おすすめのクイズが３問出題されます!!!</p>
           <div class="card-actions justify-end">
             <% if @recommend_questions.empty? %>
-            <p>クイズが底をつきました。。しばしお待ちを</p>
+            <p>好きなクイズをブックマークしてみよう！</p>
               <%= link_to "#" do %>
                 <button class="btn btn-primary">Recommend nothing</button>
               <% end %>
@@ -58,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="card w-96 bg-base-200 shadow-xl">
+      <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title"><%= t('.popular') %></h2>
           <p>いいね数が多い上位問題が出題されます</p>
@@ -69,8 +68,7 @@
           </div>
         </div>
       </div>
-
-      <div class="card w-96 bg-base-200 shadow-xl">
+      <div class="card w-96 bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="card-title"><%= t('.bookmark') %></h2>
           <p>ブックマークしたクイズ一覧が表示されます</p>
@@ -81,6 +79,5 @@
           </div>
         </div>
       </div>
-
   </div>
 </div>
