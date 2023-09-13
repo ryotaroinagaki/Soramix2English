@@ -10,10 +10,10 @@
           <h2 class="card-title"><%= question.music.music_name %></h2>
           <p class="float-right font-bold"><%= question.music.artist_name %></p>
           <div class="card-actions justify-end">
-          <p><%= question.difficulty %></p>
-            <%= link_to question_path(question) do %>  
-              <button class="btn btn-primary">クイズ</button>
-            <% end %>  
+            <p><%= question.difficulty %></p>
+              <%= link_to question_path(question) do %>  
+                <button class="btn btn-primary">クイズ</button>
+              <% end %>  
           </div>
         </div>
       </div>
