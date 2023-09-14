@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fa-heart {
+  margin-top: 10px; /* 任意のマージン値を設定します */
+  margin-left: 10px; /* 任意のマージン値を設定します */
+  font-size: 32px; /* フォントサイズを設定 */
+}
+
+.fa-bookmark{
+  margin-top: 10px; /* 任意のマージン値を設定します */
+  margin-left: 16px;
+  font-size: 32px; /* フォントサイズを設定 */
+}

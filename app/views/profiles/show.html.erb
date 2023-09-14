@@ -1,21 +1,21 @@
-<div class="hero-content flex-col lg:flex-row">
-  <div class="avatar">
-    <div class="w-36 rounded-full">
-      <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar %>
-      <% end %>
+<div class="text-center">
+  <h1 class="text-4xl font-bold mt-20"><%= t('.title') %></h1>
+  <div class="flex-col lg:flex-row mt-8">
+    <div class="avatar">
+      <div class="w-44 rounded-full">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+        <% else %>
+          <%= image_tag 'defaultavatar.png' %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div>
-    <h1 class="text-5xl font-bold"><%= t('.title') %></h1>
     <div>
-      <h1><%= t('.name') %> :<%= @user.name %></h1>
-      <h1><%= t('.email' )%> :<%= @user.email %></h1>
+      <h1 class="text-3xl font-bold mt-8"><%= t('.name') %> : <%= @user.name %></h1>
+      <h1 class="text-3xl font-bold mt-8"><%= t('.email' )%> : <%= @user.email %></h1>
+      <h1 class="text-xl font-bold mt-8 link link-natural"><%= link_to "ブックマークしたクイズ" ,bookmarks_questions_path %></h1>
       <%= link_to edit_profile_path do %>
-        <button class="btn btn-primary"><%= t('profiles.edit.title') %></button>
-      <% end %>
-      <%= link_to bookmarks_questions_path do %>
-        <button class="btn btn-primary">ブックマークしたクイズ</button>
+        <button class="btn btn-neutral mt-8"><%= t('profiles.edit.title') %></button>
       <% end %>
     </div>
   </div>

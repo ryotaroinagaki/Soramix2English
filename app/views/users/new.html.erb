@@ -1,3 +1,5 @@
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
 <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 mx-auto mt-12 mb-12">
   <div class="card-body">
     <h3 class="mt-3 text-xl font-medium text-center text-gray-600"><%= t '.title' %></h3>
@@ -22,6 +24,21 @@
         <%= f.submit (t 'defaults.register'), class: "btn btn-neutral"%>
       </div>
     <% end %>
+  </div>
+  <div class="form-control label w-full">
+    <div id="g_id_onload"
+      data-client_id="323169411967-dfj3chkg4vh838qf8pr72782f3ebmfl4.apps.googleusercontent.com"
+      data-login_uri="https://www.soramix2english.com/google_login_api/callback"
+      data-auto_prompt="false" >
+    </div>
+    <div class="g_id_signin"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left">
+    </div>
   </div>
   <div class="flex items-center justify-center py-6 text-center">
     <%= link_to t('.have_account?'), login_path, class: "link link-natural" %>

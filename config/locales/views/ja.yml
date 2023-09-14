@@ -63,7 +63,7 @@ ja:
       choice_questions: 'クイズを選んでください'
     explanation:
       correct: '正解!!Good job!!!'
-      incorrect: '不正解。Next Try!!'
+      incorrect: '不正解 Next Try!!'
       answer: '答え'
       point: 'ポイント'
       result: "結果"

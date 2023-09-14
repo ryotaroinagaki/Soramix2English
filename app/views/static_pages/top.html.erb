@@ -1,33 +1,50 @@
-<div class="hero min-h-screen" style="background-image: url('<%= asset_path('69144299.jpg') %>');">
-  <div class="hero-overlay bg-opacity-20"></div>
-  <div class="hero-content text-center text-white">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hi there!</h1>
-      <h1 class="mb-6 text-4xl font-bold">This is「空耳English」</h1>
-      <h1 class="mb-4">空耳に打ち勝つクイズアプリ</h1>
-        <%= link_to new_user_path do %>
-          <button class="btn btn-primary mb-5">会員登録</button>
-        <% end %>
-      <p class="mb-2 text-sm">注意</p>
-      <p class="text-xs">本アプリのクイズは、YouTubeを使用しています。</p>
-      <p class="mb-5 text-xs">YouTubeは自動再生される設定にしていますので、音量にご注意ください</p>
+<div class="hero min-h-screen bg-white">
+  <%= image_tag "top.png", class: "min-h-screen" %>
+  <div class="hero-overlay bg-opacity-70"></div>
+    <div class="hero-content text-center text-white">
+      <div class="max-w-md mx-24">
+        <h1 class="mb-5 text-7xl font-bold">Hi there!</h1>
+        <h1 class="mb-1 text-6xl font-bold">This is</h1>
+        <h1 class="mb-6 text-6xl font-bold">「空耳English」</h1>
+        <h1 class="mb-4 text-xl">空耳に打ち勝つクイズアプリ</h1>
+          <%= link_to new_user_path do %>
+            <button class="btn btn-secondary mb-5">新規登録</button>
+          <% end %>
+        <p class="mb-1 text-sm">注意</p>
+        <p class="text-xs">本アプリのクイズは、YouTubeを使用しています。</p>
+        <p class="mb-5 text-xs">YouTubeは自動再生される設定にしていますので、音量にご注意ください</p>
+      </ul>
     </div>
   </div>
 </div>
-<div class="hero min-h-screen">
-<div class="hero-content text-center text-black">
-  <div class="max-w-md">
-    <p class="mb-2 text-lg">「空耳English」とは</p>
-    <p class="mb-2">「空耳English」は、英語が日本語に聞こえてしまう現象から克服することを手助けする英語学習クイズアプリです</p>
-    <p class="mb-5">例えば “What time is it now?” が日本語の「掘った芋いじんな」に聞こえるというのは有名な話ですが、他にも色々なパターンがあります。そんな「空耳英語」をみなさんに体験していただき、空耳英語に打ち勝つネイティブ耳を鍛えていただきます。是非英語を活用する際の参考にしていただけたら幸いです</p>
-    <p class="mb-2 text-lg">空耳英語の例</p>
-    <p class="mb-1">“Have a nice day!”「幅無いっすね」</p>
-    <p class="mb-1">"You know me?"「湯飲み」</p>
-    <p class="mb-5">“We need a girl.”「上に上がる」</p>
-    <p class="mb-2 text-lg">使い方</p>
-    <p class="mb-1">・ログイン前は、お試しで２問のクイズに挑戦できます</p>
-    <p class="mb-5">・クイズは、4択問題になっていて選んだボタンを押したら回答できます</p>
-    <p class="mb-7">※ クイズがページに行くと、YouTubeが自動再生される設定にしています。音量設定にご注意ください</p>
+<div class="">
+<div class="text-black text-center">
+  <div class="hero my-6 md:py-12">
+    <div class="hero-content flex-col md:flex-row self-center center">
+      <h1 class="mb-2 text-lg">「空耳English」とは<br>「空耳English」は、英語が日本語に聞こえてしまう現象から克服することを手助けする英語学習クイズアプリです
+      <br>例えば “What time is it now?” が日本語の「掘った芋いじんな」に聞こえるような「空耳英語」をみなさんに体験していただき、<br>空耳英語に打ち勝つネイティブ耳を鍛えていただけたら幸いです</h1>
+    </div>
+  </div>
+  <p class="mb-2 text-xl">使い方</p>
+  <div class="hero">
+    <div class="my-8 hero-content flex-col md:flex-row mx-auto">
+      <p class="mb-2 text-xl">1.ユーザー登録しよう！<br><%= image_tag "top-user.png" %></p>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="my-8 hero-content flex-col md:flex-row">
+      <p class="mb-2 text-xl">2.クイズに答えよう！<br>選んだボタンを押したら回答できます<br><%= image_tag "top-quiz.png" %></p>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="my-8 hero-content flex-col md:flex-row">
+      <p class="mb-5 text-xl">3.Xで挑戦したクイズをシェアしよう！<br><%= image_tag "top-share.png" %></p>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="my-8 hero-content flex-col md:flex-row">
+      <p class="mb-5 text-xl">4.ブックマークして、後で振り返られるようにしよう！<br><%= image_tag "top-bookmark.png" %></p>
+    </div>
   </div>
 </div>
 </div>

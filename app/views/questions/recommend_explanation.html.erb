@@ -1,4 +1,4 @@
-<div class="text-center md:container md:mx-auto">
+<div class="text-center md:container md:mx-auto mt-6">
   <div class="text-red-500 text-4xl">
     <% if @result.result == true %>
       <h1><%= t('questions.explanation.correct') %></h1>
@@ -10,16 +10,25 @@
   <%= render 'explanation', question: @question %>
   
   <div>
-    <p class=""><%= t('questions.explanation.answer') %></p>
-    <h1 class="text-red-600 font-bold"><%= @true_answer.choice %></h1>
-    <h1><%= t('questions.explanation.japanese') %><%= @question.japanese %></h1>
-    <p><%= t('questions.explanation.point') %></p>
-    <h1><%= @question.commentary %></h1>
-    <div>
+    <p><%= t('questions.explanation.answer') %></p>
+    <h1 class="text-red-600 font-bold text-2xl"><%= @true_answer.choice %></h1>
+    <h1 class="mt-3"><%= t('questions.explanation.japanese') %><%= @question.japanese %></h1>
+    <div class="mt-8">
+      <%= turbo_frame_tag 'like_button' do %>
+        <%= render 'like_button', question: @question %>
+      <% end %>
+      <%= turbo_frame_tag 'bookmark_button' do %>
+        <%= render 'bookmark_button', question: @question %>
+      <% end %>
+      <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんは、「#{@question.music.artist_name}」の「#{@question.music.music_name}」に挑戦しました！ %0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black ml-4' do %>
+        <i class="fa-brands fa-x-twitter fa-xl"></i>
+      <% end %>
+    </div>
+    <div class="mt-5 mb-6">
       <% if @second_question || @third_question %>
         <% if session[:total_recommend_questions] >= 3 %>
           <%= link_to result_questions_path do %>  
-            <button class="btn btn-primary"><%= t('questions.explanation.result') %></button>
+            <button class="btn btn-neutral"><%= t('questions.explanation.result') %></button>
           <% end %>  
         <% else %>
           <% if session[:total_recommend_questions] == 2 %>
@@ -34,7 +43,7 @@
         <% end %>
       <% else %>
         <%= link_to result_questions_path do %>  
-          <button class="btn btn-primary"><%= t('questions.explanation.result') %></button>
+          <button class="btn btn-neutral"><%= t('questions.explanation.result') %></button>
         <% end %>
       <% end %>
     </div>

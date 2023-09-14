@@ -8,12 +8,12 @@
         <figure><iframe class="aspect-video rounded-2xl lg:h-max mt-1 mb-2.5" width="784" height="441" src="https://www.youtube.com/embed/<%= question.youtube_id %>?controls=0&amp;&autoplay=0" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></figure>
         <div class="card-body pt-1.5 pb-3">
           <h2 class="card-title"><%= question.music.music_name %></h2>
-          <p class="float-right"><%= question.music.artist_name %></p>
+          <p class="float-right font-bold"><%= question.music.artist_name %></p>
           <div class="card-actions justify-end">
-          <p><%= question.difficulty %></p>
-            <%= link_to question_path(question) do %>  
-              <button class="btn btn-primary">クイズ</button>
-            <% end %>  
+            <p><%= question.difficulty %></p>
+              <%= link_to question_path(question) do %>  
+                <button class="btn btn-neutral">クイズ</button>
+              <% end %>  
           </div>
         </div>
       </div>
