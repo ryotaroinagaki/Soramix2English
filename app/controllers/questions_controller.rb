@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
   def bookmarks
     @questions = current_user.bookmarks_questions.order(created_at: :desc).includes([:music])
   end
-  
+
   def result
     @result = Result.includes([question: :music]).where(user_id: current_user.id).last(session[:total_questions])
     @true_count = @result.count { |result| result.result == true }
@@ -57,8 +57,8 @@ class QuestionsController < ApplicationController
   def find_similar_users
     bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
     similar_user_ids = Bookmark.where(question_id: bookmarked_question_ids)
-                              .where.not(user_id: current_user.id)
-                              .distinct.pluck(:user_id)
+                               .where.not(user_id: current_user.id)
+                               .distinct.pluck(:user_id)
     User.where(id: similar_user_ids)
   end
 
@@ -66,8 +66,8 @@ class QuestionsController < ApplicationController
     bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
     similar_users = find_similar_users
     similar_user_question_ids = Bookmark.where(user_id: similar_users.ids)
-                                       .where.not(question_id: bookmarked_question_ids)
-                                       .distinct.pluck(:question_id)
+                                        .where.not(question_id: bookmarked_question_ids)
+                                        .distinct.pluck(:question_id)
     recommended_question_ids = Question.where(id: similar_user_question_ids)
                                        .where.not(id: bookmarked_question_ids)
                                        .where.not(id: Result.where(user_id: current_user)
