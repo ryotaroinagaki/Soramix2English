@@ -11,13 +11,17 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resources :questions, only: %i[index show] do
     resources :likes, only: %i[create destroy]
+    resources :bookmarks, only: %i[create destroy]
     member do
       get 'answer'
       get 'explanation'
+      get 'recommend'
+      get 'recommend_explanation'
     end
     collection do
       get 'difficulty/:difficulty', action: :difficulty, as: :difficulty
       get 'result'
+      get 'bookmarks'
     end
   end
   resources :results, only: %i[create]

@@ -1,5 +1,5 @@
 <header>
-  <nav class="flex items-center justify-between flex-wrap bg-blue-300 p-4 ">
+  <nav class="flex items-center justify-between flex-wrap bg-blue-300 p-2 ">
     <div ir="ltr" class="flex items-center flex-shrink-0 text-white mr-6">
       <span class="font-semibold text-2xl tracking-tight ms-8">
         <%= link_to (t 'defaults.app_name'), questions_path %>
@@ -13,7 +13,23 @@
             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-40 text-center">
               <li><%= link_to t('defaults.profiles'), profile_path %></li>
               <li><%= link_to t('profiles.edit.title'), edit_profile_path %></li>
+              <li><%= link_to "ブックマーク", bookmarks_questions_path %></li>
               <li><%= button_to t('defaults.logout'), logout_path, method: :delete %></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-hover dropdown-end">
+            <label tabindex="0" class="btn m-1"><%= t('defaults.ranking') %></label>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
+              <li><%= link_to t('defaults.ranking'), "#" %></li>
+            </ul>
+          </div>
+          <div class="dropdown dropdown-hover dropdown-end">
+            <label tabindex="0" class="btn m-1"><%= (t 'defaults.questions') %></label>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
+              <li><%= link_to (t 'defaults.questions'), questions_path %></li>
+              <li><%= link_to "Easy", difficulty_questions_path('easy') %></li>
+              <li><%= link_to "Normal", difficulty_questions_path('normal') %></li>
+              <li><%= link_to "Difficult", difficulty_questions_path('difficult') %></li>
             </ul>
           </div>
         <% else %>
@@ -25,21 +41,6 @@
             </ul>
           </div>
         <% end %>
-        <div class="dropdown dropdown-hover dropdown-end">
-          <label tabindex="0" class="btn m-1"><%= t('defaults.ranking') %></label>
-          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
-            <li><%= link_to t('defaults.ranking'), "#" %></li>
-          </ul>
-        </div>
-        <div class="dropdown dropdown-hover dropdown-end">
-          <label tabindex="0" class="btn m-1"><%= (t 'defaults.questions') %></label>
-          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
-            <li><%= link_to (t 'defaults.questions'), questions_path %></li>
-            <li><%= link_to "Easy", difficulty_questions_path('easy') %></li>
-            <li><%= link_to "Normal", difficulty_questions_path('normal') %></li>
-            <li><%= link_to "Difficult", difficulty_questions_path('difficult') %></li>
-          </ul>
-        </div>
       </div>
     </div>
   </nav>

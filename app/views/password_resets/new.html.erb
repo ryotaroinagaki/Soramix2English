@@ -1,14 +1,16 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-      <h1><%= t '.title' %></h1>
-      <%= form_with url: password_resets_path, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :email, User.human_attribute_name(:email) %><br />
-          <%= f.email_field :email, class: 'form-control' %>
-        </div>
-        <%= f.submit t('password_resets.new.submit'),class: 'btn btn-primary' %>
-      <% end %>
+<div class="lg:w-3/4 mx-auto text-center">
+  <h1 class="text-4xl font-bold text-center mt-20 mb-10"><%= t('.title') %></h1>
+  <div class="container lg:w-3/4 mx-auto">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <%= form_with url: password_resets_path, local: true do |f| %>
+          <div class="mb-10">
+            <%= f.label :email, User.human_attribute_name(:email), class: "block text-sm font-medium text-gray-700 text-xl mb-2" %>
+            <%= f.email_field :email, class: "input input-bordered w-full max-w-xs" %>
+          </div>
+          <%= f.submit t('password_resets.new.submit'),class: 'btn btn-neutral mb-10' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
