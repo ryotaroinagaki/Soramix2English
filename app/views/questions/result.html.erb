@@ -31,19 +31,19 @@
         <h1 class="mt-32 text-2xl text-center">総正答数：<%= @total_count %>問になりました🎉</h1>
         <div class="mt-12 text-center">
             <%= link_to difficulty_questions_path('easy') do %>  
-                <button class="btn btn-primary">Easy</button>
+                <button class="btn btn-neutral">Easy</button>
             <% end %>  
             <%= link_to difficulty_questions_path('normal') do %>  
-                <button class="btn btn-primary">Normal</button>
+                <button class="btn btn-neutral">Normal</button>
             <% end %>  
             <%= link_to difficulty_questions_path('difficult') do %>  
-                <button class="btn btn-primary">Difficult</button>
+                <button class="btn btn-neutral">Difficult</button>
             <% end %>  
             <%= link_to bookmarks_questions_path do %>  
-                <button class="btn btn-primary">Bookmark</button>
+                <button class="btn btn-neutral">Bookmark</button>
             <% end %>    
             <%= link_to questions_path do %>  
-                <button class="btn"><%= t('defaults.top_page') %></button>
+                <button class="btn btn-neutral"><%= t('defaults.top_page') %></button>
             <% end %>    
         </div>
     </div>
