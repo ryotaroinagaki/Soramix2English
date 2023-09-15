@@ -12,15 +12,15 @@ class GoogleLoginApiController < ApplicationController
                                                  aud: '323169411967-dfj3chkg4vh838qf8pr72782f3ebmfl4.apps.googleusercontent.com')
     if user = User.find_by(email: payload['email'])
       session[:user_id] = user.id
-      redirect_to questions_path, notice: t('.success')
+      redirect_to questions_path, success: t('.success')
     else
       user = User.new(email: payload['email'], name: random_name, password: random_password,
                       password_confirmation: random_password)
       if user.save
         session[:user_id] = user.id
-        redirect_to on_boardings_path(user), notice: t('.require_change')
+        redirect_to on_boardings_path(user), success: t('.require_change')
       else
-        redirect_to login_path, notice: t('.fail')
+        redirect_to login_path, error: t('.fail'), status: :unprocessable_entity
       end
     end
   end
