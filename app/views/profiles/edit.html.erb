@@ -4,6 +4,7 @@
     <div class="row">
       <div class="col-md-10 offset-md-1">
         <%= form_with model: @user, url: profile_path, local: true do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>
           <div class="mb-10">
             <%= f.label :name, class: "block text-sm font-medium text-gray-700 text-xl mb-2" %>
             <%= f.text_field :name, class: "input input-bordered w-full max-w-xs" %>
