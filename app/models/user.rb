@@ -54,15 +54,15 @@ class User < ApplicationRecord
   def bookmark(question)
     bookmarks_questions << question
   end
-  
+
   def unbookmark(question)
     bookmarks_questions.destroy(question)
   end
-  
+
   def bookmark?(question)
     bookmarks_questions.include?(question)
   end
-  
+
   # def add_result_correct
   #   results << question
   # end
@@ -70,5 +70,4 @@ class User < ApplicationRecord
   # def add_result_uncorrect
   #   result.create(question: choice.question, result: false)
   # end
-
 end

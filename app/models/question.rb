@@ -24,9 +24,7 @@ class Question < ApplicationRecord
   has_many :lyrics
   has_many :choices
   has_many :results, dependent: :destroy
-  has_many :users, through: :results
   has_many :likes, dependent: :destroy
-  has_many :users, through: :likes
   has_many :bookmarks, dependent: :destroy
   has_many :users, through: :bookmarks
 
