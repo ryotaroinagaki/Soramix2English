@@ -11,8 +11,8 @@ class UsersController < ApplicationController
       auto_login(@user)
       redirect_to questions_path, success: t('.success')
     else
-      flash.now[:danger] = t('.fail')
-      render :new
+      flash.now[:error] = t('.fail')
+      render :new, status: :unprocessable_entity
     end
   end
 

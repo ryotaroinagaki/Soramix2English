@@ -7,8 +7,8 @@ class OnBoardingsController < ApplicationController
     if @user.update(user_params)
       redirect_to questions_path, success: t('defaults.message.register', item: User.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_register', item: User.model_name.human)
-      render :edit
+      flash.now['error'] = t('defaults.message.not_register', item: User.model_name.human)
+      render :edit, status: :unprocessable_entity
     end
   end
 
