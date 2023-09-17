@@ -62,12 +62,4 @@ class User < ApplicationRecord
   def bookmark?(question)
     bookmarks_questions.include?(question)
   end
-
-  # def add_result_correct
-  #   results << question
-  # end
-
-  # def add_result_uncorrect
-  #   result.create(question: choice.question, result: false)
-  # end
 end
