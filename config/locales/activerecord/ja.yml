@@ -10,12 +10,4 @@ ja:
         password_confirmation: 'パスワード確認'
         name: 'ユーザー名'
         avatar: 'プロフィール画像'
-        # role: '権限'
-  # attributes:
-  #   id: 'ID'
-
-  # enums:
-  #   user:
-  #     role:
-  #       general: '一般'
-  #       admin: '管理者'
+        role: '権限'

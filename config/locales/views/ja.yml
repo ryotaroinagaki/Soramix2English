@@ -17,18 +17,9 @@ ja:
     inquiry: "お問い合わせ"
     privacy_policy: "プライバシーポリシー"
     terms_of_service: "利用規約"
-    # search_word: '検索ワード'
-
     message:
       register: "%{item}を登録しました"
       not_register: "%{item}を登録できませんでした"
-  #     require_login: 'ログインしてください'
-  #     updated: "%{item}を更新しました"
-  #     not_updated: "%{item}を更新できませんでした"
-  #     deleted: "%{item}を削除しました"
-  #     delete_confirm: '削除しますか？'
-  #     password_reset: 'パスワードリセット手順を送信しました'
-  #     not_authorized: '権限がありません'
       
   users:
     new:
@@ -75,12 +66,6 @@ ja:
       how: '問中'
       correct: '問正解!!'
       try_quiz: '挑戦したクイズ'
-
-  # bookmarks:
-  #   create:
-  #     success: 'ブックマークしました'
-  #   destroy:
-  #     success: 'ブックマークを外しました'
   profiles:
     show:
       page_title: 'プロフィール'
@@ -109,29 +94,3 @@ ja:
       require_change: "ユーザー名を登録してください"
       fail: "ログインに失敗しました"
       unauthorized_access: "不正なアクセスです。権限がありません"
-  # admin:
-  #   user_sessions:
-  #     new:
-  #       title: 'ログイン'
-  #     create:
-  #       success: 'ログインしました' 
-  #       fail: 'ログインに失敗しました'
-  #     destroy:
-  #       success: 'ログアウトしました'
-  #   dashboards:
-  #     index:
-  #       title: 'ダッシュボード'
-  #   boards:
-  #     index:
-  #       title: '掲示板一覧'
-  #     show:
-  #       title: '掲示板詳細'
-  #     edit:
-  #       title: '掲示板編集'
-  #   users:
-  #     index:
-  #       title: 'ユーザー一覧'
-  #     show:
-  #       title: 'ユーザー詳細'
-  #     edit:
-  #       title: 'ユーザー編集'
