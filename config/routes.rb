@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'difficulty/:difficulty', action: :difficulty, as: :difficulty
       get 'result'
       get 'bookmarks'
+      get 'questions'
     end
   end
   resources :results, only: %i[create]

@@ -7,6 +7,10 @@ class QuestionsController < ApplicationController
     @recommend_questions = recommend_questions
   end
 
+  def questions
+    @questions = Question.all
+  end
+
   def show
     update_question_count
   end
