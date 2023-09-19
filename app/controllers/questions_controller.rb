@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
   end
 
   def questions
-    @questions = Question.all
+    @questions = Question.all.includes([:music]).page(params[:page])
   end
 
   def show
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
   end
 
   def bookmarks
-    @questions = current_user.bookmarks_questions.order(created_at: :desc).includes([:music])
+    @questions = current_user.bookmarks_questions.order(created_at: :desc).includes([:music]).page(params[:page])
   end
 
   def result
