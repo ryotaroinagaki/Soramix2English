@@ -2,9 +2,11 @@
   <div class="text-center">
     <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6">クイズ検索</h2>
     <div class="pb-5">
-      <%= form_with url: questions_questions_path, local: true, method: :get do |f| %>
-        <%= f.text_field :artist_name, placeholder: 'アーティスト名', class:"rounded-full border-gray-700 border py-2 pl-4 pr-10 focus:ring-1 focus:ring-blue-200 focus:border-transparent" %>
-        <%= f.submit "検索", class: "btn btn-neutral" %>
+      <%= search_form_for @q, url: questions_questions_path do |f| %>
+        <div class="input-group mb-3">
+          <%= f.search_field :music_artist_name_cont,  class:"rounded-full border-gray-700 border py-2 pl-4 pr-10 focus:ring-1 focus:ring-blue-200 focus:border-transparent", placeholder: "アーティスト名" %>
+            <%= f.submit class: 'btn btn-neutral' %>
+        </div>
       <% end %>
     </div>
   </div>

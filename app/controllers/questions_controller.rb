@@ -8,10 +8,11 @@ class QuestionsController < ApplicationController
   end
 
   def questions
-    @questions = Question.all.includes([:music]).page(params[:page])
-    if params[:artist_name].present?
-      @questions = @questions.joins(:music).where('musics.artist_name LIKE ?', "#{params[:artist_name]}%")
-    end
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(distinct: true).includes(:music).page(params[:page])
+    # if params[:artist_name].present?
+    #   @questions = @questions.joins(:music).where('musics.artist_name LIKE ?', "#{params[:artist_name]}%")
+    # end
   end
 
   def show
@@ -32,9 +33,6 @@ class QuestionsController < ApplicationController
 
   def bookmarks
     @questions = current_user.bookmarks_questions.order(created_at: :desc).includes([:music]).page(params[:page])
-    if params[:artist_name].present?
-      @questions = @questions.joins(:music).where('musics.artist_name LIKE ?', "#{params[:artist_name]}%")
-    end
   end
 
   def result
