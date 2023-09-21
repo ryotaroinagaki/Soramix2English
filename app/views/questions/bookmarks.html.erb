@@ -1,12 +1,6 @@
 <div class="py-10 px-3 md:container md:mx-auto">
   <div class="text-center">
     <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6">ブックマーク一覧</h2>
-    <div class="pb-5">
-      <%= form_with url: bookmarks_questions_path, local: true, method: :get do |f| %>
-        <%= f.text_field :artist_name, placeholder: 'アーティスト名', class:"rounded-full border-gray-700 border py-2 pl-4 pr-10 focus:ring-1 focus:ring-blue-200 focus:border-transparent" %>
-        <%= f.submit "検索", class: "btn btn-neutral" %>
-      <% end %>
-    </div>
   </div>
   <div class="place-items-center px-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <% @questions.each do |question| %>

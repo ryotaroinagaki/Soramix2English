@@ -10,4 +10,8 @@
 #
 class Music < ApplicationRecord
   has_one :question
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["artist_name"]
+  end
 end
