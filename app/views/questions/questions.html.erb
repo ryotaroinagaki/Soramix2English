@@ -7,9 +7,9 @@
           <div data-controller="autocomplete" data-autocomplete-url-value="/questions/search" role="combobox">
             <%= text_field_tag :query, params[:query], placeholder: "検索キーワードを入力", class: "px-4 py-2 border rounded-md", data: { autocomplete_target: "input" } %>
             <input type="hidden" name="selected_value" data-autocomplete-target="hidden"/>
+            <%= submit_tag "検索", class: "btn btn-accent ml-2" %>
             <ul class="list-group" data-autocomplete-target="results"></ul>
           </div>
-          <%= submit_tag "検索", class: "btn btn-accent ml-2" %>
         <% end %>
       </div>
     </div>
