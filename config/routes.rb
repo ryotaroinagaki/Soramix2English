@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'result'
       get 'bookmarks'
       get 'questions'
+      get 'search'
     end
   end
   resources :results, only: %i[create]

@@ -8,11 +8,17 @@ class QuestionsController < ApplicationController
   end
 
   def questions
-    @q = Question.ransack(params[:q])
-    @questions = @q.result(distinct: true).includes(:music).page(params[:page])
-    # if params[:artist_name].present?
-    #   @questions = @questions.joins(:music).where('musics.artist_name LIKE ?', "#{params[:artist_name]}%")
-    # end
+    if params[:query]
+      @questions = Question.includes([:music]).joins(:music).where('musics.artist_name LIKE ?', "%#{params[:query]}%").page(params[:page])
+    else
+      @questions = Question.includes([:music]).page(params[:page])
+    end
+  end
+
+  def search
+    query = params[:q]
+    @search_results = Question.all.includes([:music]).where('musics.artist_name LIKE ?', "%#{query}%").pluck(:artist_name)
+    render partial: "autocomplete", formats: :html
   end
 
   def show
