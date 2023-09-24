@@ -1,6 +1,6 @@
 <div class="py-10 px-3 md:container md:mx-auto">
   <div class="text-center">
-    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6">クイズ検索</h2>
+    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6"><%= t('.search_question') %></h2>
     <div class="pb-5">
       <div class="flex justify-center">
         <%= form_tag('/questions/questions', method: :get, id: 'search-form', class: "flex items-center mr-4") do %>

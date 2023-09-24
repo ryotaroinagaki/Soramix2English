@@ -7,7 +7,7 @@
         <div class="card-body">
           <h2 class="card-title">Easy</h2>
           <div class="card-actions justify-end">
-            <p>難易度が"Easy"のクイズが出題されます</p>
+            <p><%= t('.easy') %></p>
             <%= link_to difficulty_questions_path('easy') do %>  
               <button class="btn btn-neutral">Easy</button>
             <% end %>  
@@ -18,7 +18,7 @@
         <div class="card-body">
           <h2 class="card-title">Normal</h2>
           <div class="card-actions justify-end">
-            <p>難易度が"Normal"のクイズが出題されます</p>
+            <p><%= t('.normal') %></p>
             <%= link_to difficulty_questions_path('normal') do %>  
               <button class="btn btn-neutral">Normal</button>
             <% end %>
@@ -29,7 +29,7 @@
         <div class="card-body">
           <h2 class="card-title">Difficult</h2>
           <div class="card-actions justify-end">
-            <p>難易度が"Difficult"のクイズが出題されます</p>
+            <p><%= t('.difficult') %></p>
             <%= link_to difficulty_questions_path('difficult') do %>  
               <button class="btn btn-neutral">Difficult</button>
             <% end %>
@@ -39,10 +39,10 @@
       <div class="card w-96 bg-base-100 shadow-xl md:w-11/12 lg:w-11/12 xl:w-96 2xl:w-10/12">
         <div class="card-body">
           <h2 class="card-title"><%= t('.recommend') %></h2>
-          <p>おすすめのクイズが３問出題されます!!!</p>
+          <p><%= t('.recommend_text') %></p>
           <div class="card-actions justify-end">
             <% if @recommend_questions.empty? %>
-            <p>好きなクイズをブックマークしてみよう！</p>
+            <p><%= t('.recommend_bookmark') %></p>
               <%= link_to "#" do %>
                 <button class="btn btn-neutral">Recommend nothing</button>
               <% end %>
@@ -60,7 +60,7 @@
       <div class="card w-96 bg-base-100 shadow-xl md:w-11/12 lg:w-11/12 xl:w-96 2xl:w-10/12">
         <div class="card-body">
           <h2 class="card-title"><%= t('.popular') %></h2>
-          <p>いいね数が多い上位問題が出題されます</p>
+          <p><%= t('.popular_text') %></p>
           <div class="card-actions justify-end">
             <%= link_to "#" do %>
               <button class="btn btn-neutral">nothing</button>
@@ -71,7 +71,7 @@
       <div class="card w-96 bg-base-100 shadow-xl md:w-11/12 lg:w-11/12 xl:w-96 2xl:w-10/12">
         <div class="card-body">
           <h2 class="card-title"><%= t('.bookmark') %></h2>
-          <p>ブックマークしたクイズ一覧が表示されます</p>
+          <p><%= t('.bookmark_text') %></p>
           <div class="card-actions justify-end">
           <%= link_to bookmarks_questions_path do %>  
             <button class="btn btn-neutral">Bookmark</button>

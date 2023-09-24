@@ -1,6 +1,6 @@
 <div class="py-10 px-3 md:container md:mx-auto">
   <div class="text-center">
-    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6">ブックマーク一覧</h2>
+    <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6"><%= t('.questions') %></h2>
   </div>
   <div class="place-items-center px-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <% @questions.each do |question| %>
@@ -12,7 +12,7 @@
           <div class="card-actions justify-end">
             <p><%= question.difficulty %></p>
               <%= link_to question_path(question) do %>  
-                <button class="btn btn-neutral">クイズ</button>
+                <button class="btn btn-neutral"><%= t('.quiz') %></button>
               <% end %>  
           </div>
         </div>
