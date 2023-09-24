@@ -73,6 +73,7 @@ ja:
       release: 'リリース年:'
       year: '年'
       japanese: "和訳:"
+      voice: '発音をチェックしてみる'
     result:
       result: '正答結果'
       how: '問中'
