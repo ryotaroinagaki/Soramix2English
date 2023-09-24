@@ -2,12 +2,16 @@
   <div class="text-center">
     <h2 class="font-bold text-xl md:text-3xl lg:text-3xl mb-6">クイズ検索</h2>
     <div class="pb-5">
-      <%= search_form_for @q, url: questions_questions_path do |f| %>
-        <div class="input-group mb-3">
-          <%= f.search_field :music_artist_name_cont,  class:"rounded-full border-gray-700 border py-2 pl-4 pr-10 focus:ring-1 focus:ring-blue-200 focus:border-transparent", placeholder: "アーティスト名" %>
-            <%= f.submit class: 'btn btn-neutral' %>
-        </div>
-      <% end %>
+      <div class="flex justify-center">
+        <%= form_tag('/questions/questions', method: :get, id: 'search-form', class: "flex items-center mr-4") do %>
+          <div data-controller="autocomplete" data-autocomplete-url-value="/questions/search" role="combobox">
+            <%= text_field_tag :artist_name, params[:artist_name], placeholder: "アーティスト名", class: "px-4 py-2 border rounded-md", data: { autocomplete_target: "input" } %>
+            <input type="hidden" name="selected_value" data-autocomplete-target="hidden"/>
+            <%= submit_tag "検索", class: "btn btn-neutral ml-2" %>
+            <ul class="list-group" data-autocomplete-target="results"></ul>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="place-items-center px-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
