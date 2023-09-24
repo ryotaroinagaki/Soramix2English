@@ -1,5 +1,3 @@
-<ul class="list-group" data-autocomplete-target="results">
-  <% @search_results.each do |result| %>
-    <li role="option" ><%= result %></li>
-  <% end %>
-</ul>
+<% @search_results.each do |result| %>
+  <li class="list-group-item" role="option" ><%= result %></li>
+<% end %>

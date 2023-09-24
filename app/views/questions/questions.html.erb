@@ -5,9 +5,9 @@
       <div class="flex justify-center">
         <%= form_tag('/questions/questions', method: :get, id: 'search-form', class: "flex items-center mr-4") do %>
           <div data-controller="autocomplete" data-autocomplete-url-value="/questions/search" role="combobox">
-            <%= text_field_tag :query, params[:query], placeholder: "検索キーワードを入力", class: "px-4 py-2 border rounded-md", data: { autocomplete_target: "input" } %>
+            <%= text_field_tag :artist_name, params[:artist_name], placeholder: "アーティスト名", class: "px-4 py-2 border rounded-md", data: { autocomplete_target: "input" } %>
             <input type="hidden" name="selected_value" data-autocomplete-target="hidden"/>
-            <%= submit_tag "検索", class: "btn btn-accent ml-2" %>
+            <%= submit_tag "検索", class: "btn btn-neutral ml-2" %>
             <ul class="list-group" data-autocomplete-target="results"></ul>
           </div>
         <% end %>
