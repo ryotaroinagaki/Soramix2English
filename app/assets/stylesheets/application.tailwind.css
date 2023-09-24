@@ -13,3 +13,21 @@
   margin-left: 16px;
   font-size: 32px; /* フォントサイズを設定 */
 }
+/* オートコンプリート */
+.list-group {
+  border: 1px solid #ccc;
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.list-group-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #f0f0f0;
+}

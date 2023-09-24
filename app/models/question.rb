@@ -24,11 +24,17 @@ class Question < ApplicationRecord
   has_many :lyrics
   has_many :choices
   has_many :results, dependent: :destroy
-  has_many :users, through: :results
   has_many :likes, dependent: :destroy
-  has_many :users, through: :likes
   has_many :bookmarks, dependent: :destroy
   has_many :users, through: :bookmarks
 
   enum difficulty: { easy: 0, normal: 1, difficult: 2 }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["artist_name"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["music"]
+  end
 end

@@ -16,7 +16,7 @@ module ApplicationHelper
         type: 'website',
         url: request.original_url,
         image: image_url('ogp.png'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image',

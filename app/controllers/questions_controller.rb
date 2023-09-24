@@ -7,6 +7,20 @@ class QuestionsController < ApplicationController
     @recommend_questions = recommend_questions
   end
 
+  def questions
+    query = params[:artist_name]
+    @questions = Question.includes(:music).page(params[:page])
+    if query.present?
+      @questions = @questions.joins(:music).where('artist_name LIKE ?', "%#{query}%")
+    end
+  end
+
+  def search
+    query = params[:q]
+    @search_results = Question.all.includes([:music]).where('artist_name LIKE ?', "%#{query}%").pluck(:artist_name)
+    render partial: "autocomplete", formats: :html
+  end
+
   def show
     update_question_count
   end
@@ -24,9 +38,9 @@ class QuestionsController < ApplicationController
   end
 
   def bookmarks
-    @questions = current_user.bookmarks_questions.order(created_at: :desc).includes([:music])
+    @questions = current_user.bookmarks_questions.order(created_at: :desc).includes([:music]).page(params[:page])
   end
-  
+
   def result
     @result = Result.includes([question: :music]).where(user_id: current_user.id).last(session[:total_questions])
     @true_count = @result.count { |result| result.result == true }
@@ -57,8 +71,8 @@ class QuestionsController < ApplicationController
   def find_similar_users
     bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
     similar_user_ids = Bookmark.where(question_id: bookmarked_question_ids)
-                              .where.not(user_id: current_user.id)
-                              .distinct.pluck(:user_id)
+                               .where.not(user_id: current_user.id)
+                               .distinct.pluck(:user_id)
     User.where(id: similar_user_ids)
   end
 
@@ -66,8 +80,8 @@ class QuestionsController < ApplicationController
     bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
     similar_users = find_similar_users
     similar_user_question_ids = Bookmark.where(user_id: similar_users.ids)
-                                       .where.not(question_id: bookmarked_question_ids)
-                                       .distinct.pluck(:question_id)
+                                        .where.not(question_id: bookmarked_question_ids)
+                                        .distinct.pluck(:question_id)
     recommended_question_ids = Question.where(id: similar_user_question_ids)
                                        .where.not(id: bookmarked_question_ids)
                                        .where.not(id: Result.where(user_id: current_user)
