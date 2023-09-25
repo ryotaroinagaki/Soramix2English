@@ -13,6 +13,61 @@
     <p><%= t('.answer') %></p>
     <h1 class="text-red-600 font-bold text-2xl"><%= @true_answer.choice %></h1>
     <h1 class="mt-3"><%= t('.japanese') %><%= @question.japanese %></h1>
+    
+    <h1 class="mt-3 mb-1 text-lg"><%= t('.voice') %><i class="fa-solid fa-microphone"></i></h1>
+    <button class="btn btn-info" id="start-btn">start</button>
+    <button class="btn btn-error" id="reset-btn">reset</button>
+    <div id="result-div" class="text-2xl font-bold"></div>
+    
+    <script>
+      document.querySelector('#start-btn').onclick = () => {
+        initializeSpeechRecognition();
+        }
+        
+      //再定義できる変数を宣言
+      var startBtn;
+      var resetBtn;
+      var resultDiv;
+
+      // 関数内で変数を宣言
+      function initializeSpeechRecognition() {
+        startBtn = document.querySelector('#start-btn');
+        resetBtn = document.querySelector('#reset-btn');
+        resultDiv = document.querySelector('#result-div');
+      
+        SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
+        let recognition = new SpeechRecognition();
+      
+        recognition.lang = 'en-US';
+        recognition.interimResults = true;
+      
+        let finalTranscript = ''; // 確定した(黒の)認識結果
+      
+        recognition.onresult = (event) => {
+          let interimTranscript = ''; // 暫定(灰色)の認識結果
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            let transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+              finalTranscript += '<div>' + transcript + '</div>';
+            } else {
+              interimTranscript = transcript;
+            }
+          }
+          resultDiv.innerHTML = finalTranscript + '<i style="color:#ddd; font-size: 20px;">' + interimTranscript + '</i>';
+        }
+      
+        startBtn.onclick = () => {
+          recognition.start();
+        }
+        resetBtn.onclick = () => {
+          finalTranscript = '';
+          interimTranscript = '';
+          resultDiv.innerHTML = '';
+        }
+        recognition.start();
+      }
+    </script>
+
     <div class="mt-8">
       <%= turbo_frame_tag 'like_button' do %>
         <%= render 'like_button', question: @question %>

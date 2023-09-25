@@ -48,8 +48,19 @@ ja:
       recommend: 'おすすめ'
       popular: '人気'
       bookmark: 'ブックマーク'
+      easy: '難易度が"Easy"のクイズが出題されます'
+      normal: '難易度が"Normal"のクイズが出題されます'
+      difficult: '難易度が"Difficult"のクイズが出題されます'
+      recommend_text: 'おすすめのクイズが３問出題されます!!!'
+      recommend_bookmark: '好きなクイズをブックマークしてみよう！'
+      popular_text: 'いいね数が多い上位問題が出題されます'
+      bookmark_text: 'ブックマークしたクイズ一覧が表示されます'
+    questions:
+      search_question: 'クイズ検索'
     difficulty:
       choice_questions: 'クイズを選んでください'
+    show:
+      answer_questions: '↓回答↓'
     explanation:
       correct: '正解!!Good job!!!'
       incorrect: '不正解 Next Try!!'
@@ -62,16 +73,25 @@ ja:
       release: 'リリース年:'
       year: '年'
       japanese: "和訳:"
+      voice: '発音をチェックしてみる'
     result:
+      result: '正答結果'
       how: '問中'
       correct: '問正解!!'
       try_quiz: '挑戦したクイズ'
+      share: '正答結果を共有する'
+      total: '総正答数：'
+      total2: '問になりました🎉'
+    bookmarks:
+      questions: 'ブックマーク一覧'
+      quiz: 'クイズ'
   profiles:
     show:
       page_title: 'プロフィール'
       title: 'プロフィール編集'
       name: 'ユーザー名'
       email: 'メールアドレス'
+      bookmarked: 'ブックマークしたクイズ'
     edit:
       title: 'プロフィール編集'
     update:
