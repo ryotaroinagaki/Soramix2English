@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :reset_question_count, only: %i[index difficulty bookmarks]
+  before_action :reset_question_count, only: %i[index difficulty bookmarks questions]
   before_action :initialize_question_count, only: %i[show explanation result]
   before_action :set_question, only: %i[show explanation recommend recommend_explanation]
 
