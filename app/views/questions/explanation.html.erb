@@ -13,8 +13,39 @@
     <p><%= t('.answer') %></p>
     <h1 class="text-red-600 font-bold text-2xl"><%= @true_answer.choice %></h1>
     <h1 class="mt-3"><%= t('.japanese') %><%= @question.japanese %></h1>
+
+    <textarea id="text" style="display: none;"><%= @true_answer.choice %></textarea>
+    <select id="voice-select" style="display: none;"></select>
+    <button id="speak-btn" class="mt-3">答えを再生<i class="fa-solid fa-headphones"></i><i class="fa-solid fa-volume-high"></i></button>
+
+    <script>
+      var text = document.querySelector('#text')    
+      var voiceSelect = document.querySelector('#voice-select')
+      var speakBtn = document.querySelector('#speak-btn')
+
+      function appendVoices() {
+        voiceSelect.innerHTML = ''
+        const option = document.createElement('option')
+        option.value = 'Google US English'
+        voiceSelect.appendChild(option)
+      }
+
+      appendVoices()
+
+      speechSynthesis.onvoiceschanged = e => {
+        appendVoices()
+      }
+
+      speakBtn.addEventListener('click', function() {
+        const uttr = new SpeechSynthesisUtterance(text.value)
+        uttr.voice = speechSynthesis
+          .getVoices()
+          .filter(voice => voice.name === voiceSelect.value)[0]
+        speechSynthesis.speak(uttr)
+      });
+    </script>
     
-    <h1 class="mt-3 mb-1 text-lg"><%= t('.voice') %><i class="fa-solid fa-microphone"></i></h1>
+    <h1 class="mt-3 mb-1 text-lg"><%= t('.voice') %><i class="fa-solid fa-microphone"></i><i class="fa-solid fa-record-vinyl"></i></h1>
     <button class="btn btn-info" id="start-btn">start</button>
     <button class="btn btn-error" id="reset-btn">reset</button>
     <div id="result-div" class="text-2xl font-bold"></div>
@@ -66,37 +97,6 @@
         }
         recognition.start();
       }
-    </script>
-
-    <textarea id="text"><%= @true_answer.choice %></textarea>
-    <select id="voice-select"></select>
-    <button id="speak-btn">再生</button>
-
-    <script>
-      var text = document.querySelector('#text')    
-      var voiceSelect = document.querySelector('#voice-select')
-      var speakBtn = document.querySelector('#speak-btn')
-
-      function appendVoices() {
-        voiceSelect.innerHTML = ''
-        const option = document.createElement('option')
-        option.value = 'Google US English'
-        voiceSelect.appendChild(option)
-      }
-
-      appendVoices()
-
-      speechSynthesis.onvoiceschanged = e => {
-        appendVoices()
-      }
-
-      speakBtn.addEventListener('click', function() {
-        const uttr = new SpeechSynthesisUtterance(text.value)
-        uttr.voice = speechSynthesis
-          .getVoices()
-          .filter(voice => voice.name === voiceSelect.value)[0]
-        speechSynthesis.speak(uttr)
-      });
     </script>
 
     <div class="mt-8">
