@@ -41,10 +41,10 @@
         recognition.lang = 'en-US';
         recognition.interimResults = true;
       
-        let finalTranscript = ''; // 確定した(黒の)認識結果
+        let finalTranscript = ''; // 確定した(黒)認識結果
       
         recognition.onresult = (event) => {
-          let interimTranscript = ''; // 暫定(灰色)の認識結果
+          let interimTranscript = ''; // 暫定(灰色)認識結果
           for (let i = event.resultIndex; i < event.results.length; i++) {
             let transcript = event.results[i][0].transcript;
             if (event.results[i].isFinal) {
@@ -67,6 +67,44 @@
         recognition.start();
       }
     </script>
+
+  <textarea id="text"><%= @true_answer.choice %></textarea>
+  <select id="voice-select"></select>
+  <button id="speak-btn">再生</button>
+
+  <script>
+    document.querySelector('#speak-btn').onclick = () => {
+      initializeSpeechSynthesis();
+      appendVoices();
+      }
+  
+    const text        = document.querySelector('#text')
+    const voiceSelect = document.querySelector('#voice-select')
+    const speakBtn    = document.querySelector('#speak-btn')
+
+    function initializeSpeechSynthesis() {
+    function appendVoices() {
+      voiceSelect.innerHTML = ''
+      const option = document.createElement('option')
+      option.value = 'Google US English'
+      voiceSelect.appendChild(option)
+    }
+
+    appendVoices()
+
+    speechSynthesis.onvoiceschanged = e => {
+      appendVoices()
+    }
+
+    speakBtn.addEventListener('click', function() {
+      const uttr = new SpeechSynthesisUtterance(text.value)
+      uttr.voice = speechSynthesis
+        .getVoices()
+        .filter(voice => voice.name === voiceSelect.value)[0]
+      speechSynthesis.speak(uttr)
+    })
+  }
+  </script>
 
     <div class="mt-8">
       <%= turbo_frame_tag 'like_button' do %>
