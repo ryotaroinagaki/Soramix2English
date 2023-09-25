@@ -68,43 +68,36 @@
       }
     </script>
 
-  <textarea id="text"><%= @true_answer.choice %></textarea>
-  <select id="voice-select"></select>
-  <button id="speak-btn">再生</button>
+    <textarea id="text"><%= @true_answer.choice %></textarea>
+    <select id="voice-select"></select>
+    <button id="speak-btn">再生</button>
 
-  <script>
-    document.querySelector('#speak-btn').onclick = () => {
-      initializeSpeechSynthesis();
-      appendVoices();
+    <script>
+      var text = document.querySelector('#text')    
+      var voiceSelect = document.querySelector('#voice-select')
+      var speakBtn = document.querySelector('#speak-btn')
+
+      function appendVoices() {
+        voiceSelect.innerHTML = ''
+        const option = document.createElement('option')
+        option.value = 'Google US English'
+        voiceSelect.appendChild(option)
       }
-  
-    const text        = document.querySelector('#text')
-    const voiceSelect = document.querySelector('#voice-select')
-    const speakBtn    = document.querySelector('#speak-btn')
 
-    function initializeSpeechSynthesis() {
-    function appendVoices() {
-      voiceSelect.innerHTML = ''
-      const option = document.createElement('option')
-      option.value = 'Google US English'
-      voiceSelect.appendChild(option)
-    }
-
-    appendVoices()
-
-    speechSynthesis.onvoiceschanged = e => {
       appendVoices()
-    }
 
-    speakBtn.addEventListener('click', function() {
-      const uttr = new SpeechSynthesisUtterance(text.value)
-      uttr.voice = speechSynthesis
-        .getVoices()
-        .filter(voice => voice.name === voiceSelect.value)[0]
-      speechSynthesis.speak(uttr)
-    })
-  }
-  </script>
+      speechSynthesis.onvoiceschanged = e => {
+        appendVoices()
+      }
+
+      speakBtn.addEventListener('click', function() {
+        const uttr = new SpeechSynthesisUtterance(text.value)
+        uttr.voice = speechSynthesis
+          .getVoices()
+          .filter(voice => voice.name === voiceSelect.value)[0]
+        speechSynthesis.speak(uttr)
+      });
+    </script>
 
     <div class="mt-8">
       <%= turbo_frame_tag 'like_button' do %>
