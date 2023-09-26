@@ -1,0 +1,18 @@
+<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-200 mx-auto mt-20 mb-48">
+  <div class="card-body">
+    <h3 class="mt-3 text-xl font-medium text-center text-gray-600"><%= t '.title' %>ログイン</h3>
+    <%= form_with url: admin_login_path, local: true do |f| %>
+      <div class="form-control">
+        <%= f.label :email, User.human_attribute_name(:email), class: "label w-full" %>
+        <%= f.email_field :email, class: "input input-bordered w-full" %>
+      </div>
+      <div class="form-control">
+        <%= f.label :password, User.human_attribute_name(:password), class: "label w-full" %>
+        <%= f.password_field :password, class: 'form-control', class: "input input-bordered w-full" %>
+      </div>
+      <div class="form-control mt-6">
+        <%= f.submit t('defaults.login'), class: "btn btn-neutral"%>
+      </div>
+    <% end %>
+  </div>
+</div>
