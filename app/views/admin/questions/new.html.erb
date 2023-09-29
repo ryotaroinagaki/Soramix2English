@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="text-3xl pt-10 ml-10"><%= t '.title' %></h1>
+    <div class="ml-10 mt-5 bg-button-color w-36 text-center">
+        <%= link_to t('.questions'), admin_questions_path %>
+    </div>
+    <div class="text-black w-36 text-center">
+        <%= @music.id %>
+    </div>
+    <div class="flex justify-center">
+        <%= form_with model: @question, url: admin_questions_path, local: true do |f| %>
+            <div class = 'form-group py-2'>
+                <%= f.label :music_id, class: "text-font-color text-3xl" %>
+                <%= f.number_field :music_id, value: @music.id, class: "form-control mb-3 py-2 px-10 mt-3 text-2xl" %>
+            </div>
+            <div class = 'form-group py-2'>
+                <%= f.label :youtube_id, class: "text-font-color text-3xl" %>
+                <%= f.text_field :youtube_id,  class: "form-control mb-3 py-2 px-10 mt-3 text-2xl" %>
+            </div>
+            <div class = 'form-group py-2'>
+                <%= f.label :youtube_start_time, class: "text-font-color text-3xl" %>
+                <%= f.number_field :youtube_start_time,  class: "form-control mb-3 py-2 px-10 mt-3 text-2xl" %>
+            </div>
+            <div class = 'form-group py-2'>
+                <%= f.label :youtube_end_time, class: "text-font-color text-3xl" %>
+                <%= f.number_field :youtube_end_time,  class: "form-control mb-3 py-2 px-10 mt-3 text-2xl" %>
+            </div>
+            <div class = 'form-group py-2'>
+                <%= f.label :difficulty, class: "text-font-color text-3xl" %>
+                <%= f.select :difficulty, [['easy'], ['normal'],['difficult']],  class: "form-control mb-3 py-2 px-10 mt-3 text-2xl" %>
+            </div>
+            <div class = 'form-group py-2'>
+                <%= f.label :japanese, class: "text-font-color text-3xl" %>
+                <%= f.text_area :japanese,  class: "form-control mb-3 py-2 px-10 mt-3 text-2xl" %>
+            </div>
+            <div class="form-group py-5 text-center">
+                <%= f.submit (t'defaults.register'), class: 'btn btn-primary bg-button-color hover:bg-hover-color border-none' %>
+            </div>
+        <% end %>
+    </div>
+</div>
