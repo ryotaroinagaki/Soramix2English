@@ -6,9 +6,9 @@ class Admin::MusicsController < Admin::BaseController
   def create
     @music = Music.new(music_paramas)
     if @music.save
-      redirect_to new_admin_question_path , success: '成功'
+      redirect_to new_admin_question_path, success: t('.success')
     else
-      flash.now[:danger] = '失敗しました'
+      flash.now[:error] = t('.fail')
       render :new
     end
   end

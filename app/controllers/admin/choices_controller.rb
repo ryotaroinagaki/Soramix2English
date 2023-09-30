@@ -8,9 +8,9 @@ class Admin::ChoicesController < Admin::BaseController
     @form = Form::CreateChoices.new(choice_params)
     binding.irb
     if @form.save
-      redirect_to admin_questions_path , success: 'すべて作成に成功'
+      redirect_to admin_questions_path, success: t('.success')
     else
-      flash.now[:danger] = '失敗しました'
+      flash.now[:error] = t('.fail')
       render :new
     end
   end

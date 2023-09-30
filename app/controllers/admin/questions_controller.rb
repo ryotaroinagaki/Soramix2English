@@ -11,9 +11,9 @@ class Admin::QuestionsController < Admin::BaseController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to new_admin_lyric_path , success: '成功'
+      redirect_to new_admin_lyric_path, success: t('.success')
     else
-      flash.now[:danger] = '失敗しました'
+      flash.now[:error] = t('.fail')
       render :new
     end
   end

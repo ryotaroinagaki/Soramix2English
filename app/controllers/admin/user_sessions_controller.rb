@@ -8,15 +8,15 @@ class Admin::UserSessionsController < Admin::BaseController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      redirect_to admin_root_path  , success: 'ログインしました'
+      redirect_to admin_root_path, success: t('.success')
     else
-      flash.now[:danger] = 'ログインに失敗しました'
+      flash.now[:error] = t('.fail')
       render :new
     end
   end
 
   def destroy
     logout
-    redirect_to admin_login_path, success: 'ログアウトしました'
+    redirect_to admin_login_path, success: t('.destroy')
   end
 end
