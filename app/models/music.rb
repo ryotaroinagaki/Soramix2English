@@ -9,7 +9,7 @@
 #  year        :integer
 #
 class Music < ApplicationRecord
-  has_one :question
+  has_one :question, dependent: :destroy
 
   def self.ransackable_attributes(auth_object = nil)
     ["artist_name"]

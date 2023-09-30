@@ -3,7 +3,7 @@
     <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
       <h1><%= t('.title') %></h1>
       <div class="text-right mb-3">
-        <%= link_to t('defaults.delete'), admin_user_path(@question), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+        <%= link_to t('defaults.delete'), admin_question_path(@question), data: { turbo_method: :delete, "turbo-confirm": (t 'defaults.destroy?') }, class: 'btn btn-danger' %>
       </div>
       <table class="table table-bordered bg-white">
         <tr>

@@ -22,7 +22,9 @@ class Admin::QuestionsController < Admin::BaseController
     @question = Question.find(params[:id])
   end
 
-  def destory
+  def destroy
+    @question.destroy!
+    redirect_to admin_questions_path, success: "問題を削除しました"
   end
 
   private
