@@ -30,4 +30,16 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   get 'on_boardings', to: 'on_boardings#edit'
   resource :on_boardings, only: %i[update]
+  namespace :admin do
+    root to: 'questions#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+
+    resources :users, only: %i[index show destory]
+    resources :questions, only: %i[index new create show destroy]
+    resources :musics, only: %i[new create]
+    resources :lyrics, only: %i[new create]
+    resources :choices, only: %i[new create]
+  end
 end

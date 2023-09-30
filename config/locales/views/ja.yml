@@ -114,3 +114,46 @@ ja:
       require_change: "ユーザー名を登録してください"
       fail: "ログインに失敗しました"
       unauthorized_access: "不正なアクセスです。権限がありません"
+  admin:
+    user_sessions:
+      new:
+        title: '管理者ログイン'
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+        destroy: 'ログアウトしました'
+    users:
+      index:
+        title: 'ユーザー 一覧ページ'
+      show:
+        title: 'ユーザー詳細ページ'
+    questions:
+      index:
+        title: '(管理者)クイズ一覧'
+        new_question: '新規問題作成'
+      new:
+        title: 'クイズ作成ページ'
+        questions: '問題一覧ページへ'
+      show:
+        title: 'クイズ詳細ページ'
+      create:
+        success: 'クイズの作成に成功'
+        fail: '失敗しました'
+    choices:
+      new:
+        title: '選択肢作成'
+      create:
+        success: '選択肢の作成に成功'
+        fail: '失敗しました'
+    lyrics:
+      new:
+        title: '歌詞作成'
+      create:
+        success: '歌詞の作成に成功'
+        fail: '失敗しました'
+    musics:
+      new:
+        title: '曲情報作成'
+      create:
+        success: '音楽の作成に成功'
+        fail: '失敗しました'

@@ -11,6 +11,7 @@
 #  reset_password_email_sent_at        :datetime
 #  reset_password_token                :string
 #  reset_password_token_expires_at     :datetime
+#  role                                :integer          default("general"), not null
 #  salt                                :string
 #  created_at                          :datetime         not null
 #  updated_at                          :datetime         not null
@@ -38,6 +39,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarks_questions, through: :bookmarks, source: :question
   has_one_attached :avatar
+  enum role: { general: 0, admin: 1 }
 
   def like(question)
     likes_questions << question
