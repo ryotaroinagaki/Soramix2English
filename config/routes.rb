@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get 'bookmarks'
       get 'questions'
       get 'search'
+      get 'bookmarks_search'
     end
   end
   resources :results, only: %i[create]
@@ -38,8 +39,6 @@ Rails.application.routes.draw do
 
     resources :users, only: %i[index show destory]
     resources :questions, only: %i[index new create show destroy]
-    resources :musics, only: %i[new create]
-    resources :lyrics, only: %i[new create]
-    resources :choices, only: %i[new create]
+    resources :musics, :lyrics, :choices, only: [:new, :create]
   end
 end
