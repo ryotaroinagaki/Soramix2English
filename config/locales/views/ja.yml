@@ -14,6 +14,8 @@ ja:
     profiles: 'マイページ'
     questions: 'クイズ一覧'
     quiz: 'クイズ'
+    artist_name: 'アーティスト名'
+    search: '検索'
     ranking: 'ランキング'
     inquiry: "お問い合わせ"
     privacy_policy: "プライバシーポリシー"
