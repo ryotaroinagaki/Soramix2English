@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
   get 'on_boardings', to: 'on_boardings#edit'
   resource :on_boardings, only: %i[update]
+  get 'pages/privacy'
+  get 'pages/terms'
   namespace :admin do
     root to: 'questions#index'
     get 'login', to: 'user_sessions#new'
