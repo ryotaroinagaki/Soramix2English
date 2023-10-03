@@ -21,8 +21,8 @@
 #
 class Question < ApplicationRecord
   belongs_to :music
-  has_many :lyrics
-  has_many :choices
+  has_many :lyrics, dependent: :destroy
+  has_many :choices, dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :bookmarks, dependent: :destroy

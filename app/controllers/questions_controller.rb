@@ -1,23 +1,27 @@
 class QuestionsController < ApplicationController
-  before_action :reset_question_count, only: %i[index difficulty bookmarks]
+  before_action :reset_question_count, only: %i[index difficulty bookmarks questions]
   before_action :initialize_question_count, only: %i[show explanation result]
   before_action :set_question, only: %i[show explanation recommend recommend_explanation]
+  before_action :set_explanation_question, only: %i[explanation recommend_explanation]
+  before_action :set_recommend_questions, only: %i[index recommend_explanation]
 
-  def index
-    @recommend_questions = recommend_questions
-  end
+  def index;end
 
   def questions
     query = params[:artist_name]
     @questions = Question.includes(:music).page(params[:page])
-    if query.present?
-      @questions = @questions.joins(:music).where('artist_name LIKE ?', "%#{query}%")
-    end
+    @questions = @questions.joins(:music).where('artist_name LIKE ?', "%#{query}%") if query.present?
   end
 
   def search
     query = params[:q]
     @search_results = Question.all.includes([:music]).where('artist_name LIKE ?', "%#{query}%").pluck(:artist_name)
+    render partial: "autocomplete", formats: :html
+  end
+
+  def bookmarks_search
+    query = params[:q]
+    @search_results = current_user.bookmarks_questions.includes([:music]).where('artist_name LIKE ?', "%#{query}%").pluck(:artist_name)
     render partial: "autocomplete", formats: :html
   end
 
@@ -32,13 +36,14 @@ class QuestionsController < ApplicationController
 
   def explanation
     @next_question = Question.where(difficulty: @question.difficulty).where('id > ?', @question.id).first
-    @result = Result.where(user_id: current_user.id).last(1).first
-    @true_answer = @question.choices.where(is_answer: true).first
-    @ramdom_question = Question.where(difficulty: @question.difficulty).sample(1)
   end
 
   def bookmarks
     @questions = current_user.bookmarks_questions.order(created_at: :desc).includes([:music]).page(params[:page])
+    query = params[:artist_name]
+    if query.present?
+      @questions = @questions.joins(:music).where('artist_name LIKE ?', "%#{query}%")
+    end
   end
 
   def result
@@ -54,18 +59,24 @@ class QuestionsController < ApplicationController
   end
 
   def recommend_explanation
-    @recommend_questions = recommend_questions
     @second_question = @recommend_questions.second
     @third_question = @recommend_questions.third
-    @result = Result.where(user_id: current_user.id).last(1).first
-    @true_answer = @question.choices.where(is_answer: true).first
-    @ramdom_question = Question.where(difficulty: @question.difficulty).sample(1)
   end
 
   private
 
   def set_question
     @question = Question.find(params[:id])
+  end
+
+  def set_explanation_question
+    @result = Result.where(user_id: current_user.id).last(1).first
+    @true_answer = @question.choices.where(is_answer: true).first
+    @random_question = Question.where(difficulty: @question.difficulty).sample(1)
+  end
+
+  def set_recommend_questions
+    @recommend_questions = recommend_questions
   end
 
   def find_similar_users

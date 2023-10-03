@@ -13,7 +13,7 @@
     <div>
       <h1 class="text-3xl font-bold mt-8"><%= t('.name') %> : <%= @user.name %></h1>
       <h1 class="text-3xl font-bold mt-8"><%= t('.email' )%> : <%= @user.email %></h1>
-      <h1 class="text-xl font-bold mt-8 link link-natural"><%= link_to "ブックマークしたクイズ" ,bookmarks_questions_path %></h1>
+      <h1 class="text-xl font-bold mt-8 link link-natural"><%= link_to t('.bookmarked') ,bookmarks_questions_path %></h1>
       <%= link_to edit_profile_path do %>
         <button class="btn btn-neutral mt-8 mb-10"><%= t('profiles.edit.title') %></button>
       <% end %>

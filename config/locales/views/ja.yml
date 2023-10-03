@@ -13,6 +13,9 @@ ja:
     top_page: 'トップページ'
     profiles: 'マイページ'
     questions: 'クイズ一覧'
+    quiz: 'クイズ'
+    artist_name: 'アーティスト名'
+    search: '検索'
     ranking: 'ランキング'
     inquiry: "お問い合わせ"
     privacy_policy: "プライバシーポリシー"
@@ -48,8 +51,19 @@ ja:
       recommend: 'おすすめ'
       popular: '人気'
       bookmark: 'ブックマーク'
+      easy: '難易度が"Easy"のクイズが出題されます'
+      normal: '難易度が"Normal"のクイズが出題されます'
+      difficult: '難易度が"Difficult"のクイズが出題されます'
+      recommend_text: 'おすすめのクイズが３問出題されます'
+      recommend_bookmark: '好きなクイズをブックマークしてみよう！'
+      popular_text: 'いいね数が多い上位問題が出題されます'
+      bookmark_text: 'ブックマークしたクイズ一覧が表示されます'
+    questions:
+      search_question: 'クイズ検索'
     difficulty:
       choice_questions: 'クイズを選んでください'
+    show:
+      answer_questions: '↓回答↓'
     explanation:
       correct: '正解!!Good job!!!'
       incorrect: '不正解 Next Try!!'
@@ -63,15 +77,30 @@ ja:
       year: '年'
       japanese: "和訳:"
     result:
+      result: '正答結果'
       how: '問中'
       correct: '問正解!!'
       try_quiz: '挑戦したクイズ'
+      share: '正答結果を共有する'
+      total: '総正答数：'
+      total2: '問になりました🎉'
+    bookmarks:
+      questions: 'ブックマーク一覧'
+      no_result: 'ブックマークしたクイズがありません'
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前へ"
+      next: "次へ &rsaquo;"
+      truncate: "..."
   profiles:
     show:
       page_title: 'プロフィール'
       title: 'プロフィール編集'
       name: 'ユーザー名'
       email: 'メールアドレス'
+      bookmarked: 'ブックマークしたクイズ'
     edit:
       title: 'プロフィール編集'
     update:
@@ -94,3 +123,46 @@ ja:
       require_change: "ユーザー名を登録してください"
       fail: "ログインに失敗しました"
       unauthorized_access: "不正なアクセスです。権限がありません"
+  admin:
+    user_sessions:
+      new:
+        title: '管理者ログイン'
+      create:
+        success: 'ログインしました'
+        fail: 'ログインに失敗しました'
+        destroy: 'ログアウトしました'
+    users:
+      index:
+        title: 'ユーザー 一覧ページ'
+      show:
+        title: 'ユーザー詳細ページ'
+    questions:
+      index:
+        title: '(管理者)クイズ一覧'
+        new_question: '新規問題作成'
+      new:
+        title: 'クイズ作成ページ'
+        questions: '問題一覧ページへ'
+      show:
+        title: 'クイズ詳細ページ'
+      create:
+        success: 'クイズの作成に成功'
+        fail: '失敗しました'
+    choices:
+      new:
+        title: '選択肢作成'
+      create:
+        success: '選択肢の作成に成功'
+        fail: '失敗しました'
+    lyrics:
+      new:
+        title: '歌詞作成'
+      create:
+        success: '歌詞の作成に成功'
+        fail: '失敗しました'
+    musics:
+      new:
+        title: '曲情報作成'
+      create:
+        success: '音楽の作成に成功'
+        fail: '失敗しました'

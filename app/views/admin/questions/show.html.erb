@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <div class="text-right mb-3">
+        <%= link_to t('defaults.delete'), admin_question_path(@question), data: { turbo_method: :delete, "turbo-confirm": (t 'defaults.destroy?') }, class: 'btn btn-danger' %>
+      </div>
+      <table class="table table-bordered bg-white">
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:id) %></th>
+          <td><%= @question.id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:difficulty) %></th>
+          <td><%= @question.difficulty %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:youtube_id) %></th>
+          <td><%= @question.youtube_id %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:start) %></th>
+          <td><%= @question.youtube_start_time %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:end) %></th>
+          <td><%= @question.youtube_end_time %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:artist_name) %></th>
+          <td><%= @question.music.artist_name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:music_name) %></th>
+          <td><%= @question.music.music_name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:lyric) %></th>
+          <td>
+            <% @question.lyrics.each do |lyric| %>
+            <td>
+            <%= lyric.lyric %>
+            </td>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:choice) %></th>
+          <% @question.choices.each do |choice| %>
+            <td>
+            <%= choice.choice %>
+            </td>
+            <td>
+            <%= choice.is_answer %>
+            </td>
+            <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

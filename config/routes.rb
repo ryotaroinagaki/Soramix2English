@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+  post '/guest_login', to: 'user_sessions#guest_login'
   post '/google_login_api/callback', to: 'google_login_api#callback'
 
   resources :users, only: %i[new create]
@@ -24,10 +25,23 @@ Rails.application.routes.draw do
       get 'bookmarks'
       get 'questions'
       get 'search'
+      get 'bookmarks_search'
     end
   end
   resources :results, only: %i[create]
   resource :profile, only: %i[show edit update]
   get 'on_boardings', to: 'on_boardings#edit'
   resource :on_boardings, only: %i[update]
+  get 'pages/privacy'
+  get 'pages/terms'
+  namespace :admin do
+    root to: 'questions#index'
+    get 'login', to: 'user_sessions#new'
+    post 'login', to: 'user_sessions#create'
+    delete 'logout', to: 'user_sessions#destroy'
+
+    resources :users, only: %i[index show destory]
+    resources :questions, only: %i[index new create show destroy]
+    resources :musics, :lyrics, :choices, only: [:new, :create]
+  end
 end

@@ -11,6 +11,7 @@
 #  reset_password_email_sent_at        :datetime
 #  reset_password_token                :string
 #  reset_password_token_expires_at     :datetime
+#  role                                :integer          default("general"), not null
 #  salt                                :string
 #  created_at                          :datetime         not null
 #  updated_at                          :datetime         not null
@@ -22,6 +23,14 @@
 #
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_many :results, dependent: :destroy
+  has_many :questions, through: :results
+  has_many :likes, dependent: :destroy
+  has_many :likes_questions, through: :likes, source: :question
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmarks_questions, through: :bookmarks, source: :question
+  has_one_attached :avatar
+  enum role: { general: 0, admin: 1 }
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -30,14 +39,6 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 255 }
-
-  has_many :results, dependent: :destroy
-  has_many :questions, through: :results
-  has_many :likes, dependent: :destroy
-  has_many :likes_questions, through: :likes, source: :question
-  has_many :bookmarks, dependent: :destroy
-  has_many :bookmarks_questions, through: :bookmarks, source: :question
-  has_one_attached :avatar
 
   def like(question)
     likes_questions << question

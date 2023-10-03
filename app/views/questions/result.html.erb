@@ -1,12 +1,20 @@
 <div class="md:container md:mx-auto">
     <div class="ml-20">
-    <h1 class="font-bold text-4xl mt-16">正答結果</h1>
+    <h1 class="font-bold text-4xl mt-16"><%= t('.result') %></h1>
         <div class="mx-20 float-right">
             <h1 class="text-2xl"><%= t('.try_quiz') %></h1>
-            <% @result.each do |result| %>
-                <ul>
-                    <li class="text-3xl font-bold"><%= result.question.music.artist_name %>  -「<%= result.question.music.music_name %>」</li>
-                </ul>
+            <% if session[:total_questions] > 0 %>
+                <% @result.each do |result| %>
+                    <ul>
+                        <li class="text-3xl font-bold"><%= result.question.music.artist_name %>  -「<%= result.question.music.music_name %>」</li>
+                    </ul>
+                <% end %>
+            <% else %>
+                <% @recommend_result.each do |result| %>
+                    <ul>
+                        <li class="text-3xl font-bold"><%= result.question.music.artist_name %>  -「<%= result.question.music.music_name %>」</li>
+                    </ul>
+                <% end %>
             <% end %>
         </div>
         <div class="font-bold text-5xl mt-12 text-red-400">
@@ -16,7 +24,7 @@
                 <h1><%= @recommend_result.count %><%= t('.how') %><%= @recommend_true_count %><%= t('.correct') %></h1>
             <% end %>
         </div>
-        <h1 class="mt-8 text-xl float-left mr-4">正答結果を共有する</h1>
+        <h1 class="mt-8 text-xl float-left mr-4"><%= t('.share') %></h1>
         <div class="mt-5">
             <% if session[:total_questions] > 0 %>
                 <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{current_user.name}さんの点数は、#{@result.count}問中#{@true_count}点でした！%0A&hashtags=空耳English,空耳,英語", target: '_blank', class: 'btn btn-active btn-neutral text-white bg-black' do %>
@@ -28,8 +36,13 @@
                 <% end %>
             <% end %>
         </div>
-        <h1 class="mt-32 text-2xl text-center">総正答数：<%= @total_count %>問になりました🎉</h1>
+        <h1 class="mt-32 text-2xl text-center"><%= t('.total') %><%= @total_count %><%= t('.total2') %></h1>
         <div class="mt-12 text-center">
+        <%= link_to questions_path do %>  
+            <button class="btn btn-neutral"><%= t('defaults.top_page') %></button>
+        <% end %>    
+        </div>
+        <div class="mt-6 mb-6 text-center">
             <%= link_to difficulty_questions_path('easy') do %>  
                 <button class="btn btn-neutral">Easy</button>
             <% end %>  
@@ -41,9 +54,6 @@
             <% end %>  
             <%= link_to bookmarks_questions_path do %>  
                 <button class="btn btn-neutral">Bookmark</button>
-            <% end %>    
-            <%= link_to questions_path do %>  
-                <button class="btn btn-neutral"><%= t('defaults.top_page') %></button>
             <% end %>    
         </div>
     </div>
