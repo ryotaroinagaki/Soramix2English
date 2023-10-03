@@ -8,6 +8,12 @@
           <%= link_to new_user_path do %>
             <button class="btn btn-secondary mb-5">新規登録</button>
           <% end %>
+          <%= button_to guest_login_path, action: "guest_login", method: :post do %>
+            <button class="btn btn-base-100 mb-2" >
+              お試し
+            </button>
+          <% end %>
+
         <p class="mb-1 text-sm">注意</p>
         <p class="text-xs">本アプリのクイズは、YouTubeを使用しています。</p>
         <p class="mb-5 text-xs">YouTubeは自動再生される設定にしていますので、音量にご注意ください</p>
