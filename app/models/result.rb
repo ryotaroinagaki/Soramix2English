@@ -22,4 +22,10 @@
 class Result < ApplicationRecord
   belongs_to :question
   belongs_to :user
+
+  def self.create_result(choice, user)
+    result = user.results.new(question: choice.question, result: choice.is_answer)
+    result.save
+    result
+  end
 end

@@ -13,6 +13,9 @@ ja:
     top_page: 'トップページ'
     profiles: 'マイページ'
     questions: 'クイズ一覧'
+    quiz: 'クイズ'
+    artist_name: 'アーティスト名'
+    search: '検索'
     ranking: 'ランキング'
     inquiry: "お問い合わせ"
     privacy_policy: "プライバシーポリシー"
@@ -51,7 +54,7 @@ ja:
       easy: '難易度が"Easy"のクイズが出題されます'
       normal: '難易度が"Normal"のクイズが出題されます'
       difficult: '難易度が"Difficult"のクイズが出題されます'
-      recommend_text: 'おすすめのクイズが３問出題されます!!!'
+      recommend_text: 'おすすめのクイズが３問出題されます'
       recommend_bookmark: '好きなクイズをブックマークしてみよう！'
       popular_text: 'いいね数が多い上位問題が出題されます'
       bookmark_text: 'ブックマークしたクイズ一覧が表示されます'
@@ -73,7 +76,6 @@ ja:
       release: 'リリース年:'
       year: '年'
       japanese: "和訳:"
-      voice: '発音をチェックしてみる'
     result:
       result: '正答結果'
       how: '問中'
@@ -84,7 +86,14 @@ ja:
       total2: '問になりました🎉'
     bookmarks:
       questions: 'ブックマーク一覧'
-      quiz: 'クイズ'
+      no_result: 'ブックマークしたクイズがありません'
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前へ"
+      next: "次へ &rsaquo;"
+      truncate: "..."
   profiles:
     show:
       page_title: 'プロフィール'

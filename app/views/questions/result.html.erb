@@ -3,10 +3,18 @@
     <h1 class="font-bold text-4xl mt-16"><%= t('.result') %></h1>
         <div class="mx-20 float-right">
             <h1 class="text-2xl"><%= t('.try_quiz') %></h1>
-            <% @result.each do |result| %>
-                <ul>
-                    <li class="text-3xl font-bold"><%= result.question.music.artist_name %>  -「<%= result.question.music.music_name %>」</li>
-                </ul>
+            <% if session[:total_questions] > 0 %>
+                <% @result.each do |result| %>
+                    <ul>
+                        <li class="text-3xl font-bold"><%= result.question.music.artist_name %>  -「<%= result.question.music.music_name %>」</li>
+                    </ul>
+                <% end %>
+            <% else %>
+                <% @recommend_result.each do |result| %>
+                    <ul>
+                        <li class="text-3xl font-bold"><%= result.question.music.artist_name %>  -「<%= result.question.music.music_name %>」</li>
+                    </ul>
+                <% end %>
             <% end %>
         </div>
         <div class="font-bold text-5xl mt-12 text-red-400">
