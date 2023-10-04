@@ -17,7 +17,12 @@
               <li><%= button_to t('defaults.logout'), logout_path, method: :delete %></li>
             </ul>
           </div>
-          
+          <div class="dropdown dropdown-hover dropdown-end">
+            <label tabindex="0" class="btn m-1"><%= t('defaults.ranking') %></label>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
+              <li><%= link_to t('defaults.ranking'), rankings_path %></li>
+            </ul>
+          </div>
           <div class="dropdown dropdown-hover dropdown-end">
             <label tabindex="0" class="btn m-1"><%= (t 'defaults.questions') %></label>
             <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
