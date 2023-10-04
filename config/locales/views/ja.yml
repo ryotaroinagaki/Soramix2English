@@ -87,6 +87,9 @@ ja:
     bookmarks:
       questions: 'ブックマーク一覧'
       no_result: 'ブックマークしたクイズがありません'
+  rankings:
+    index:
+      ranking: "ランキング"
   views:
     pagination:
       first: "&laquo; 最初"
