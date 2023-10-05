@@ -8,6 +8,8 @@ ja:
     show: '詳細'
     edit: '編集'
     delete: '削除'
+    withdrawal: '退会'
+    withdrawal?: '退会しますか？'
     password_reset: 'パスワードリセット'
     unspecified: '指定なし'
     top_page: 'トップページ'
@@ -32,6 +34,8 @@ ja:
     create:
       success: 'ユーザー登録が完了しました' 
       fail: 'ユーザー登録に失敗しました'
+    destroy:
+      success: '退会しました'
   user_sessions:
     new:
       title: 'ログイン'

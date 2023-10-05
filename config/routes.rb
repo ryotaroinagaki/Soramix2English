@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/guest_login', to: 'user_sessions#guest_login'
   post '/google_login_api/callback', to: 'google_login_api#callback'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create destroy]
   resources :password_resets, only: %i[new create edit update]
   resources :questions, only: %i[index show] do
     resources :likes, only: %i[create destroy]
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
 
-    resources :users, only: %i[index show destory]
+    resources :users, only: %i[index show destroy]
     resources :questions, only: %i[index new create show destroy]
     resources :musics, :lyrics, :choices, only: [:new, :create]
   end
