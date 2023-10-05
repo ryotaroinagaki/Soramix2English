@@ -9,7 +9,7 @@
           <div class="card-actions justify-end">
             <p><%= t('.easy') %></p>
             <%= link_to difficulty_questions_path('easy') do %>  
-              <button class="btn btn-neutral">Easy</button>
+              <button class="btn btn-neutral text-white">Easy</button>
             <% end %>  
           </div>
         </div>
@@ -20,7 +20,7 @@
           <div class="card-actions justify-end">
             <p><%= t('.normal') %></p>
             <%= link_to difficulty_questions_path('normal') do %>  
-              <button class="btn btn-neutral">Normal</button>
+              <button class="btn btn-neutral text-white">Normal</button>
             <% end %>
           </div>
         </div>
@@ -31,7 +31,7 @@
           <div class="card-actions justify-end">
             <p><%= t('.difficult') %></p>
             <%= link_to difficulty_questions_path('difficult') do %>  
-              <button class="btn btn-neutral">Difficult</button>
+              <button class="btn btn-neutral text-white">Difficult</button>
             <% end %>
           </div>
         </div>
@@ -47,7 +47,7 @@
             <% else %>
               <% @recommend_questions.each do |question| %>
                 <%= link_to recommend_question_path(id:question) do %>
-                  <button class="btn btn-neutral">Recommend</button>
+                  <button class="btn btn-neutral text-white">Recommend</button>
                 <% end %>
                 <% break %>
               <% end %>
@@ -61,7 +61,7 @@
           <p><%= t('.bookmark_text') %></p>
           <div class="card-actions justify-end">
           <%= link_to bookmarks_questions_path do %>  
-            <button class="btn btn-neutral">Bookmark</button>
+            <button class="btn btn-neutral text-white">Bookmark</button>
           <% end %>  
           </div>
         </div>

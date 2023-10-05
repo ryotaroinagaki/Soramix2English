@@ -39,21 +39,21 @@
         <h1 class="mt-32 text-2xl text-center"><%= t('.total') %><%= @total_count %><%= t('.total2') %></h1>
         <div class="mt-12 text-center">
         <%= link_to questions_path do %>  
-            <button class="btn btn-neutral"><%= t('defaults.top_page') %></button>
+            <button class="btn btn-neutral text-white"><%= t('defaults.top_page') %></button>
         <% end %>    
         </div>
         <div class="mt-6 mb-6 text-center">
             <%= link_to difficulty_questions_path('easy') do %>  
-                <button class="btn btn-neutral">Easy</button>
+                <button class="btn btn-neutral text-white">Easy</button>
             <% end %>  
             <%= link_to difficulty_questions_path('normal') do %>  
-                <button class="btn btn-neutral">Normal</button>
+                <button class="btn btn-neutral text-white">Normal</button>
             <% end %>  
             <%= link_to difficulty_questions_path('difficult') do %>  
-                <button class="btn btn-neutral">Difficult</button>
+                <button class="btn btn-neutral text-white">Difficult</button>
             <% end %>  
             <%= link_to bookmarks_questions_path do %>  
-                <button class="btn btn-neutral">Bookmark</button>
+                <button class="btn btn-neutral text-white">Bookmark</button>
             <% end %>    
         </div>
     </div>
