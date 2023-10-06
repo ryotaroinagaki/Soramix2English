@@ -9,19 +9,19 @@ class QuestionsController < ApplicationController
 
   def questions
     query = params[:artist_name]
-    @questions = Question.includes(:music).page(params[:page])
-    @questions = @questions.joins(:music).where('artist_name LIKE ?', "%#{query}%") if query.present?
+    @questions = Question.includes(:music).order(id: :desc).page(params[:page])
+    @questions = @questions.joins(:music).where('artist_name LIKE ?', "%#{query}%").order(id: :desc) if query.present?
   end
 
   def search
     query = params[:q]
-    @search_results = Question.all.includes([:music]).where('artist_name LIKE ?', "%#{query}%").pluck(:artist_name)
+    @search_results = Question.all.includes([:music]).where('artist_name LIKE ?', "%#{query}%").pluck(:artist_name).uniq
     render partial: "autocomplete", formats: :html
   end
 
   def bookmarks_search
     query = params[:q]
-    @search_results = current_user.bookmarks_questions.includes([:music]).where('artist_name LIKE ?', "%#{query}%").pluck(:artist_name)
+    @search_results = current_user.bookmarks_questions.includes([:music]).where('artist_name LIKE ?', "%#{query}%").pluck(:artist_name).uniq
     render partial: "autocomplete", formats: :html
   end
 
