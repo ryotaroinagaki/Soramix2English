@@ -49,6 +49,7 @@ gem 'sassc-rails'
 
 # ログイン機能
 gem 'sorcery', '~> 0.16.5'
+gem 'dotenv-rails'
 # 国際化
 gem 'rails-i18n'
 # 環境固有設定
