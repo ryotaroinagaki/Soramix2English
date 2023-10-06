@@ -3,6 +3,10 @@ class Admin::QuestionsController < Admin::BaseController
     @questions = Question.all.includes(:music)
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def new
     @question = Question.new
     @music = Music.last
@@ -18,18 +22,15 @@ class Admin::QuestionsController < Admin::BaseController
     end
   end
 
-  def show
-    @question = Question.find(params[:id])
-  end
-
   def destroy
     @question.destroy!
-    redirect_to admin_questions_path, success: "問題を削除しました"
+    redirect_to admin_questions_path, success: '問題を削除しました'
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:music_id, :youtube_id, :youtube_start_time,:youtube_end_time, :difficulty, :commentary, :japanese)
+    params.require(:question).permit(:music_id, :youtube_id, :youtube_start_time, :youtube_end_time, :difficulty,
+                                     :commentary, :japanese)
   end
 end

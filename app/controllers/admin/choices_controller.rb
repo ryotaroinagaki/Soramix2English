@@ -18,6 +18,6 @@ class Admin::ChoicesController < Admin::BaseController
   private
 
   def choice_params
-    params.require(:form_create_choices).permit(choices_attributes: [:question_id, :choice, :is_answer])
+    params.require(:form_create_choices).permit(choices_attributes: %i[question_id choice is_answer])
   end
 end
