@@ -137,7 +137,7 @@
       <% if @second_question || @third_question %>
         <% if session[:total_recommend_questions] >= 3 %>
           <%= link_to result_questions_path do %>  
-            <button class="btn btn-neutral"><%= t('questions.explanation.result') %></button>
+            <button class="btn btn-neutral text-white"><%= t('questions.explanation.result') %></button>
           <% end %>  
         <% else %>
           <% if session[:total_recommend_questions] == 2 %>
@@ -152,7 +152,7 @@
         <% end %>
       <% else %>
         <%= link_to result_questions_path do %>  
-          <button class="btn btn-neutral"><%= t('questions.explanation.result') %></button>
+          <button class="btn btn-neutral text-white"><%= t('questions.explanation.result') %></button>
         <% end %>
       <% end %>
     </div>

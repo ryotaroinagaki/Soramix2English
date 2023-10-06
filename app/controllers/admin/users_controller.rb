@@ -6,8 +6,8 @@ class Admin::UsersController < Admin::BaseController
   def show
     @user = User.find(params[:id])
   end
-  
-  def destory
+
+  def destroy
     @user.destroy!
     redirect_to admin_users_path, success: t('defaults.message.deleted', item: User.model_name.human)
   end

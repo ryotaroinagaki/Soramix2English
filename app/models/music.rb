@@ -11,7 +11,7 @@
 class Music < ApplicationRecord
   has_one :question, dependent: :destroy
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["artist_name"]
+  def self.ransackable_attributes(_auth_object = nil)
+    ['artist_name']
   end
 end

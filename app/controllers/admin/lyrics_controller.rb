@@ -7,7 +7,7 @@ class Admin::LyricsController < ApplicationController
   def create
     @lyric = Lyric.new(lyric_params)
     if @lyric.save
-      redirect_to new_admin_choice_path , success: t('.success')
+      redirect_to new_admin_choice_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
       render :new

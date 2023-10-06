@@ -9,7 +9,7 @@
           <div class="card-actions justify-end">
             <p><%= t('.easy') %></p>
             <%= link_to difficulty_questions_path('easy') do %>  
-              <button class="btn btn-neutral">Easy</button>
+              <button class="btn btn-neutral text-white">Easy</button>
             <% end %>  
           </div>
         </div>
@@ -20,7 +20,7 @@
           <div class="card-actions justify-end">
             <p><%= t('.normal') %></p>
             <%= link_to difficulty_questions_path('normal') do %>  
-              <button class="btn btn-neutral">Normal</button>
+              <button class="btn btn-neutral text-white">Normal</button>
             <% end %>
           </div>
         </div>
@@ -31,7 +31,7 @@
           <div class="card-actions justify-end">
             <p><%= t('.difficult') %></p>
             <%= link_to difficulty_questions_path('difficult') do %>  
-              <button class="btn btn-neutral">Difficult</button>
+              <button class="btn btn-neutral text-white">Difficult</button>
             <% end %>
           </div>
         </div>
@@ -42,14 +42,12 @@
           <p><%= t('.recommend_text') %></p>
           <div class="card-actions justify-end">
             <% if @recommend_questions.empty? %>
-            <p><%= t('.recommend_bookmark') %></p>
-              <%= link_to "#" do %>
-                <button class="btn btn-neutral">Recommend nothing</button>
-              <% end %>
+            <p class="text-sm">※現在おすすめのクイズがありません</p>
+            <p class="text-sm">好きなクイズをブックマークしてみましょう！</p>
             <% else %>
               <% @recommend_questions.each do |question| %>
                 <%= link_to recommend_question_path(id:question) do %>
-                  <button class="btn btn-neutral">Recommend</button>
+                  <button class="btn btn-neutral text-white">Recommend</button>
                 <% end %>
                 <% break %>
               <% end %>
@@ -57,14 +55,24 @@
           </div>
         </div>
       </div>
-
       <div class="card mb-8 w-96 bg-base-100 shadow-xl md:w-11/12 lg:w-11/12 xl:w-96 2xl:w-10/12">
         <div class="card-body">
           <h2 class="card-title"><%= t('.bookmark') %></h2>
           <p><%= t('.bookmark_text') %></p>
           <div class="card-actions justify-end">
           <%= link_to bookmarks_questions_path do %>  
-            <button class="btn btn-neutral">Bookmark</button>
+            <button class="btn btn-neutral text-white">Bookmark</button>
+          <% end %>  
+          </div>
+        </div>
+      </div>
+      <div class="card mb-8 w-96 bg-base-100 shadow-xl md:w-11/12 lg:w-11/12 xl:w-96 2xl:w-10/12">
+        <div class="card-body">
+          <h2 class="card-title">クイズ検索</h2>
+          <p>クイズを一覧から検索できます</p>
+          <div class="card-actions justify-end">
+          <%= link_to questions_questions_path do %>  
+            <i class="fa-solid fa-magnifying-glass text-5xl"></i>
           <% end %>  
           </div>
         </div>

@@ -136,7 +136,7 @@
       <% if @next_question %>
         <% if session[:total_questions] >= 3 %>
           <%= link_to result_questions_path do %>  
-            <button class="btn btn-neutral"><%= t('.result') %></button>
+            <button class="btn btn-neutral text-white"><%= t('.result') %></button>
           <% end %>  
         <% else %>
           <%= link_to question_path(@next_question) do %>  
@@ -146,7 +146,7 @@
       <% else %>
         <% if session[:total_questions] >= 3 %>
           <%= link_to result_questions_path do %>  
-            <button class="btn btn-neutral"><%= t('.result') %></button>
+            <button class="btn btn-neutral text-white"><%= t('.result') %></button>
           <% end %>
         <% else %>
           <%= link_to question_path(@random_question) do %>  
