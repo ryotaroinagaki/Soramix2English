@@ -30,11 +30,11 @@ class Question < ApplicationRecord
 
   enum difficulty: { easy: 0, normal: 1, difficult: 2 }
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["artist_name"]
+  def self.ransackable_attributes(_auth_object = nil)
+    ['artist_name']
   end
 
-  def self.ransackable_associations(auth_object = nil)
-    ["music"]
+  def self.ransackable_associations(_auth_object = nil)
+    ['music']
   end
 end
