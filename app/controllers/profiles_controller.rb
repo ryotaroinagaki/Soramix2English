@@ -1,7 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
-  def show; end
+  def show
+    @count = @user.results.count
+    @level = @count / 5
+    @next_level = 5 - (@count % 5)
+  end
 
   def edit; end
 

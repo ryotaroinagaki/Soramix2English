@@ -11,9 +11,9 @@
       </div>
     </div>
     <div>
-      <h1 class="text-xl font-bold mt-2">合計回答数：<%= @user.results.count %>問</h1>
-      <h1 class="text-xl font-bold mt-2">Lv.  <%= @user.results.count %> _ 名もなき空耳マスター</h1>
-      <h1 class="text-ls font-bold mt-2">レベルアップまであと何問!</h1>
+      <h1 class="text-ls font-bold mt-2">合計チャレンジ数：<%= @count %>問</h1>
+      <h1 class="text-xl font-bold mt-2">Lv.  <%= @level %> _ 無名の空耳</h1>
+      <h1 class="text-ls font-bold mt-2">レベルアップまであと<%= @next_level %>問!!</h1>
       <h1 class="text-3xl font-bold mt-6"><%= t('.name') %> : <%= @user.name %></h1>
       <h1 class="text-3xl font-bold mt-6"><%= t('.email' )%> : <%= @user.email %></h1>
       <h1 class="text-xl font-bold mt-8 link link-natural"><%= link_to t('.bookmarked') ,bookmarks_questions_path %></h1>
