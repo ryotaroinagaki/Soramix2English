@@ -3,8 +3,8 @@ class ProfilesController < ApplicationController
 
   def show
     @count = @user.results.count
-    @level = @count / 5
-    @next_level = 5 - (@count % 5)
+    @level = @count / 10
+    @next_level = 10 - (@count % 10)
   end
 
   def edit; end
