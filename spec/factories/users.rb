@@ -15,11 +15,17 @@
 #  salt                                :string
 #  created_at                          :datetime         not null
 #  updated_at                          :datetime         not null
+#  level_id                            :bigint
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_level_id              (level_id)
 #  index_users_on_reset_password_token  (reset_password_token)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (level_id => levels.id)
 #
 FactoryBot.define do
   factory :user do
