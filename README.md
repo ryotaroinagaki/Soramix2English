@@ -42,4 +42,4 @@
 https://www.figma.com/file/GY5tyHpsDrZZoh1u0IbtdC/Web-App?type=design&node-id=0%3A1&mode=design&t=ao71kZkRBj8CjzuD-1
 
 ### ER図
-https://drive.google.com/file/d/1dhzQ0L6RNf1doo3kjZAYuA3Bd-Azts_8/view?usp=sharing
+![SCR-20231018-hsjt](https://github.com/ryotaroinagaki/Soramix2English/assets/125222112/d9d7913c-509f-4b68-af36-161ab14eb01d)
