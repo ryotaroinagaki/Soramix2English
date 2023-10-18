@@ -1,7 +1,11 @@
 <div class="text-center md:container md:mx-auto mt-6">
   <div class="text-red-500 text-4xl">
     <% if @result.result == true %>
-      <h1><%= t('questions.explanation.correct') %></h1>
+      <h1 id="correct"><%= t('questions.explanation.correct') %></h1>
+      <script>
+        var a = document.getElementById('correct');
+          party.confetti(correct);
+      </script>
     <% else %>
       <h1><%= t('questions.explanation.incorrect') %></h1>
     <% end %>
