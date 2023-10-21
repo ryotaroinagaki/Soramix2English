@@ -42,7 +42,7 @@
 ## 技術選定
 * Ruby 3.2.2
 * Rails 7.0.6
-* Node.js 20.2.0
+* Node.js 20.5.0
 * CSS tailwind, daisyUI
 * Webアプリケーションサーバ heroku
 * データベース PostgreSQL
