@@ -61,8 +61,6 @@ gem 'meta-tags'
 gem 'aws-sdk-s3', require: false
 # ページネーション
 gem 'kaminari'
-# 検索機能
-gem 'ransack'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
