@@ -30,6 +30,14 @@ class Question < ApplicationRecord
 
   enum difficulty: { easy: 0, normal: 1, difficult: 2 }
 
+  scope :sorted, -> { order(id: :desc) }
+  scope :includes_music, -> { includes([:music]) }
+  scope :with_music, -> { joins(:music) }
+  scope :search_artist_name, ->(query) { where('artist_name LIKE ?', "%#{query}%") }
+  scope :question_difficulty, ->(question) { where(difficulty: question.difficulty) }
+  scope :select_difficulty, ->(difficulty) { where(difficulty: Question.difficulties[difficulty]) }
+  scope :next, ->(question) { where('id > ?', question.id) }
+
   def self.ransackable_attributes(_auth_object = nil)
     ['artist_name']
   end

@@ -138,21 +138,15 @@
       <% end %>
     </div>
     <div class="mt-5 mb-6">
-      <% if @second_question || @third_question %>
+      <% if @next_question %>
         <% if session[:total_recommend_questions] >= 3 %>
           <%= link_to result_questions_path do %>  
             <button class="btn btn-neutral text-white"><%= t('questions.explanation.result') %></button>
           <% end %>  
         <% else %>
-          <% if session[:total_recommend_questions] == 2 %>
-            <%= link_to recommend_question_path(@third_question) do %>  
-              <button class="btn btn-accent"><%= t('questions.explanation.next_question') %></button>
-            <% end %>  
-          <% else %>
-            <%= link_to recommend_question_path(@second_question) do %>  
-              <button class="btn btn-accent"><%= t('questions.explanation.next_question') %></button>
-            <% end %>  
-          <% end %>
+          <%= link_to recommend_question_path(@next_question) do %>  
+            <button class="btn btn-accent"><%= t('questions.explanation.next_question') %></button>
+          <% end %>  
         <% end %>
       <% else %>
         <%= link_to result_questions_path do %>  
