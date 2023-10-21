@@ -75,10 +75,6 @@ class QuestionsController < ApplicationController
     @random_question = Question.question_difficulty(@question).sample(1)
   end
 
-  def set_recommend_questions
-    @recommend_questions = recommend_questions
-  end
-
   def set_autocomplete_search
     query = params[:q]
     @search_results = current_user.bookmarks_questions.includes_music.search_artist_name(query).pluck(:artist_name).uniq if action_name == 'bookmarks_search'
@@ -88,27 +84,9 @@ class QuestionsController < ApplicationController
   def render_autocomplete
     render partial: 'autocomplete', formats: :html
   end
-#近しいユーザーを探す
-  def find_similar_users
-    bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
-    similar_user_ids = Bookmark.where(question_id: bookmarked_question_ids)
-                               .where.not(user_id: current_user.id)
-                               .distinct.pluck(:user_id)
-    User.where(id: similar_user_ids)
-  end
-#近しいユーザーのブックマークからクイズを提案する 
-  def recommend_questions
-    bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
-    similar_users = find_similar_users
-    similar_user_question_ids = Bookmark.where(user_id: similar_users.ids)
-                                        .where.not(question_id: bookmarked_question_ids)
-                                        .distinct.pluck(:question_id)
-    recommended_question_ids = Question.where(id: similar_user_question_ids)
-                                       .where.not(id: bookmarked_question_ids)
-                                       .where.not(id: Result.where(user_id: current_user)
-                                                          .distinct.pluck(:question_id))
-                                       .pluck(:id)
-    Question.where(id: recommended_question_ids).sample(3)
+
+  def set_recommend_questions
+    @recommend_questions = Question.recommend_questions(current_user)
   end
 
   def initialize_question_count
