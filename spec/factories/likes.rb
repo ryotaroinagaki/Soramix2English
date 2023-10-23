@@ -21,7 +21,7 @@
 #
 FactoryBot.define do
   factory :like do
-    user { nil }
-    question { nil }
+    association :user
+    association :question
   end
 end

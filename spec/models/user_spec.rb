@@ -1,28 +1,42 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                                  :bigint           not null, primary key
-#  access_count_to_reset_password_page :integer          default(0)
-#  avatar                              :string
-#  crypted_password                    :string
-#  email                               :string           not null
-#  name                                :string           not null
-#  reset_password_email_sent_at        :datetime
-#  reset_password_token                :string
-#  reset_password_token_expires_at     :datetime
-#  role                                :integer          default("general"), not null
-#  salt                                :string
-#  created_at                          :datetime         not null
-#  updated_at                          :datetime         not null
-#
-# Indexes
-#
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token)
-#
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # ファクトリが正しく動作することを確認
+  it "has a valid factory" do
+    expect(build(:user)).to be_valid
+  end
+
+  # バリデーションのテスト
+  describe "validations" do
+    it "requires a name" do
+      user = build(:user, name: nil)
+      expect(user).not_to be_valid
+      expect(user.errors.messages[:name]).to include("を入力してください")
+    end
+
+    it "requires a unique user_id" do
+      create(:user, user_id: "unique_id")
+      user = build(:user, user_id: "unique_id")
+      expect(user).not_to be_valid
+      expect(user.errors.messages[:user_id]).to include("はすでに存在します")
+    end
+  end
+
+  # # アソシエーションのテスト
+  describe "associations" do
+    it { should have_many(:questions).dependent(:destroy) }
+  end
+
+  # enumのテスト
+  describe "enum role" do
+    it "can be 'general'" do
+      user = create(:user, role: "general")
+      expect(user.general?).to be_truthy
+    end
+
+    it "can be 'admin'" do
+      user = create(:user, role: "admin")
+      expect(user.admin?).to be_truthy
+    end
+  end
 end
