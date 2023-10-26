@@ -21,7 +21,7 @@
 #
 FactoryBot.define do
   factory :bookmark do
-    user { nil }
-    question { nil }
+    association :user
+    association :question
   end
 end
