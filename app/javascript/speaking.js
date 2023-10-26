@@ -1,15 +1,13 @@
 document.addEventListener('turbo:load', function() {
   document.querySelector('#start-btn').onclick = () => {
     initializeSpeechRecognition();
-    document.querySelector('#reset-btn').style.display = 'block'; // resetボタンを表示
+    document.querySelector('#reset-btn').style.display = 'block'; 
     }
     
-  //再定義できる変数を宣言
   var startBtn;
   var resetBtn;
   var resultDiv;
 
-  // 関数内で変数を宣言
   function initializeSpeechRecognition() {
     startBtn = document.querySelector('#start-btn');
     resetBtn = document.querySelector('#reset-btn');

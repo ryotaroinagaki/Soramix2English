@@ -38,14 +38,6 @@ class Question < ApplicationRecord
   scope :select_difficulty, ->(difficulty) { where(difficulty: Question.difficulties[difficulty]) }
   scope :next, ->(question) { where('id > ?', question.id) }
 
-  def self.ransackable_attributes(_auth_object = nil)
-    ['artist_name']
-  end
-
-  def self.ransackable_associations(_auth_object = nil)
-    ['music']
-  end
-
   def self.recommend_questions(current_user)
     bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
     similar_users = current_user.similar_users
