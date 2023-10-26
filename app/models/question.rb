@@ -40,15 +40,16 @@ class Question < ApplicationRecord
 
   def self.recommend_questions(current_user)
     bookmarked_question_ids = current_user.bookmarks_questions.pluck(:question_id)
-    similar_users = current_user.similar_users
+    similar_users = current_user.find_similar_users
     similar_user_question_ids = Bookmark.where(user_id: similar_users.ids)
                                         .where.not(question_id: bookmarked_question_ids)
                                         .distinct.pluck(:question_id)
-    recommended_question_ids = where(id: similar_user_question_ids)
-                                       .where.not(id: bookmarked_question_ids)
-                                       .where.not(id: Result.where(user_id: current_user)
-                                                          .distinct.pluck(:question_id))
-                                       .pluck(:id)
+    already_answered_question_ids = Result.where(user_id: current_user).distinct.pluck(:question_id)
+    
+    recommended_question_ids = Question.where(id: similar_user_question_ids)
+      .where.not(id: bookmarked_question_ids + already_answered_question_ids)
+      .pluck(:id)
+    
     where(id: recommended_question_ids).sample(3)
   end
 end

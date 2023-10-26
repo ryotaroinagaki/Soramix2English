@@ -64,7 +64,7 @@ class User < ApplicationRecord
     bookmarks_questions.include?(question)
   end
 
-  def similar_users
+  def find_similar_users
     bookmarked_question_ids = bookmarks_questions.pluck(:question_id)
     similar_user_ids = Bookmark.where(question_id: bookmarked_question_ids)
                                .where.not(user_id: id)
