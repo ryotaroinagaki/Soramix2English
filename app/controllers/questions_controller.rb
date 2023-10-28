@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   before_action :set_explanation_question, only: %i[explanation recommend_explanation]
   before_action :set_recommend_questions, only: %i[index recommend_explanation]
   before_action :set_autocomplete_search, only: %i[search bookmarks_search]
-  
+
   def index; end
 
   def questions
@@ -77,8 +77,12 @@ class QuestionsController < ApplicationController
 
   def set_autocomplete_search
     query = params[:q]
-    @search_results = current_user.bookmarks_questions.includes_music.search_artist_name(query).pluck(:artist_name).uniq if action_name == 'bookmarks_search'
-    @search_results = Question.all.includes_music.search_artist_name(query).pluck(:artist_name).uniq if action_name == 'search'
+    if action_name == 'bookmarks_search'
+      @search_results = current_user.bookmarks_questions.includes_music.search_artist_name(query).pluck(:artist_name).uniq
+    end
+    return unless action_name == 'search'
+
+    @search_results = Question.all.includes_music.search_artist_name(query).pluck(:artist_name).uniq
   end
 
   def render_autocomplete

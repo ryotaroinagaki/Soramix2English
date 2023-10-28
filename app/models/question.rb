@@ -45,11 +45,11 @@ class Question < ApplicationRecord
                                         .where.not(question_id: bookmarked_question_ids)
                                         .distinct.pluck(:question_id)
     already_answered_question_ids = Result.where(user_id: current_user).distinct.pluck(:question_id)
-    
+
     recommended_question_ids = Question.where(id: similar_user_question_ids)
-      .where.not(id: bookmarked_question_ids + already_answered_question_ids)
-      .pluck(:id)
-    
+                                       .where.not(id: bookmarked_question_ids + already_answered_question_ids)
+                                       .pluck(:id)
+
     where(id: recommended_question_ids).sample(3)
   end
 end
