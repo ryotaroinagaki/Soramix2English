@@ -61,7 +61,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -70,4 +69,5 @@ group :development do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'solargraph'
+  gem 'web-console'
 end
