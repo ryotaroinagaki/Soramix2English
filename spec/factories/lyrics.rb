@@ -17,8 +17,7 @@
 #
 FactoryBot.define do
   factory :lyric do
-    question { nil }
-    lyric { "MyText" }
-    timing { 1 }
+    sequence(:question) { 1 }
+    sequence(:lyric) { "Lyric" }
   end
 end

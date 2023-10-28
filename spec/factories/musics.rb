@@ -10,9 +10,8 @@
 #
 FactoryBot.define do
   factory :music do
-    music_name { "MyString" }
-    artist_name { "MyString" }
-    category { "MyString" }
-    year { 1 }
+    sequence(:music_name) { "Music_name" }
+    sequence(:artist_name) { "Artist_name" }
+    sequence(:year) { 2000 }
   end
 end

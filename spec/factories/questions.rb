@@ -21,13 +21,11 @@
 #
 FactoryBot.define do
   factory :question do
-    music { nil }
-    youtube_id { "MyString" }
-    youtube_start_time { 1 }
-    youtube_end_time { 1 }
-    difficultyinteger { "MyString" }
-    commentary { "MyText" }
-    japanese { "MyText" }
-    lyric { nil }
+    sequence(:music) { 1 }
+    sequence(:youtube_id) { "Youtube_id" }
+    sequence(:youtube_start_time) { 1 }
+    sequence(:youtube_end_time) { 10 }
+    sequence(:difficultyinteger) { "easy" }
+    sequence(:japanese) { "洋楽の和訳です" }
   end
 end

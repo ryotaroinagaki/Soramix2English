@@ -17,8 +17,15 @@
 #
 FactoryBot.define do
   factory :choice do
-    question { nil }
-    choice { "MyText" }
-    is_answer { false }
+    sequence(:question) { 1 }
+    sequence(:choice) { |n| "Choice #{n}" }
+  
+    trait :false_answer do
+      is_answer { false }
+    end
+  
+    trait :true_answer do
+      is_answer { true }
+    end
   end
 end
