@@ -2,10 +2,6 @@
   <div class="text-red-500 text-4xl">
     <% if @result.result == true %>
       <h1 id="correct"><%= t('questions.explanation.correct') %></h1>
-      <script>
-      var a = document.getElementById('correct');
-        party.confetti(correct);
-    </script>
     <% else %>
       <h1><%= t('questions.explanation.incorrect') %></h1>
     <% end %>
@@ -32,32 +28,6 @@
         </div>
       </div>
     </div>
-    <script>
-    var text = document.querySelector('#text')    
-    var voiceSelect = document.querySelector('#voice-select')
-    var speakBtn = document.querySelector('#speak-btn')
-
-    function appendVoices() {
-      voiceSelect.innerHTML = ''
-      const option = document.createElement('option')
-      option.value = 'Google US English'
-      voiceSelect.appendChild(option)
-    }
-
-    appendVoices()
-
-    speechSynthesis.onvoiceschanged = e => {
-      appendVoices()
-    }
-
-    speakBtn.addEventListener('click', function() {
-      const uttr = new SpeechSynthesisUtterance(text.value)
-      uttr.voice = speechSynthesis
-        .getVoices()
-        .filter(voice => voice.name === voiceSelect.value)[0]
-      speechSynthesis.speak(uttr)
-    });
-  </script>
     
     <button class="mt-3 mb-1 text-4xl" id="start-btn"><i class="fa-solid fa-microphone"></i></button>
     <div class="dropdown dropdown-end">
@@ -74,56 +44,6 @@
     </div>
     <h1 id="reset-btn" style="display: none;"><button class="btn btn-error">reset<i class="fa-solid fa-delete-left"></i></button></h1>
     <div id="result-div" class="text-2xl font-bold"></div>
-
-    <script>
-    document.querySelector('#start-btn').onclick = () => {
-      initializeSpeechRecognition();
-      document.querySelector('#reset-btn').style.display = 'block'; // resetボタンを表示
-      }
-
-    //再定義できる変数を宣言
-    var startBtn;
-    var resetBtn;
-    var resultDiv;
-
-    // 関数内で変数を宣言
-    function initializeSpeechRecognition() {
-      startBtn = document.querySelector('#start-btn');
-      resetBtn = document.querySelector('#reset-btn');
-      resultDiv = document.querySelector('#result-div');
-
-      SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
-      let recognition = new SpeechRecognition();
-
-      recognition.lang = 'en-US';
-      recognition.interimResults = true;
-
-      let finalTranscript = ''; // 確定した(黒)認識結果
-
-      recognition.onresult = (event) => {
-        let interimTranscript = ''; // 暫定(灰色)認識結果
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          let transcript = event.results[i][0].transcript;
-          if (event.results[i].isFinal) {
-            finalTranscript += '<div>' + transcript + '</div>';
-          } else {
-            interimTranscript = transcript;
-          }
-        }
-        resultDiv.innerHTML = finalTranscript + '<i style="color:#ddd; font-size: 20px;">' + interimTranscript + '</i>';
-      }
-
-      startBtn.onclick = () => {
-        recognition.start();
-      };
-      resetBtn.onclick = () => {
-        finalTranscript = '';
-        interimTranscript = '';
-        resultDiv.innerHTML = '';
-      };
-      recognition.start();
-    }
-  </script>
     
     <div class="mt-8">
       <%= turbo_frame_tag 'like_button' do %>
